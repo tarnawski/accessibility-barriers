@@ -1,0 +1,67 @@
+AccessibilityBarriersBundle\Entity\Issue:
+    type: entity
+    table: issue
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            column: name
+            type: string
+            unique: true
+            nullable: false
+            length: 64
+        description:
+            column: description
+            type: string
+            unique: true
+            nullable: false
+            length: 255
+        latitude:
+            column: latitude
+            type: decimal
+            scale: 8
+            precision: 10
+            nullable: false
+        longitude:
+            column: longitude
+            type: decimal
+            scale: 8
+            precision: 11
+            nullable: false
+        rating:
+            column: rating
+            type: integer
+            nullable: false
+        createdAt:
+            column: created_at
+            type: datetime
+            nullable: false
+    oneToMany:
+        comments:
+            targetEntity: Comment
+            mappedBy: issue
+            cascade: ["all"]
+    manyToOne:
+        category:
+             targetEntity: Category
+             inversedBy: issues
+             joinColumn:
+                name: category_id
+                referencedColumnName: id
+                nullable: false
+        user:
+             targetEntity: User
+             inversedBy: issues
+             joinColumn:
+                name: user_id
+                referencedColumnName: id
+                nullable: true
+
+    lifecycleCallbacks: {  }
