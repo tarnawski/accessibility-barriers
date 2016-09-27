@@ -1,0 +1,32 @@
+AccessibilityBarriersBundle\Entity\Comment:
+    type: entity
+    table: comment
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        content:
+            column: content
+            type: string
+            unique: true
+            nullable: false
+            length: 64
+        createdAt:
+            column: created_at
+            type: datetime
+            nullable: false
+    manyToOne:
+        issue:
+            targetEntity: Issue
+            inversedBy: comments
+            joinColumn:
+                name: issue_id
+                referencedColumnName: id
+
+    lifecycleCallbacks: {  }

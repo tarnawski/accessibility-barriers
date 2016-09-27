@@ -1,0 +1,19 @@
+AccessibilityBarriersBundle\Entity\User:
+  type: entity
+  table: user
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+
+  oneToMany:
+    issues:
+      targetEntity: Issue
+      mappedBy: user
+      joinColumn:
+        name: user_id
+        referencedColumnName: id
+
+  lifecycleCallbacks: {  }

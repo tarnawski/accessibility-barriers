@@ -1,0 +1,25 @@
+AccessibilityBarriersBundle\Entity\Category:
+    type: entity
+    table: category
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            column: name
+            type: string
+            unique: true
+            nullable: false
+            length: 64
+    oneToMany:
+         issues:
+             targetEntity: Issue
+             mappedBy: category
+
+    lifecycleCallbacks: {  }
