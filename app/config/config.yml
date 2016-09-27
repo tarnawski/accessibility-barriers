@@ -1,0 +1,28 @@
+imports:
+    - { resource: parameters.yml }
+    - { resource: services.yml }
+
+services:
+
+framework:
+    secret: '%secret_key%'
+    form: ~
+    assets: ~
+    templating:
+        engines: ['twig']
+    serializer:
+        enabled: true
+        enable_annotations: true
+
+doctrine:
+    dbal:
+        driver:   "%database_driver%"
+        host:     "%database_host%"
+        port:     "%database_port%"
+        dbname:   "%database_name%"
+        user:     "%database_user%"
+        password: "%database_password%"
+        charset:  UTF8
+    orm:
+        auto_generate_proxy_classes: "%kernel.debug%"
+        auto_mapping: true
