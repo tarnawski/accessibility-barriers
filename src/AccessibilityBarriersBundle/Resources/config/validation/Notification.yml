@@ -19,10 +19,5 @@ AccessibilityBarriersBundle\Entity\Notification:
               max:   50
       rating:
           - NotBlank: ~
-      createdAt:
-        - NotBlank: ~
-        - DateTime: ~
-      user:
-          - NotBlank: ~
       category:
           - NotBlank: ~

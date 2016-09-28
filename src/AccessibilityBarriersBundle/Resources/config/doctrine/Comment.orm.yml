@@ -14,7 +14,6 @@ AccessibilityBarriersBundle\Entity\Comment:
         content:
             column: content
             type: string
-            unique: true
             nullable: false
             length: 64
         createdAt:

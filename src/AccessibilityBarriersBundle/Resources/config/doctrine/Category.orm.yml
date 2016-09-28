@@ -21,5 +21,6 @@ AccessibilityBarriersBundle\Entity\Category:
          notifications:
              targetEntity: Notification
              mappedBy: category
+             cascade: ["all"]
 
     lifecycleCallbacks: {  }

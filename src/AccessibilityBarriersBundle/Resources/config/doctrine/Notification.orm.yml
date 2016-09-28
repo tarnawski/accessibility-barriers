@@ -14,13 +14,11 @@ AccessibilityBarriersBundle\Entity\Notification:
         name:
             column: name
             type: string
-            unique: true
             nullable: false
             length: 64
         description:
             column: description
             type: string
-            unique: true
             nullable: false
             length: 255
         latitude:

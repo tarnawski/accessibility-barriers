@@ -4,10 +4,3 @@ AccessibilityBarriersBundle\Entity\Comment:
             - NotBlank: ~
             - Length:
                 max:   200
-        createdAt:
-            - NotBlank: ~
-            - DateTime: ~
-        notification:
-            - NotBlank: ~
-        user:
-            - NotBlank: ~
