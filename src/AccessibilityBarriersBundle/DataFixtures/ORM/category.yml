@@ -1,0 +1,14 @@
+AccessibilityBarriersBundle\Entity\Category:
+  category1:
+    name: Przejście dla pieszych wymagające przebudowy
+  category2:
+    name: Schody bez towarzyszących im odpowiednich pochylni lub wind
+  category3:
+    name: Kładka bez odpowiednich pochylni lub wind
+  category4:
+    name: Nieodpowiedni przystanek komunikacji miejskiej
+  category5:
+    name: Przeszkoda na drodze
+  category6:
+    name: Inne
+

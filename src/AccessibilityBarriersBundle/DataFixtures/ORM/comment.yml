@@ -1,0 +1,62 @@
+AccessibilityBarriersBundle\Entity\Comment:
+  comment1:
+    content: <sentence()>
+    createdAt:  <dateTimeBetween('-1 hours', 'now')>
+    notification: '@notification1'
+    user: '@user1'
+  comment2:
+    content: <sentence()>
+    createdAt:  <dateTimeBetween('-1 hours', 'now')>
+    notification: '@notification1'
+    user: '@user2'
+  comment3:
+    content: <sentence()>
+    createdAt:  <dateTimeBetween('-1 hours', 'now')>
+    notification: '@notification2'
+    user: '@user1'
+  comment4:
+    content: <sentence()>
+    createdAt:  <dateTimeBetween('-1 hours', 'now')>
+    notification: '@notification3'
+    user: '@user2'
+  comment5:
+    content: <sentence()>
+    createdAt:  <dateTimeBetween('-1 hours', 'now')>
+    notification: '@notification3'
+    user: '@user2'
+  comment6:
+    content: <sentence()>
+    createdAt:  <dateTimeBetween('-1 hours', 'now')>
+    notification: '@notification3'
+    user: '@user1'
+  comment7:
+    content: <sentence()>
+    createdAt:  <dateTimeBetween('-1 hours', 'now')>
+    notification: '@notification4'
+    user: '@user2'
+  comment8:
+    content: <sentence()>
+    createdAt:  <dateTimeBetween('-1 hours', 'now')>
+    notification: '@notification5'
+    user: '@user1'
+  comment9:
+    content: <sentence()>
+    createdAt:  <dateTimeBetween('-1 hours', 'now')>
+    notification: '@notification1'
+    user: '@user2'
+  comment10:
+    content: <sentence()>
+    createdAt:  <dateTimeBetween('-1 hours', 'now')>
+    notification: '@notification6'
+    user: '@user2'
+  comment11:
+    content: <sentence()>
+    createdAt:  <dateTimeBetween('-1 hours', 'now')>
+    notification: '@notification6'
+    user: '@user1'
+  comment12:
+    content: <sentence()>
+    createdAt:  <dateTimeBetween('-1 hours', 'now')>
+    notification: '@notification6'
+    user: '@user2'
+
