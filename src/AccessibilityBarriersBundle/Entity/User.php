@@ -9,15 +9,15 @@ class User
     /** @var integer */
     private $id;
 
-    /** @var ArrayCollection|Issue */
-    private $issues;
+    /** @var ArrayCollection|Notification */
+    private $notifications;
 
     /** @var ArrayCollection|Comment */
     private $comments;
 
     public function __construct()
     {
-        $this->issues = new ArrayCollection();
+        $this->notifications = new ArrayCollection();
         $this->comments = new ArrayCollection();
     }
     /**
@@ -29,32 +29,32 @@ class User
     }
 
     /**
-     * @param Issue
-     * @return Issue
+     * @param Notification
+     * @return Notification
      */
-    public function addIssue(Issue $issue)
+    public function addNotification(Notification $notification)
     {
-        if (!$this->issues->contains($issue)) {
-            $issue->setUser($this);
-            $this->issues[] = $issue;
+        if (!$this->notifications->contains($notification)) {
+            $notification->setUser($this);
+            $this->notifications[] = $notification;
         }
         return $this;
     }
 
     /**
-     * @param Issue
+     * @param Notification
      */
-    public function removeIssue(Issue $issue)
+    public function removeNotification(Notification $notification)
     {
-        $this->issues->removeElement($issue);
+        $this->notifications->removeElement($notification);
     }
 
     /**
      * @return ArrayCollection
      */
-    public function getIssues()
+    public function getNotifications()
     {
-        return $this->issues;
+        return $this->notifications;
     }
 
     /**

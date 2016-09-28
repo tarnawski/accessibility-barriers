@@ -1,0 +1,11 @@
+AccessibilityBarriersBundle\Entity\User:
+  properties:
+    startAt:
+      - NotBlank: ~
+      - DateTime: ~
+    area:
+      - NotBlank: ~
+    category:
+      - NotBlank: ~
+    endAt:
+      - DateTime: ~

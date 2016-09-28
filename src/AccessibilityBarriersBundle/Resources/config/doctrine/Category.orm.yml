@@ -18,8 +18,8 @@ AccessibilityBarriersBundle\Entity\Category:
             nullable: false
             length: 64
     oneToMany:
-         issues:
-             targetEntity: Issue
+         notifications:
+             targetEntity: Notification
              mappedBy: category
 
     lifecycleCallbacks: {  }

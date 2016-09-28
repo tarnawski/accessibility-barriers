@@ -1,6 +1,6 @@
-AccessibilityBarriersBundle\Entity\Issue:
+AccessibilityBarriersBundle\Entity\Notification:
     type: entity
-    table: issue
+    table: notification
     id:
         id:
             type: integer
@@ -46,19 +46,19 @@ AccessibilityBarriersBundle\Entity\Issue:
     oneToMany:
         comments:
             targetEntity: Comment
-            mappedBy: issue
+            mappedBy: notification
             cascade: ["all"]
     manyToOne:
         category:
              targetEntity: Category
-             inversedBy: issues
+             inversedBy: notification
              joinColumn:
                 name: category_id
                 referencedColumnName: id
                 nullable: false
         user:
              targetEntity: User
-             inversedBy: issues
+             inversedBy: notification
              joinColumn:
                 name: user_id
                 referencedColumnName: id

@@ -13,8 +13,8 @@ class Comment
     /** @var \DateTime */
     private $createdAt;
 
-    /** @var Issue */
-    private $issue;
+    /** @var Notification */
+    private $notification;
 
     /** @var User */
     private $user;
@@ -60,19 +60,19 @@ class Comment
     }
 
     /**
-     * @return Issue
+     * @return Notification
      */
-    public function getIssue()
+    public function getNotification()
     {
-        return $this->issue;
+        return $this->notification;
     }
 
     /**
-     * @param Issue $issue
+     * @param Notification $notification
      */
-    public function setIssue($issue)
+    public function setNotification(Notification $notification)
     {
-        $this->issue = $issue;
+        $this->notification = $notification;
     }
 
     /**

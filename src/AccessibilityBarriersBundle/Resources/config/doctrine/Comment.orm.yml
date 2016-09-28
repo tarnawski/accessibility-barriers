@@ -22,11 +22,16 @@ AccessibilityBarriersBundle\Entity\Comment:
             type: datetime
             nullable: false
     manyToOne:
-        issue:
-            targetEntity: Issue
+        notification:
+            targetEntity: Notification
             inversedBy: comments
             joinColumn:
-                name: issue_id
+                name: notification_id
                 referencedColumnName: id
-
+        user:
+            targetEntity: User
+            inversedBy: comments
+            joinColumn:
+                name: user_id
+                referencedColumnName: id
     lifecycleCallbacks: {  }
