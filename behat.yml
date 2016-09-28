@@ -1,0 +1,28 @@
+default: &default
+  formatters:
+    pretty:
+      verbose:  false
+      paths:    false
+      snippets: false
+  extensions:
+    Behat\WebApiExtension:
+      base_url: 'http://accessibility-barriers.dev/app_test.php/api/'
+    Codifico\ParameterBagExtension\ServiceContainer\ParameterBagExtension: ~
+    Behat\Symfony2Extension:
+      kernel:
+        debug: false
+        env: test
+  suites:
+    api:
+      paths:
+        - %paths.base%/features
+      contexts:
+        - ApiBundle\Behat\ApiContext:
+          container: "@service_container"
+      filters:
+        tags: "~@wip"
+ci:
+  <<: *default
+  extensions:
+    Behat\WebApiExtension:
+      base_url: 'http://localhost:8080/app.php/'
