@@ -1,0 +1,56 @@
+AccessibilityBarriersBundle\Entity\Notification:
+  notification1:
+    name: <word()>
+    description: <sentence()>
+    latitude: 50.033723
+    longitude: 22.003051
+    rating: 0
+    createdAt: <dateTimeBetween('-30 days', 'now')>
+    category: '@category1'
+    user: '@user1'
+  notification2:
+    name: <word()>
+    description: <sentence()>
+    latitude: 50.033131
+    longitude: 21.998695
+    rating: 0
+    createdAt: <dateTimeBetween('-30 days', 'now')>
+    category: '@category2'
+    user: '@user1'
+  notification3:
+    name: <word()>
+    description: <sentence()>
+    latitude: 50.030980
+    longitude: 22.003566
+    rating: 0
+    createdAt: <dateTimeBetween('-30 days', 'now')>
+    category: '@category3'
+    user: '@user1'
+  notification4:
+    name: <word()>
+    description: <sentence()>
+    latitude: 50.038285
+    longitude: 21.989876
+    rating: 0
+    createdAt: <dateTimeBetween('-30 days', 'now')>
+    category: '@category1'
+    user: '@user1'
+  notification5:
+    name: <word()>
+    description: <sentence()>
+    latitude: 50.039498
+    longitude: 21.994725
+    rating: 0
+    createdAt: <dateTimeBetween('-30 days', 'now')>
+    category: '@category4'
+    user: '@user2'
+  notification6:
+    name: <word()>
+    description: <sentence()>
+    latitude: 50.040559
+    longitude: 22.000111
+    rating: 0
+    createdAt: <dateTimeBetween('-30 days', 'now')>
+    category: '@category6'
+    user: '@user1'
+
