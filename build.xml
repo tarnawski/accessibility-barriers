@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="accessibility-barriers" default="build">
+    <property name="workspace" value="${basedir}" />
+    <property name="sourcedir" value="${basedir}/src" />
+    <property name="builddir" value="${workspace}/app/build" />
+
+    <target name="test" depends="prepare,composer,vendors,parameters,phpspec,phploc,phpcs,pdepend,phpcpd,phpmd"/>
+    <target name="deploy" depends="composer,vendors,parameters, archive, ansible"/>
+
+    <target name="prepare" depends="clean" description="Prepare for build">
+        <mkdir dir="${builddir}/logs"/>
+        <mkdir dir="${builddir}/pdepend"/>
+    </target>
+
+    <target name="clean" description="Cleanup build artifacts">
+        <delete dir="${builddir}/logs"/>
+        <delete dir="${builddir}/pdepend"/>
+    </target>
+
+    <target name="composer" description="Install composer.phar">
+        <exec executable="bash">
+            <arg value="-c"/>
+            <arg value="curl -s http://getcomposer.org/installer | php"/>
+        </exec>
+    </target>
+
+    <target name="vendors" description="Update vendors">
+        <exec executable="php" failonerror="true">
+            <arg value="composer.phar" />
+            <arg value="update" />
+            <arg value="--ignore-platform-reqs" />
+        </exec>
+    </target>
+
+    <target name="archive" description="Create project archiwe">
+        <exec executable="php" failonerror="true">
+            <arg value="composer.phar" />
+            <arg value="archive" />
+            <arg value="--format=tar" />
+            <arg value="--file=store-locator" />
+            <arg value="--dir=vagrant/provisioning/" />
+        </exec>
+    </target>
+
+    <target name="parameters" description="Copy parameters">
+        <exec executable="cp" failonerror="true">
+            <arg path="app/config/parameters.yml.dist" />
+            <arg path="app/config/parameters.yml" />
+        </exec>
+    </target>
+
+    <target name="phpspec" description="Run PHPSpec test">
+        <exec executable="${basedir}/bin/phpspec" failonerror="true">
+            <arg value="run" />
+            <arg path="${sourcedir}" />
+        </exec>
+    </target>
+
+    <target name="phpcs" description="Find coding standard violations using PHP_CodeSniffer">
+        <exec executable="${basedir}/bin/phpcs" failonerror="true">
+            <arg value="--standard=PSR2" />
+            <arg value="-n" />
+            <arg path="${sourcedir}" />
+        </exec>
+    </target>
+
+    <target name="phploc" description="Measure project size using PHPLOC">
+        <exec executable="${basedir}/bin/phploc">
+            <arg value="--log-csv" />
+            <arg value="${builddir}/logs/phploc.csv" />
+            <arg path="${sourcedir}" />
+        </exec>
+    </target>
+
+    <target name="pdepend" description="Calculate software metrics using PHP_Depend">
+        <exec executable="${basedir}/bin/pdepend">
+            <arg value="--jdepend-xml=${builddir}/logs/jdepend.xml" />
+            <arg value="--jdepend-chart=${builddir}/pdepend/dependencies.svg" />
+            <arg value="--overview-pyramid=${builddir}/pdepend/overview-pyramid.svg" />
+            <arg path="${sourcedir}" />
+        </exec>
+    </target>
+
+    <target name="phpcpd" description="Find duplicate code using PHPCPD">
+        <exec executable="${basedir}/bin/phpcpd">
+            <arg value="--log-pmd" />
+            <arg value="${builddir}/logs/pmd-cpd.xml" />
+            <arg path="${sourcedir}" />
+        </exec>
+    </target>
+
+    <target name="phpmd" description="Perform project mess detection using PHPMD">
+        <exec executable="${basedir}/bin/phpmd">
+            <arg path="${basedir}/src"/>
+            <arg value="xml"/>
+            <arg value="cleancode,codesize,unusedcode" />
+            <arg value="--reportfile"/>
+            <arg path="${builddir}/logs/pmd.xml"/>
+        </exec>
+    </target>
+
+    <target name="behat" description="Run scenarios with Behat">
+        <exec executable="${basedir}/bin/behat">
+            <arg value="--no-snippets"/>
+            <arg value="--verbose"/>
+            <arg value="--format=progress"/>
+            <arg value="--profile=ci"/>
+        </exec>
+        <property name="behat.done" value="true"/>
+    </target>
+
+    <target name="ansible" description="Deploy via ansible">
+        <exec executable="ansible-playbook" failonerror="true">
+            <arg value="-i" />
+            <arg path="vagrant/provisioning/hosts" />
+            <arg path="vagrant/provisioning/deploy.yml" />
+            <arg value="-u ttarnawski" />
+        </exec>
+    </target>
+</project>
