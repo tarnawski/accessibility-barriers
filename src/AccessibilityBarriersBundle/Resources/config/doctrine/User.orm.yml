@@ -9,11 +9,12 @@ AccessibilityBarriersBundle\Entity\User:
   fields:
 
   oneToMany:
-    issues:
-      targetEntity: Issue
+    notifications:
+      targetEntity: Notification
       mappedBy: user
-      joinColumn:
-        name: user_id
-        referencedColumnName: id
+    comments:
+      targetEntity: Comment
+      mappedBy: user
+      cascade: ["all"]
 
   lifecycleCallbacks: {  }

@@ -4,7 +4,7 @@ namespace AccessibilityBarriersBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 
-class Issue
+class Notification
 {
     /** @var integer */
     private $id;
@@ -184,7 +184,7 @@ class Issue
     public function addComment(Comment $comment)
     {
         if (!$this->comments->contains($comment)) {
-            $comment->setIssue($this);
+            $comment->setNotification($this);
             $this->comments[] = $comment;
         }
         return $this;

@@ -12,12 +12,12 @@ class Category
     /** @var string */
     private $name;
 
-    /** @var  ArrayCollection|Issue[] */
-    private $issues;
+    /** @var  ArrayCollection|Notification[] */
+    private $notifications;
 
     public function __construct()
     {
-        $this->issues = new ArrayCollection();
+        $this->notifications = new ArrayCollection();
     }
 
     /**
@@ -45,31 +45,31 @@ class Category
     }
 
     /**
-     * @param Issue
-     * @return Issue
+     * @param Notification
+     * @return Notification
      */
-    public function addIssue(Issue $issue)
+    public function addNotification(Notification $notification)
     {
-        if (!$this->issues->contains($issue)) {
-            $issue->setCategory($this);
-            $this->issues[] = $issue;
+        if (!$this->notifications->contains($notification)) {
+            $notification->setCategory($this);
+            $this->notifications[] = $notification;
         }
         return $this;
     }
 
     /**
-     * @param Issue
+     * @param Notification
      */
-    public function removeIssue(Issue $issue)
+    public function removeNotification(Notification $notification)
     {
-        $this->issues->removeElement($issue);
+        $this->notifications->removeElement($notification);
     }
 
     /**
      * @return ArrayCollection
      */
-    public function getIssues()
+    public function getNotifications()
     {
-        return $this->issues;
+        return $this->notifications;
     }
 }
