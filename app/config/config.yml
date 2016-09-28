@@ -1,15 +1,26 @@
 imports:
     - { resource: parameters.yml }
+    - { resource: security.yml }
     - { resource: services.yml }
 
-services:
+parameters:
+    locale: en
 
 framework:
+    translator: { fallback: en }
     secret: '%secret_key%'
     form: ~
-    assets: ~
+    csrf_protection: ~
     templating:
         engines: ['twig']
+    default_locale:  "%locale%"
+    trusted_hosts:   ~
+    trusted_proxies: ~
+    session:
+        # handler_id set to null will use default session handler from php.ini
+        handler_id:  ~
+    fragments:       ~
+    http_method_override: true
     serializer:
         enabled: true
         enable_annotations: true
@@ -45,6 +56,22 @@ fos_rest:
         formats:
             json: true
             xml:  true
+
+fos_user:
+    db_driver: orm
+    firewall_name: admin
+    user_class: OAuthBundle\Entity\User
+
+fos_oauth_server:
+    db_driver: orm
+    client_class:        OAuthBundle\Entity\Client
+    access_token_class:  OAuthBundle\Entity\AccessToken
+    refresh_token_class: OAuthBundle\Entity\RefreshToken
+    auth_code_class:     OAuthBundle\Entity\AuthCode
+    service:
+        user_provider: fos_user.user_manager
+        options:
+            access_token_lifetime: 3600
 
 hautelook_alice:
     db_drivers:
