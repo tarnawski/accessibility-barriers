@@ -1,4 +1,11 @@
 category_all:
-    path:     /categories
-    defaults: { _controller: ApiBundle:Category:index, _format: json }
-    methods: [GET]
+  path:     /categories
+  defaults: { _controller: ApiBundle:Category:index, _format: json }
+  methods: [GET]
+
+category_single:
+  path: /categories/{id}
+  defaults:  { _controller: ApiBundle:Category:show, _format: json }
+  methods:  [GET]
+  requirements:
+      id:  \d+
