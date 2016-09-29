@@ -108,6 +108,6 @@ class NotificationController extends BaseController
         $em->remove($notification);
         $em->flush();
 
-        return $this->success(array('status' => 'Success', 'message' => 'Notification properly removed'), 'Notification');
+        return $this->success(array('status' => 'Removed', 'message' => 'Notification properly removed'), 'Notification');
     }
 }

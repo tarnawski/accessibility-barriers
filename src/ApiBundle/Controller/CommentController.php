@@ -32,7 +32,7 @@ class CommentController extends BaseController
         return $this->success($comment, 'Comment', Response::HTTP_OK, array(
             'COMMENT_LIST',
             'COMMENT_DETAILS',
-            'USER_LIST',
+            'USER_BASIC',
             'NOTIFICATION_LIST'
         ));
     }
@@ -108,6 +108,6 @@ class CommentController extends BaseController
         $em->remove($comment);
         $em->flush();
 
-        return $this->success(array('status' => 'Success', 'message' => 'Comment properly removed'), 'Comment');
+        return $this->success(array('status' => 'Removed', 'message' => 'Comment properly removed'), 'Comment');
     }
 }

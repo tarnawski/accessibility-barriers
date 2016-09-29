@@ -6,7 +6,7 @@ default: &default
       snippets: false
   extensions:
     Behat\WebApiExtension:
-      base_url: 'http://accessibility-barriers.dev/app_test.php/api/'
+      base_url: 'http://accessibility-barriers.dev/app_test.php/'
     Codifico\ParameterBagExtension\ServiceContainer\ParameterBagExtension: ~
     Behat\Symfony2Extension:
       kernel:

@@ -4,7 +4,7 @@ user_show:
   defaults: { _controller: ApiBundle:User:profile, _format: json }
   methods: [GET]
 
-category_create:
+register:
   path:     /register
   defaults: { _controller: ApiBundle:User:register, _format: json }
   methods: [POST]

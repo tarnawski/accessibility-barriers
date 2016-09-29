@@ -2,6 +2,8 @@
 
 namespace AccessibilityBarriersBundle\Entity;
 
+use OAuthBundle\Entity\User;
+
 class Comment
 {
     /** @var integer */
