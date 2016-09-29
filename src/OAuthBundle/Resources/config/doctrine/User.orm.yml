@@ -1,0 +1,21 @@
+OAuthBundle\Entity\User:
+  type: entity
+  table: fos_user
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+      firstName:
+          column: first_name
+          type: string
+          nullable: true
+          length: 64
+      lastName:
+          column: last_name
+          type: string
+          nullable: true
+          length: 64
+
+  lifecycleCallbacks: {  }

@@ -30,7 +30,7 @@ AccessibilityBarriersBundle\Entity\Notification:
     user:
       expose: true
       groups: [NOTIFICATION_DETAILS]
-      type: AccessibilityBarriersBundle\Entity\User
+      type: OAuthBundle\Entity\User
     comments:
       expose: true
       groups: [NOTIFICATION_DETAILS]

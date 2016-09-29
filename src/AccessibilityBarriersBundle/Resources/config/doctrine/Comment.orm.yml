@@ -28,7 +28,7 @@ AccessibilityBarriersBundle\Entity\Comment:
                 name: notification_id
                 referencedColumnName: id
         user:
-            targetEntity: User
+            targetEntity: OAuthBundle\Entity\User
             inversedBy: comments
             joinColumn:
                 name: user_id

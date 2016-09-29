@@ -1,9 +1,12 @@
-AccessibilityBarriersBundle\Entity\User:
+OAuthBundle\Entity\User:
   exclusion_policy: ALL
   properties:
-    id:
+    firstName:
       expose: true
-      groups: [USER_LIST, USER_DETAILS]
+      groups: [USER_DETAILS, USER_PROFILE, USER_BASIC]
+    lastName:
+      expose: true
+      groups: [USER_DETAILS, USER_PROFILE, USER_BASIC]
     notifications:
       expose: true
       groups: [USER_DETAILS]
@@ -14,3 +17,4 @@ AccessibilityBarriersBundle\Entity\User:
       groups: [USER_DETAILS]
       type: ArrayCollection<AccessibilityBarriersBundle\Entity\Comment>
       max_depth: 2
+

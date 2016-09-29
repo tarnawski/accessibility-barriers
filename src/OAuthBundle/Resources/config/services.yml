@@ -1,0 +1,8 @@
+services:
+  oauth.user_factory:
+    class: OAuthBundle\Model\UserFactory
+
+  oauth.token_factory:
+    class: OAuthBundle\Model\AccessTokenFactory
+    arguments: ["@doctrine.orm.entity_manager", "@fos_oauth_server.server"]
+

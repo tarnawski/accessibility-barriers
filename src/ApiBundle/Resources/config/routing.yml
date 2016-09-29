@@ -1,3 +1,14 @@
+########## USER ##########
+user_show:
+  path:     /profile
+  defaults: { _controller: ApiBundle:User:profile, _format: json }
+  methods: [GET]
+
+category_create:
+  path:     /register
+  defaults: { _controller: ApiBundle:User:register, _format: json }
+  methods: [POST]
+
 ########## CATEGORY ##########
 category_all:
   path:     /categories

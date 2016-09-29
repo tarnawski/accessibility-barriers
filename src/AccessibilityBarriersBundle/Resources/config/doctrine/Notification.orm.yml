@@ -55,7 +55,7 @@ AccessibilityBarriersBundle\Entity\Notification:
                 referencedColumnName: id
                 nullable: false
         user:
-             targetEntity: User
+             targetEntity: OAuthBundle\Entity\User
              inversedBy: notification
              joinColumn:
                 name: user_id
