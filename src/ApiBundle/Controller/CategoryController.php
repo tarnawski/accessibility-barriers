@@ -86,6 +86,6 @@ class CategoryController extends BaseController
         $em->remove($category);
         $em->flush();
 
-        return $this->success(array('status' => 'Success', 'message' => 'Category properly removed'), 'Category');
+        return $this->success(array('status' => 'Removed', 'message' => 'Category properly removed'), 'Category');
     }
 }

@@ -3,6 +3,7 @@
 namespace AccessibilityBarriersBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use OAuthBundle\Entity\User;
 
 class Notification
 {
