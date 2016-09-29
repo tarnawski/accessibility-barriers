@@ -22,6 +22,7 @@ class AppKernel extends Kernel
             new FOS\UserBundle\FOSUserBundle(),
             new FOS\OAuthServerBundle\FOSOAuthServerBundle(),
             new Hautelook\AliceBundle\HautelookAliceBundle(),
+            new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
             new FOS\RestBundle\FOSRestBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle(),
             new Nelmio\CorsBundle\NelmioCorsBundle(),
