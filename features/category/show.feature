@@ -7,7 +7,7 @@ Feature: Show category
     Given There are the following categories:
       | ID | NAME              |
       | 1  | Category number 1 |
-      | 1  | Category number 2 |
+      | 2  | Category number 2 |
 
   @cleanDB
   Scenario: Get all categories

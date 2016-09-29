@@ -18,7 +18,7 @@ Feature: Create notification
     Given There are the following categories:
       | ID | NAME              |
       | 1  | Category number 1 |
-      | 1  | Category number 2 |
+      | 2  | Category number 2 |
 
   @cleanDB
   Scenario: Create new notification

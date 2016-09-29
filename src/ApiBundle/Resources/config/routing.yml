@@ -1,3 +1,9 @@
+########## STATUS ##########
+application_status:
+  path:     /status
+  defaults: { _controller: ApiBundle:Application:status, _format: json }
+  methods: [GET]
+
 ########## USER ##########
 user_show:
   path:     /profile
