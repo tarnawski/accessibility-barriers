@@ -30,7 +30,7 @@ class NotificationController extends BaseController
         return $this->success($notification, 'Notification', Response::HTTP_OK, array(
             'NOTIFICATION_DETAILS',
             'COMMENT_LIST',
-            'USER_LIST',
+            'USER_BASIC',
             'CATEGORY_LIST'
         ));
     }
@@ -50,6 +50,7 @@ class NotificationController extends BaseController
         }
         /** @var Notification $notification */
         $notification = $form->getData();
+        $notification->setUser($this->getUser());
         $notification->setCreatedAt(new \DateTime());
         $em = $this->getDoctrine()->getManager();
         $em->persist($notification);
@@ -58,7 +59,7 @@ class NotificationController extends BaseController
         return $this->success($notification, 'Notification', Response::HTTP_CREATED, array(
             'NOTIFICATION_DETAILS',
             'COMMENT_LIST',
-            'USER_LIST',
+            'USER_BASIC',
             'CATEGORY_LIST'
         ));
     }
@@ -71,6 +72,8 @@ class NotificationController extends BaseController
      */
     public function updateAction(Request $request, Notification $notification)
     {
+        $this->denyAccessUnlessGranted('access', $notification);
+
         $formData = json_decode($request->getContent(), true);
         $form = $this->createForm(NotificationType::class, $notification);
         $form->submit($formData);
@@ -87,7 +90,7 @@ class NotificationController extends BaseController
         return $this->success($notification, 'Notification', Response::HTTP_OK, array(
             'NOTIFICATION_DETAILS',
             'COMMENT_LIST',
-            'USER_LIST',
+            'USER_BASIC',
             'CATEGORY_LIST'
         ));
     }
@@ -99,6 +102,8 @@ class NotificationController extends BaseController
      */
     public function deleteAction(Notification $notification)
     {
+        $this->denyAccessUnlessGranted('access', $notification);
+
         $em = $this->getDoctrine()->getManager();
         $em->remove($notification);
         $em->flush();

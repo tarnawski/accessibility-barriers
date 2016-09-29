@@ -1,5 +1,7 @@
 OAuthBundle\Entity\User:
   user1:
+    firstName: Adam
+    lastName: Nowak
     username: admin
     plainPassword: admin
     roles: [ROLE_ADMIN, ROLE_SUPER_ADMIN]
@@ -7,6 +9,8 @@ OAuthBundle\Entity\User:
     superAdmin: true
     enabled: true
   user2:
+    firstName: Jan
+    lastName: Kowalski
     username: user
     plainPassword: user
     roles: [ROLE_API]

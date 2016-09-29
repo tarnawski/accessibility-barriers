@@ -27,7 +27,8 @@ class NotificationType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Notification::class
+            'data_class' => Notification::class,
+            'csrf_protection' => false
         ]);
     }
 

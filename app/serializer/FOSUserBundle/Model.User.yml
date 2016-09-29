@@ -1,0 +1,62 @@
+FOS\UserBundle\Model\User:
+  exclusion_policy: ALL
+  properties:
+    id:
+      exclude: true
+      expose: true
+      xml_attribute: true
+      groups: [USER_DETAILS, USER_PROFILE]
+    username:
+      expose: true
+      groups: [USER_DETAILS, USER_PROFILE]
+    username_canonical:
+      expose: true
+      groups: [USER_DETAILS, USER_PROFILE]
+    email:
+      expose: true
+      groups: [USER_DETAILS, USER_PROFILE]
+    email_canonical:
+      expose: true
+      groups: [USER_DETAILS]
+    enabled:
+      expose: true
+      groups: [USER_DETAILS]
+    ssalt:
+      expose: true
+      groups: [USER_DETAILS]
+    password:
+      expose: true
+      groups: [USER_DETAILS]
+    plain_password:
+      expose: true
+      groups: [USER_DETAILS]
+    last_login:
+      expose: true
+      groups: [USER_DETAILS]
+    confirmation_token:
+      expose: true
+      groups: [USER_DETAILS]
+    password_requested_at:
+      expose: true
+      groups: [USER_DETAILS]
+    groups:
+      expose: true
+      groups: [USER_DETAILS]
+    locked:
+      expose: true
+      groups: [USER_DETAILS]
+    expired:
+      expose: true
+      groups: [USER_DETAILS]
+    expires_at:
+      expose: true
+      groups: [USER_DETAILS]
+    roles:
+      expose: true
+      groups: [USER_DETAILS]
+    credentials_expired:
+      expose: true
+      groups: [USER_DETAILS]
+    credentials_expire_at:
+      expose: true
+      groups: [USER_DETAILS]
