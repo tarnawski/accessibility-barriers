@@ -22,7 +22,8 @@
     "hautelook/alice-bundle": "^1.3",
     "doctrine/doctrine-fixtures-bundle": "^2.3",
     "friendsofsymfony/oauth-server-bundle": "dev-master",
-    "friendsofsymfony/user-bundle": "dev-master"
+    "friendsofsymfony/user-bundle": "dev-master",
+    "nelmio/api-doc-bundle": "~2.13"
   },
   "require-dev": {
     "behat/behat": "~3.0",

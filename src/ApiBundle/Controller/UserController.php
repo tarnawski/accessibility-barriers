@@ -7,6 +7,7 @@ use ApiBundle\Model\Register;
 use OAuthBundle\Model\UserFactory;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 
 /**
  * Class UserController
@@ -14,6 +15,12 @@ use Symfony\Component\HttpFoundation\Response;
 class UserController extends BaseController
 {
 
+    /**
+     * @ApiDoc(
+     *  description="Return information about current user",
+     * )
+     * @return Response
+     */
     public function profileAction()
     {
         $current_user = $this->getUser();
@@ -21,6 +28,20 @@ class UserController extends BaseController
         return $this->success($current_user, 'user', Response::HTTP_OK, array('USER_PROFILE'));
     }
 
+    /**
+     * @ApiDoc(
+     *  description="This method register new user",
+     *  parameters={
+     *      {"name"="username", "dataType"="string", "required"=true, "description"="User name"},
+     *      {"name"="email", "dataType"="string", "required"=true, "description"="User email"},
+     *      {"name"="password", "dataType"="string", "required"=true, "description"="User password"},
+     *      {"name"="client_id", "dataType"="string", "required"=true},
+     *      {"name"="client_secret", "dataType"="string", "required"=true}
+     *  })
+     * )
+     * @param Request $request
+     * @return mixed
+     */
     public function registerAction(Request $request)
     {
         $form = $this->get('form.factory')->create(RegisterType::class);

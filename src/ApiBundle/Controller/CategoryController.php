@@ -6,10 +6,14 @@ use ApiBundle\Form\Type\CategoryType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 
 class CategoryController extends BaseController
 {
     /**
+     * @ApiDoc(
+     *  description="Return all categories"
+     * )
      * @return Response
      */
     public function indexAction()
@@ -21,6 +25,9 @@ class CategoryController extends BaseController
     }
 
     /**
+     * @ApiDoc(
+     *  description="Return single category"
+     * )
      * @param Category $category
      * @return Response
      * @ParamConverter("category", class="AccessibilityBarriersBundle\Entity\Category", options={"id" = "id"})
@@ -31,6 +38,12 @@ class CategoryController extends BaseController
     }
 
     /**
+     * @ApiDoc(
+     *  description="Create new category",
+     *  parameters={
+     *      {"name"="name", "dataType"="string", "required"=true, "description"="Category name"}
+     *  })
+     * )
      * @param Request $request
      * @return Response
      */
@@ -53,6 +66,12 @@ class CategoryController extends BaseController
     }
 
     /**
+     * @ApiDoc(
+     *  description="Update category",
+     *  parameters={
+     *      {"name"="name", "dataType"="string", "required"=true, "description"="Category name"}
+     *  })
+     * )
      * @param Request $request
      * @param Category $category
      * @return Response
@@ -76,6 +95,9 @@ class CategoryController extends BaseController
     }
 
     /**
+     * @ApiDoc(
+     *  description="Delete category"
+     * )
      * @param Category $category
      * @return Response
      * @ParamConverter("category", class="AccessibilityBarriersBundle\Entity\Category", options={"id" = "id"})

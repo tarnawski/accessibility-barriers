@@ -15,7 +15,7 @@ security:
             pattern:    ^/api
             fos_oauth:  true
             stateless:  true
-            anonymous:  true # can be omitted as its default value
+            anonymous:  true
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false

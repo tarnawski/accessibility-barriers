@@ -6,10 +6,14 @@ use ApiBundle\Form\Type\NotificationType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 
 class NotificationController extends BaseController
 {
     /**
+     * @ApiDoc(
+     *  description="Return all notifications"
+     * )
      * @return Response
      */
     public function indexAction()
@@ -21,6 +25,9 @@ class NotificationController extends BaseController
     }
 
     /**
+     * @ApiDoc(
+     *  description="Return single notification"
+     * )
      * @param Notification $notification
      * @return Response
      * @ParamConverter("notification", class="AccessibilityBarriersBundle\Entity\Notification", options={"id" = "id"})
@@ -36,6 +43,16 @@ class NotificationController extends BaseController
     }
 
     /**
+     * @ApiDoc(
+     *  description="Create new notification",
+     *  parameters={
+     *      {"name"="name", "dataType"="string", "required"=true, "description"="Name of notification"},
+     *      {"name"="description", "dataType"="string", "required"=true, "description"="Short description of notification"},
+     *      {"name"="latitude", "dataType"="string", "required"=true, "description"="Position od notify issue"},
+     *      {"name"="longitude", "dataType"="string", "required"=true, "description"="Position od notify issue"},
+     *      {"name"="category", "dataType"="integer", "required"=true, "description"="Category ID"}
+     *  })
+     * )
      * @param Request $request
      * @return Response
      */
@@ -65,6 +82,16 @@ class NotificationController extends BaseController
     }
 
     /**
+     * @ApiDoc(
+     *  description="Update notification",
+     *  parameters={
+     *      {"name"="name", "dataType"="string", "required"=true, "description"="Name of notification"},
+     *      {"name"="description", "dataType"="string", "required"=true, "description"="Short description of notification"},
+     *      {"name"="latitude", "dataType"="string", "required"=true, "description"="Position od notify issue"},
+     *      {"name"="longitude", "dataType"="string", "required"=true, "description"="Position od notify issue"},
+     *      {"name"="category", "dataType"="integer", "required"=true, "description"="Category ID"}
+     *  })
+     * )
      * @param Request $request
      * @param Notification $notification
      * @return Response
@@ -96,6 +123,9 @@ class NotificationController extends BaseController
     }
 
     /**
+     * @ApiDoc(
+     *  description="Delete notification"
+     *)
      * @param Notification $notification
      * @return Response
      * @ParamConverter("notification", class="AccessibilityBarriersBundle\Entity\Notification", options={"id" = "id"})
