@@ -74,6 +74,8 @@ class CommentController extends BaseController
      */
     public function updateAction(Request $request, Notification $notification, Comment $comment)
     {
+        $this->denyAccessUnlessGranted('access', $comment);
+
         $formData = json_decode($request->getContent(), true);
         $form = $this->createForm(CommentType::class, $comment);
         $form->submit($formData);
@@ -100,6 +102,8 @@ class CommentController extends BaseController
      */
     public function deleteAction(Notification $notification, Comment $comment)
     {
+        $this->denyAccessUnlessGranted('access', $comment);
+
         $em = $this->getDoctrine()->getManager();
         $em->remove($comment);
         $em->flush();

@@ -1,4 +1,20 @@
 OAuthBundle\Entity\User:
   exclusion_policy: ALL
   properties:
+    firstName:
+      expose: true
+      groups: [USER_DETAILS, USER_PROFILE, USER_BASIC]
+    lastName:
+      expose: true
+      groups: [USER_DETAILS, USER_PROFILE, USER_BASIC]
+    notifications:
+      expose: true
+      groups: [USER_DETAILS]
+      type: ArrayCollection<AccessibilityBarriersBundle\Entity\Notification>
+      max_depth: 2
+    comments:
+      expose: true
+      groups: [USER_DETAILS]
+      type: ArrayCollection<AccessibilityBarriersBundle\Entity\Comment>
+      max_depth: 2
 

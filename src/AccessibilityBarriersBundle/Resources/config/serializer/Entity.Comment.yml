@@ -18,4 +18,4 @@ AccessibilityBarriersBundle\Entity\Comment:
     user:
       expose: true
       groups: [COMMENT_DETAILS]
-      type: AccessibilityBarriersBundle\Entity\User
+      type: OAuthBundle\Entity\User

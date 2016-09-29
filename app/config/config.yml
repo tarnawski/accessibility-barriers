@@ -51,6 +51,10 @@ swiftmailer:
 jms_serializer:
     metadata:
         auto_detection: true
+        directories:
+            FOSUserBundle:
+                namespace_prefix: "FOS\\UserBundle"
+                path: "%kernel.root_dir%/serializer/FOSUserBundle/"
 
 fos_rest:
     param_fetcher_listener: true

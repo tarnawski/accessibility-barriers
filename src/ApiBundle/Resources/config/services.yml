@@ -1,0 +1,24 @@
+services:
+  client_validate:
+    class: ApiBundle\Validator\Constraints\ClientIdValidator
+    arguments: ["@doctrine.orm.entity_manager"]
+    tags:
+      -  { name: validator.constraint_validator, alias: client_validate }
+
+  user_validate:
+    class: ApiBundle\Validator\Constraints\UserUniqueValidator
+    arguments: ["@doctrine.orm.entity_manager"]
+    tags:
+      -  { name: validator.constraint_validator, alias: user_validate }
+
+  notification_voter:
+    class: ApiBundle\Security\Authorization\Voter\NotificationVoter
+    tags:
+      - { name: security.voter }
+    public: false
+
+  comment_voter:
+    class: ApiBundle\Security\Authorization\Voter\CommentVoter
+    tags:
+      - { name: security.voter }
+    public: false

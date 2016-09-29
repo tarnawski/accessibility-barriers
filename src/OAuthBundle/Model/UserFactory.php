@@ -17,9 +17,9 @@ class UserFactory
         return $user;
     }
 
-    public function buildAfterRegistration($username, $email, $password)
+    public function buildAfterRegistration($firstName, $lastName, $username, $email, $password)
     {
-        $user = $this->createUser($username, $email);
+        $user = $this->createUser($firstName, $lastName, $username, $email);
         $user->setPlainPassword($password);
 
         return $user;
@@ -30,9 +30,11 @@ class UserFactory
      * @param string $email
      * @return User
      */
-    private function createUser($username, $email)
+    private function createUser($firstName, $lastName, $username, $email)
     {
         $user = new User();
+        $user->setFirstName($firstName);
+        $user->setLastName($lastName);
         $user->setUsername($username);
         $user->setEmail($email);
         $user->setRoles(['ROLE_API']);
