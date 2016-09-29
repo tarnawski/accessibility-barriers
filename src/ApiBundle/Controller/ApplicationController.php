@@ -18,11 +18,11 @@ class ApplicationController extends BaseController
 
     /**
      * @ApiDoc(
-     *  description="Return statistic about application",
+     *  description="Return application status",
      * )
      * @return Response
      */
-    public function statisticAction()
+    public function statusAction()
     {
         /** @var CategoryRepository $categoryRepository */
         $categoryRepository = $this->getRepository(Category::class);
