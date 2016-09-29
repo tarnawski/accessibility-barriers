@@ -7,10 +7,14 @@ use ApiBundle\Form\Type\CommentType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 
 class CommentController extends BaseController
 {
     /**
+     * @ApiDoc(
+     *  description="Return all comments belongs to notification"
+     * )
      * @param Notification $notification
      * @return Response
      * @ParamConverter("notification", class="AccessibilityBarriersBundle\Entity\Notification", options={"id" = "notification_id"})
@@ -21,6 +25,9 @@ class CommentController extends BaseController
     }
 
     /**
+     * @ApiDoc(
+     *  description="Return single comment belong to notification"
+     * )
      * @param Notification $notification
      * @param Comment $comment
      * @return Response
@@ -38,6 +45,12 @@ class CommentController extends BaseController
     }
 
     /**
+     * @ApiDoc(
+     *  description="Create new comment",
+     *  parameters={
+     *      {"name"="content", "dataType"="string", "required"=true, "description"="Content of comment"}
+     *  })
+     * )
      * @param Request $request
      * @param Notification $notification
      * @return Response
@@ -65,6 +78,12 @@ class CommentController extends BaseController
     }
 
     /**
+     * @ApiDoc(
+     *  description="Update comment",
+     *  parameters={
+     *      {"name"="content", "dataType"="string", "required"=true, "description"="Content of comment"}
+     *  })
+     * )
      * @param Request $request
      * @param Notification $notification
      * @param Comment $comment
@@ -94,6 +113,9 @@ class CommentController extends BaseController
     }
 
     /**
+     * @ApiDoc(
+     *  description="Delete comment"
+     *)
      * @param Notification $notification
      * @param Comment $comment
      * @return Response
