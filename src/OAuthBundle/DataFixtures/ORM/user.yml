@@ -1,0 +1,15 @@
+OAuthBundle\Entity\User:
+  user1:
+    username: admin
+    plainPassword: admin
+    roles: [ROLE_ADMIN, ROLE_SUPER_ADMIN]
+    email: admin@admin.com
+    superAdmin: true
+    enabled: true
+  user2:
+    username: user
+    plainPassword: user
+    roles: [ROLE_API]
+    email: user@user.com
+    superAdmin: false
+    enabled: true
