@@ -1,6 +1,7 @@
 AccessibilityBarriersBundle\Entity\Category:
     type: entity
     table: category
+    repositoryClass: AccessibilityBarriersBundle\Repository\CategoryRepository
     id:
         id:
             type: integer

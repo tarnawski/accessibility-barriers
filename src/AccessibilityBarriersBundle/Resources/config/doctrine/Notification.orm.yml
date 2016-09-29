@@ -1,6 +1,7 @@
 AccessibilityBarriersBundle\Entity\Notification:
     type: entity
     table: notification
+    repositoryClass: AccessibilityBarriersBundle\Repository\NotificationRepository
     id:
         id:
             type: integer
