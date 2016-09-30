@@ -1,5 +1,5 @@
 services:
-  accessibility_barriers.serializer_coordinate:
-    class: AccessibilityBarriersBundle\Serializer\CoordinateSubscribingHandler
+  latlan_validate:
+    class: AccessibilityBarriersBundle\Validator\Constraints\LatLanValidator
     tags:
-      - { name: jms_serializer.event_subscriber }
+      -  { name: validator.constraint_validator, alias: coordinates_validation }
