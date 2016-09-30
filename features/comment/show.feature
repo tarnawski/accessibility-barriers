@@ -61,8 +61,10 @@ Feature: Show comments belong to notification
         "id": @integer@,
         "name": "@string@",
         "description": "@string@",
-        "latitude": @double@,
-        "longitude": @double@,
+        "coordinates": {
+          "latitude": "@string@",
+          "longitude": "@string@"
+        },
         "rating": @integer@,
         "created_at": "@string@"
       },

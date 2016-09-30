@@ -35,8 +35,10 @@ Feature: Show notification
         "id": @integer@,
         "name": "@string@",
         "description": "@string@",
-        "latitude": @double@,
-        "longitude": @double@,
+        "coordinates": {
+          "latitude": "@string@",
+          "longitude": "@string@"
+        },
         "rating": @integer@,
         "created_at": "@string@"
       },
@@ -44,8 +46,10 @@ Feature: Show notification
         "id": @integer@,
         "name": "@string@",
         "description": "@string@",
-        "latitude": @double@,
-        "longitude": @double@,
+        "coordinates": {
+          "latitude": "@string@",
+          "longitude": "@string@"
+        },
         "rating": @integer@,
         "created_at": "@string@"
       }
@@ -62,8 +66,10 @@ Feature: Show notification
         "id": @integer@,
         "name": "@string@",
         "description": "@string@",
-        "latitude": @double@,
-        "longitude": @double@,
+        "coordinates": {
+          "latitude": "@string@",
+          "longitude": "@string@"
+        },
         "rating": @integer@,
         "created_at": "@string@",
         "user": {
