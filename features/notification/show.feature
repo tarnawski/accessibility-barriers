@@ -78,7 +78,8 @@ Feature: Show notification
         },
         "category": {
           "id": @integer@,
-          "name": "@string@"
+          "name": "@string@",
+          "notification_count": @integer@
         },
         "comments": @array@
       }
