@@ -8,3 +8,8 @@ services:
     class: AccessibilityBarriersBundle\Serializer\CoordinateSubscribingHandler
     tags:
       - { name: jms_serializer.event_subscriber }
+
+  accessibility_barriers.serializer_count_notifications:
+    class: AccessibilityBarriersBundle\Serializer\CountNotificationsSubscribingHandler
+    tags:
+      - { name: jms_serializer.event_subscriber }

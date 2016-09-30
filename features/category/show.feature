@@ -18,11 +18,13 @@ Feature: Show category
     [
       {
         "id": @integer@,
-        "name": "@string@"
+        "name": "@string@",
+        "notification_count": @integer@
       },
       {
         "id": @integer@,
-        "name": "@string@"
+        "name": "@string@",
+        "notification_count": @integer@
       }
     ]
     """
@@ -36,6 +38,7 @@ Feature: Show category
     {
       "id": @integer@,
       "name": "@string@",
-      "notifications": @array@
+      "notifications": @array@,
+      "notification_count": @integer@
     }
     """

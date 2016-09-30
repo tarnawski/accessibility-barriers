@@ -33,7 +33,8 @@ Feature: Create category
     """
     {
       "id": @integer@,
-      "name": "New name"
+      "name": "New name",
+      "notification_count": @integer@
     }
     """
 

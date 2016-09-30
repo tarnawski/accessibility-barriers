@@ -29,7 +29,8 @@ Feature: Create category
     """
     {
       "id": @integer@,
-      "name": "ducimus"
+      "name": "ducimus",
+      "notification_count": @integer@
     }
     """
 
