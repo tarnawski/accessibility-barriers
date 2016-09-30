@@ -1,0 +1,5 @@
+services:
+  latlan_validate:
+    class: AccessibilityBarriersBundle\Validator\Constraints\LatLanValidator
+    tags:
+      -  { name: validator.constraint_validator, alias: coordinates_validation }
