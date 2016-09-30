@@ -3,3 +3,8 @@ services:
     class: AccessibilityBarriersBundle\Validator\Constraints\LatLanValidator
     tags:
       -  { name: validator.constraint_validator, alias: coordinates_validation }
+
+  accessibility_barriers.serializer_coordinate:
+    class: AccessibilityBarriersBundle\Serializer\CoordinateSubscribingHandler
+    tags:
+      - { name: jms_serializer.event_subscriber }
