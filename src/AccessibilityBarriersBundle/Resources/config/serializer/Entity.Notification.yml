@@ -11,10 +11,10 @@ AccessibilityBarriersBundle\Entity\Notification:
       expose: true
       groups: [NOTIFICATION_LIST, NOTIFICATION_DETAILS]
     latitude:
-      expose: true
+      expose: false
       groups: [NOTIFICATION_LIST, NOTIFICATION_DETAILS]
     longitude:
-      expose: true
+      expose: false
       groups: [NOTIFICATION_LIST, NOTIFICATION_DETAILS]
     rating:
       expose: true
