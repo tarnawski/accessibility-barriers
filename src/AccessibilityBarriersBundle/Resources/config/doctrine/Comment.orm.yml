@@ -1,0 +1,36 @@
+AccessibilityBarriersBundle\Entity\Comment:
+    type: entity
+    table: comment
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        content:
+            column: content
+            type: string
+            nullable: false
+            length: 64
+        createdAt:
+            column: created_at
+            type: datetime
+            nullable: false
+    manyToOne:
+        notification:
+            targetEntity: Notification
+            inversedBy: comments
+            joinColumn:
+                name: notification_id
+                referencedColumnName: id
+        user:
+            targetEntity: OAuthBundle\Entity\User
+            inversedBy: comments
+            joinColumn:
+                name: user_id
+                referencedColumnName: id
+    lifecycleCallbacks: {  }

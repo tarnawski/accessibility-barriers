@@ -1,0 +1,6 @@
+AccessibilityBarriersBundle\Entity\Comment:
+    properties:
+        content:
+            - NotBlank: ~
+            - Length:
+                max:   200

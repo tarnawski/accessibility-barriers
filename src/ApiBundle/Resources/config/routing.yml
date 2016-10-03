@@ -1,0 +1,120 @@
+########## STATUS ##########
+application_status:
+  path:     /status
+  defaults: { _controller: ApiBundle:Application:status, _format: json }
+  methods: [GET]
+
+########## USER ##########
+user_show:
+  path:     /profile
+  defaults: { _controller: ApiBundle:User:profile, _format: json }
+  methods: [GET]
+
+register:
+  path:     /register
+  defaults: { _controller: ApiBundle:User:register, _format: json }
+  methods: [POST]
+
+########## CATEGORY ##########
+category_all:
+  path:     /categories
+  defaults: { _controller: ApiBundle:Category:index, _format: json }
+  methods: [GET]
+
+category_single:
+  path: /categories/{id}
+  defaults:  { _controller: ApiBundle:Category:show, _format: json }
+  methods:  [GET]
+  requirements:
+      id:  \d+
+
+category_create:
+  path:     /categories
+  defaults: { _controller: ApiBundle:Category:create, _format: json }
+  methods: [POST]
+
+category_update:
+  path: /categories/{id}
+  defaults:  { _controller: ApiBundle:Category:update, _format: json }
+  methods:  [PUT]
+  requirements:
+      id:  \d+
+
+category_delete:
+  path: /categories/{id}
+  defaults:  { _controller: ApiBundle:Category:delete, _format: json }
+  methods:  [DELETE]
+  requirements:
+      id:  \d+
+
+
+########## NOTIFICATION ##########
+notification_all:
+  path:     /notifications
+  defaults: { _controller: ApiBundle:Notification:index, _format: json }
+  methods: [GET]
+
+notification_single:
+  path: /notifications/{id}
+  defaults:  { _controller: ApiBundle:Notification:show, _format: json }
+  methods:  [GET]
+  requirements:
+      id:  \d+
+
+notification_create:
+  path:     /notifications
+  defaults: { _controller: ApiBundle:Notification:create, _format: json }
+  methods: [POST]
+
+notification_update:
+  path: /notifications/{id}
+  defaults:  { _controller: ApiBundle:Notification:update, _format: json }
+  methods:  [PUT]
+  requirements:
+      id:  \d+
+
+notification_delete:
+  path: /notifications/{id}
+  defaults:  { _controller: ApiBundle:Notification:delete, _format: json }
+  methods:  [DELETE]
+  requirements:
+      id:  \d+
+
+########## COMMENT ##########
+comment_all:
+  path:     /notifications/{notification_id}/comments
+  defaults: { _controller: ApiBundle:Comment:index, _format: json }
+  methods: [GET]
+  requirements:
+      notification_id:  \d+
+
+comment_single:
+  path: /notifications/{notification_id}/comments/{comment_id}
+  defaults:  { _controller: ApiBundle:Comment:show, _format: json }
+  methods:  [GET]
+  requirements:
+      notification_id:  \d+
+      comment_id:  \d+
+
+comment_create:
+  path:     /notifications/{notification_id}/comments
+  defaults: { _controller: ApiBundle:Comment:create, _format: json }
+  methods: [POST]
+  requirements:
+      notification_id:  \d+
+
+comment_update:
+  path: /notifications/{notification_id}/comments/{comment_id}
+  defaults:  { _controller: ApiBundle:Comment:update, _format: json }
+  methods:  [PUT]
+  requirements:
+      notification_id:  \d+
+      comment_id:  \d+
+
+comment_delete:
+  path: /notifications/{notification_id}/comments/{comment_id}
+  defaults:  { _controller: ApiBundle:Comment:delete, _format: json }
+  methods:  [DELETE]
+  requirements:
+      notification_id:  \d+
+      comment_id:  \d+

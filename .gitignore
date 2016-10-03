@@ -4,3 +4,5 @@
 !/bin/console
 /vagrant/.vagrant
 /var
+/app/build
+composer.phar

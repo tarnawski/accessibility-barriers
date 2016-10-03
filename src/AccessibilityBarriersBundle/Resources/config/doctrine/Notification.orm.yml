@@ -1,0 +1,66 @@
+AccessibilityBarriersBundle\Entity\Notification:
+    type: entity
+    table: notification
+    repositoryClass: AccessibilityBarriersBundle\Repository\NotificationRepository
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            column: name
+            type: string
+            nullable: false
+            length: 64
+        description:
+            column: description
+            type: string
+            nullable: false
+            length: 255
+        latitude:
+            column: latitude
+            type: decimal
+            scale: 8
+            precision: 10
+            nullable: false
+        longitude:
+            column: longitude
+            type: decimal
+            scale: 8
+            precision: 11
+            nullable: false
+        rating:
+            column: rating
+            type: integer
+            nullable: false
+        createdAt:
+            column: created_at
+            type: datetime
+            nullable: false
+    oneToMany:
+        comments:
+            targetEntity: Comment
+            mappedBy: notification
+            cascade: ["all"]
+    manyToOne:
+        category:
+             targetEntity: Category
+             inversedBy: notification
+             joinColumn:
+                name: category_id
+                referencedColumnName: id
+                nullable: false
+        user:
+             targetEntity: OAuthBundle\Entity\User
+             inversedBy: notification
+             joinColumn:
+                name: user_id
+                referencedColumnName: id
+                nullable: true
+
+    lifecycleCallbacks: {  }

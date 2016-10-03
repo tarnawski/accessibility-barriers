@@ -1,0 +1,14 @@
+AccessibilityBarriersBundle\Entity\Category:
+  exclusion_policy: ALL
+  properties:
+    id:
+      expose: true
+      groups: [CATEGORY_LIST, CATEGORY_DETAILS]
+    name:
+      expose: true
+      groups: [CATEGORY_LIST, CATEGORY_DETAILS]
+    notifications:
+      expose: true
+      groups: [CATEGORY_DETAILS]
+      type: ArrayCollection<AccessibilityBarriersBundle\Entity\Notification>
+      max_depth: 2

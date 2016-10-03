@@ -1,0 +1,38 @@
+AccessibilityBarriersBundle\Entity\Notification:
+  exclusion_policy: ALL
+  properties:
+    id:
+      expose: true
+      groups: [NOTIFICATION_LIST, NOTIFICATION_DETAILS]
+    name:
+      expose: true
+      groups: [NOTIFICATION_LIST, NOTIFICATION_DETAILS]
+    description:
+      expose: true
+      groups: [NOTIFICATION_LIST, NOTIFICATION_DETAILS]
+    latitude:
+      expose: false
+      groups: [NOTIFICATION_LIST, NOTIFICATION_DETAILS]
+    longitude:
+      expose: false
+      groups: [NOTIFICATION_LIST, NOTIFICATION_DETAILS]
+    rating:
+      expose: true
+      groups: [NOTIFICATION_LIST, NOTIFICATION_DETAILS]
+    createdAt:
+      expose: true
+      groups: [NOTIFICATION_LIST, NOTIFICATION_DETAILS]
+      type: DateTime<'Y-m-d'>
+    category:
+      expose: true
+      groups: [NOTIFICATION_DETAILS]
+      type: AccessibilityBarriersBundle\Entity\Category
+    user:
+      expose: true
+      groups: [NOTIFICATION_DETAILS]
+      type: OAuthBundle\Entity\User
+    comments:
+      expose: true
+      groups: [NOTIFICATION_DETAILS]
+      type: ArrayCollection<AccessibilityBarriersBundle\Entity\Comment>
+      max_depth: 2

@@ -1,0 +1,25 @@
+AccessibilityBarriersBundle\Entity\Notification:
+  properties:
+      name:
+          - NotBlank: ~
+          - Length:
+             max:   64
+      description:
+          - NotBlank: ~
+          - Length:
+              max:   255
+      latitude:
+          - NotBlank: ~
+          - Length:
+              max:   50
+              max:   50
+      longitude:
+          - NotBlank: ~
+          - Length:
+              max:   50
+      rating:
+          - NotBlank: ~
+      category:
+          - NotBlank: ~
+  constraints:
+      - AccessibilityBarriersBundle\Validator\Constraints\LatLan: ~

@@ -1,0 +1,21 @@
+AccessibilityBarriersBundle\Entity\Comment:
+  exclusion_policy: ALL
+  properties:
+    id:
+      expose: true
+      groups: [COMMENT_LIST, COMMENT_DETAILS]
+    content:
+      expose: true
+      groups: [COMMENT_LIST, COMMENT_DETAILS]
+    createdAt:
+      expose: true
+      groups: [COMMENT_LIST, COMMENT_DETAILS]
+      type: DateTime<'Y-m-d'>
+    notification:
+      expose: true
+      groups: [COMMENT_DETAILS]
+      type: AccessibilityBarriersBundle\Entity\Notification
+    user:
+      expose: true
+      groups: [COMMENT_DETAILS]
+      type: OAuthBundle\Entity\User

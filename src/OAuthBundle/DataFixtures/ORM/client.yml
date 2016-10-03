@@ -1,0 +1,10 @@
+OAuthBundle\Entity\Client:
+  client1:
+    randomId: 69xzvcmvpscooswgk8kc8kg08088c8ws0swso0cgogog80kwoo
+    secret: 3qm0j3k82dog4ss8kokks4k0ow4so8cso0scoscck0ok0wwg84
+    allowedGrantTypes: ['token', 'password', 'refresh_token']
+  client2:
+    randomId: 2db5eckeoce8os0kg0k8kg0w4ccskc008wg4g0og84wg0o8cs8
+    secret: 4ruoedqji1icg44ss44k40w4goog8884ggsgskg4g8g8ok00s0
+    allowedGrantTypes: ['token', 'password', 'refresh_token']
+
