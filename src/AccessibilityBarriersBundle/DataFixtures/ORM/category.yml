@@ -2,7 +2,7 @@ AccessibilityBarriersBundle\Entity\Category:
   category1:
     name: Przejście dla pieszych wymagające przebudowy
   category2:
-    name: Schody bez towarzyszących im odpowiednich pochylni lub wind
+    name: Schody bez odpowiednich pochylni lub wind
   category3:
     name: Kładka bez odpowiednich pochylni lub wind
   category4:

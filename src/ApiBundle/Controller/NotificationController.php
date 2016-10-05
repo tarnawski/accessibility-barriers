@@ -2,6 +2,7 @@
 namespace ApiBundle\Controller;
 
 use AccessibilityBarriersBundle\Entity\Notification;
+use AccessibilityBarriersBundle\Repository\NotificationRepository;
 use ApiBundle\Form\Type\NotificationType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,12 +15,14 @@ class NotificationController extends BaseController
      * @ApiDoc(
      *  description="Return all notifications"
      * )
+     * @param Request $request
      * @return Response
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
+        /** @var NotificationRepository $notificationRepository */
         $notificationRepository = $this->getRepository(Notification::class);
-        $notifications = $notificationRepository->findAll();
+        $notifications = $notificationRepository->findByQuery($request->get('query'));
 
         return $this->success($notifications, 'Notification', Response::HTTP_OK, array('NOTIFICATION_LIST'));
     }

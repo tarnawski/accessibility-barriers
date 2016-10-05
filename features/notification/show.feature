@@ -21,7 +21,7 @@ Feature: Show notification
       | 2  | Category number 2 |
     Given There are the following notifications:
       | ID | NAME           | DESCRIPTION                 | LATITUDE  | LONGITUDE | RATING | CREATED_AT | CATEGORY_ID | USER_ID |
-      | 1  | Example name 1 | Example short description 1 | 50.033723 | 22.003051 | 0      | -5 day     | 1           | 1       |
+      | 1  | Example unique | Example short description 1 | 50.033723 | 22.003051 | 0      | -5 day     | 1           | 1       |
       | 2  | Example name 2 | Example short description 2 | 50.033131 | 21.998695 | 0      | -8 day     | 2           | 2       |
 
   @cleanDB
@@ -45,6 +45,27 @@ Feature: Show notification
       {
         "id": @integer@,
         "name": "@string@",
+        "description": "@string@",
+        "coordinates": {
+          "latitude": "@string@",
+          "longitude": "@string@"
+        },
+        "rating": @integer@,
+        "created_at": "@string@"
+      }
+    ]
+    """
+
+  @cleanDB
+  Scenario: Get notifications by query
+    When I send a GET request to "/api/notifications?query=unique"
+    Then the response code should be 200
+    And the JSON response should match:
+    """
+    [
+      {
+        "id": @integer@,
+        "name": "Example unique",
         "description": "@string@",
         "coordinates": {
           "latitude": "@string@",
