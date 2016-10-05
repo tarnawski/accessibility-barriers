@@ -6,3 +6,4 @@
 /var
 /app/build
 composer.phar
+vagrant/provisioning/accessibility-barriers.tar

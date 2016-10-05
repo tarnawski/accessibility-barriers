@@ -34,7 +34,7 @@ class CommentVoter extends Voter
         /** @var Comment $comment */
         $comment = $subject;
 
-        switch($attribute) {
+        switch ($attribute) {
             case self::ACCESS:
                 return $this->canAccess($comment, $user);
         }
@@ -44,7 +44,7 @@ class CommentVoter extends Voter
 
     private function canAccess(Comment $comment, User $user)
     {
-        if($user->hasRole('ROLE_ADMIN')) {
+        if ($user->hasRole('ROLE_ADMIN')) {
             return true;
         }
         if ($comment->getUser() == $user) {
@@ -54,4 +54,3 @@ class CommentVoter extends Voter
         return false;
     }
 }
-

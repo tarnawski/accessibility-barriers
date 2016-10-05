@@ -228,5 +228,4 @@ class ApiContext extends WebApiContext implements Context, SnippetAcceptingConte
         $this->getManager()->flush();
         $this->getManager()->clear();
     }
-
 }

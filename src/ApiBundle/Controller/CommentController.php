@@ -109,7 +109,6 @@ class CommentController extends BaseController
         $em->flush();
 
         return $this->success($comment, 'Comment', Response::HTTP_OK, array('COMMENT_LIST'));
-
     }
 
     /**
