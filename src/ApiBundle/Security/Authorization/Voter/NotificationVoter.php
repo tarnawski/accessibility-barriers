@@ -34,7 +34,7 @@ class NotificationVoter extends Voter
         /** @var Notification $notification */
         $notification = $subject;
 
-        switch($attribute) {
+        switch ($attribute) {
             case self::ACCESS:
                 return $this->canAccess($notification, $user);
         }
@@ -44,7 +44,7 @@ class NotificationVoter extends Voter
 
     private function canAccess(Notification $notification, User $user)
     {
-        if($user->hasRole('ROLE_ADMIN')) {
+        if ($user->hasRole('ROLE_ADMIN')) {
             return true;
         }
         if ($notification->getUser() == $user) {
@@ -54,4 +54,3 @@ class NotificationVoter extends Voter
         return false;
     }
 }
-
