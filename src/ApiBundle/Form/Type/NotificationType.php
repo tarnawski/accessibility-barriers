@@ -18,7 +18,6 @@ class NotificationType extends AbstractType
         $builder->add('description', TextType::class);
         $builder->add('latitude', TextType::class);
         $builder->add('longitude', TextType::class);
-        $builder->add('rating', NumberType::class);
         $builder->add('category', EntityType::class, [
             'class' => 'AccessibilityBarriersBundle:Category'
         ]);

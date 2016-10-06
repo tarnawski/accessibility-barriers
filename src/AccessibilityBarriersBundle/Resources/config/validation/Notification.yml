@@ -17,8 +17,6 @@ AccessibilityBarriersBundle\Entity\Notification:
           - NotBlank: ~
           - Length:
               max:   50
-      rating:
-          - NotBlank: ~
       category:
           - NotBlank: ~
   constraints:
