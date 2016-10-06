@@ -30,7 +30,6 @@ Feature: Create notification
         "description": "Short description",
         "latitude": "50.038558",
         "longitude": "22.018490",
-        "rating": 0,
         "category": 1
     }
     """
@@ -69,7 +68,6 @@ Feature: Create notification
         "description": "Short description",
         "latitude": "50.038558",
         "longitude": "22.018490",
-        "rating": 0,
         "category": 1
     }
     """
