@@ -9,8 +9,13 @@ services:
     tags:
       -  { name: validator.constraint_validator, alias: coordinates_validation }
 
-  accessibility_barriers.serializer_coordinate:
-    class: AccessibilityBarriersBundle\Serializer\CoordinateSubscribingHandler
+  accessibility_barriers.serializer_nitification_coordinate:
+    class: AccessibilityBarriersBundle\Serializer\NotificationCoordinateSubscribingHandler
+    tags:
+      - { name: jms_serializer.event_subscriber }
+
+  accessibility_barriers.serializer_area_coordinate:
+    class: AccessibilityBarriersBundle\Serializer\AreaCoordinateSubscribingHandler
     tags:
       - { name: jms_serializer.event_subscriber }
 
