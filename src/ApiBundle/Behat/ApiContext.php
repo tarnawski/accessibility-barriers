@@ -2,6 +2,7 @@
 
 namespace ApiBundle\Behat;
 
+use AccessibilityBarriersBundle\Entity\Area;
 use AccessibilityBarriersBundle\Entity\Category;
 use AccessibilityBarriersBundle\Entity\Comment;
 use AccessibilityBarriersBundle\Entity\Notification;
@@ -138,6 +139,28 @@ class ApiContext extends WebApiContext implements Context, SnippetAcceptingConte
             $category = new Category();
             $category->setName($row['NAME']);
             $this->getManager()->persist($category);
+        }
+        $this->getManager()->flush();
+        $this->getManager()->clear();
+    }
+
+    /**
+     * @param TableNode $table
+     * @Given There are the following areas:
+     */
+    public function thereAreTheFollowingAreas(TableNode $table)
+    {
+        $userRepository = $this->getManager()->getRepository(User::class);
+        foreach ($table->getColumnsHash() as $row) {
+            $area = new Area();
+            $area->setName($row['NAME']);
+            $area->setLatitude($row['LATITUDE']);
+            $area->setLongitude($row['LONGITUDE']);
+            $area->setDistance($row['DISTANCE']);
+            /** @var User $user */
+            $user = $userRepository->find($row['USER_ID']);
+            $area->setUser($user);
+            $this->getManager()->persist($area);
         }
         $this->getManager()->flush();
         $this->getManager()->clear();
