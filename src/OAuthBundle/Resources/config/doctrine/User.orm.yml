@@ -17,5 +17,18 @@ OAuthBundle\Entity\User:
           type: string
           nullable: true
           length: 64
+  oneToMany:
+       notifications:
+           targetEntity: AccessibilityBarriersBundle\Entity\Notification
+           mappedBy: user
+           cascade: ["all"]
+       comments:
+            targetEntity: AccessibilityBarriersBundle\Entity\Comment
+            mappedBy: user
+            cascade: ["all"]
+       areas:
+           targetEntity: AccessibilityBarriersBundle\Entity\Area
+           mappedBy: user
+           cascade: ["all"]
 
   lifecycleCallbacks: {  }

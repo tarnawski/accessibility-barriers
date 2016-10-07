@@ -6,7 +6,7 @@ use JMS\Serializer\EventDispatcher\EventSubscriberInterface;
 use JMS\Serializer\EventDispatcher\ObjectEvent;
 use AccessibilityBarriersBundle\Entity\Notification;
 
-class CoordinateSubscribingHandler implements EventSubscriberInterface
+class NotificationCoordinateSubscribingHandler implements EventSubscriberInterface
 {
     public static function getSubscribedEvents()
     {
