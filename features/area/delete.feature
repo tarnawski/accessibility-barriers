@@ -1,7 +1,7 @@
-Feature: Delete category
-  In order to have actual list of categories
+Feature: Delete area
+  In order to have actual list of area
   As a login user
-  I need to be able to delete category
+  I need to be able to delete area
 
   Background:
     Given There are the following clients:
@@ -15,25 +15,19 @@ Feature: Delete category
       | ID | CLIENT | USER | TOKEN                                                                                  | EXPIRES_AT |
       | 1  | 1      | 1    | OWJkOGQzODliYTZjNTk3YTM1MmY0OTY2NjRlYTk2YmRmM2ZhNGE5YmZmMWVlYTg4MTllMmMxMzg3NzA4NGU5Nw | +2 days    |
       | 2  | 1      | 2    | SDFSDFSDFSDFSDZjNTk3YTM1MmY0OTY2NjRlYTk2YmRmM2ZhNGE5YmZmMWVlYTg4MTllMmMxMDSFSDFSDFSDFm | +2 days    |
-    Given There are the following categories:
-      | ID | NAME              |
-      | 1  | Category number 1 |
+    Given There are the following areas:
+      | ID | NAME          | LATITUDE  | LONGITUDE | DISTANCE | USER_ID |
+      | 1  | Area number 1 | 50.033723 | 22.003051 | 1        | 1       |
 
   @cleanDB
-  Scenario: Delete category
+  Scenario: Delete area
     Given I set header "Authorization" with value "Bearer OWJkOGQzODliYTZjNTk3YTM1MmY0OTY2NjRlYTk2YmRmM2ZhNGE5YmZmMWVlYTg4MTllMmMxMzg3NzA4NGU5Nw"
-    When I send a DELETE request to "/api/categories/1"
+    When I send a DELETE request to "/api/user/1/areas/1"
     Then the response code should be 200
     And the JSON response should match:
     """
     {
       "status": "Removed",
-      "message": "Category properly removed"
+      "message": "Area properly removed"
     }
     """
-
-  @cleanDB
-  Scenario: Delete category - user not admin
-    Given I set header "Authorization" with value "Bearer SDFSDFSDFSDFSDZjNTk3YTM1MmY0OTY2NjRlYTk2YmRmM2ZhNGE5YmZmMWVlYTg4MTllMmMxMDSFSDFSDFSDFm"
-    When I send a DELETE request to "/api/categories/1"
-    Then the response code should be 403
