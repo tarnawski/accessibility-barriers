@@ -2,6 +2,7 @@
 
 namespace AccessibilityBarriersBundle\Repository;
 
+use ApiBundle\Model\NotificationCriteria;
 use Doctrine\ORM\EntityRepository;
 
 /**
@@ -9,12 +10,20 @@ use Doctrine\ORM\EntityRepository;
  */
 class NotificationRepository extends EntityRepository
 {
-    public function findByQuery($query = null)
+    public function findByCriteria(NotificationCriteria $criteria)
     {
         $builder = $this->createQueryBuilder('n');
-        if ($query) {
-            $builder->andWhere('(n.name LIKE :query) OR (n.description LIKE :query)');
-            $builder->setParameter('query', '%' . $query. '%');
+
+        if ($criteria->name) {
+            $builder->andWhere('n.name LIKE :name');
+            $builder->setParameter('name', '%' . $criteria->name . '%');
+        }
+        if ($criteria->description) {
+            $builder->andWhere('n.description LIKE :description');
+            $builder->setParameter('description', '%' . $criteria->description . '%');
+        }
+        if ($criteria->limit) {
+            $builder->setMaxResults($criteria->limit);
         }
         $builder->addOrderBy('n.createdAt', 'DESC');
 
