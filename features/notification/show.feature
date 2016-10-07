@@ -58,7 +58,7 @@ Feature: Show notification
 
   @cleanDB
   Scenario: Get notifications by query
-    When I send a GET request to "/api/notifications?query=unique"
+    When I send a GET request to "/api/notifications?name=unique"
     Then the response code should be 200
     And the JSON response should match:
     """
