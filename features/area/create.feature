@@ -1,7 +1,7 @@
-Feature: Create category
-  In order to have actual list of categories
+Feature: Create area
+  In order to have actual list of area
   As a login user
-  I need to be able to create new category
+  I need to be able to create new area
 
   Background:
     Given There are the following clients:
@@ -16,12 +16,15 @@ Feature: Create category
       | 1  | 1      | 1    | OWJkOGQzODliYTZjNTk3YTM1MmY0OTY2NjRlYTk2YmRmM2ZhNGE5YmZmMWVlYTg4MTllMmMxMzg3NzA4NGU5Nw | +2 days    |
       | 2  | 1      | 2    | SDFSDFSDFSDFSDZjNTk3YTM1MmY0OTY2NjRlYTk2YmRmM2ZhNGE5YmZmMWVlYTg4MTllMmMxMDSFSDFSDFSDFm | +2 days    |
   @cleanDB
-  Scenario: Create new category
+  Scenario: Create new area
     Given I set header "Authorization" with value "Bearer OWJkOGQzODliYTZjNTk3YTM1MmY0OTY2NjRlYTk2YmRmM2ZhNGE5YmZmMWVlYTg4MTllMmMxMzg3NzA4NGU5Nw"
-    When I send a POST request to "/api/categories" with body:
+    When I send a POST request to "/api/user/1/areas" with body:
     """
     {
-      "name": "ducimus"
+      "name": "New area",
+      "latitude": "50.038558",
+      "longitude": "22.018490",
+      "distance": 1
     }
     """
     Then the response code should be 201
@@ -29,18 +32,12 @@ Feature: Create category
     """
     {
       "id": @integer@,
-      "name": "ducimus",
-      "notification_count": @integer@
+      "name": "@string@",
+      "coordinates": {
+        "latitude": "@string@",
+        "longitude": "@string@"
+      },
+      "distance": "@integer@"
     }
     """
 
-  @cleanDB
-  Scenario: Create new - user not admin
-    Given I set header "Authorization" with value "Bearer SDFSDFSDFSDFSDZjNTk3YTM1MmY0OTY2NjRlYTk2YmRmM2ZhNGE5YmZmMWVlYTg4MTllMmMxMDSFSDFSDFSDFm"
-    When I send a POST request to "/api/categories" with body:
-    """
-    {
-      "name": "ducimus"
-    }
-    """
-    Then the response code should be 403
