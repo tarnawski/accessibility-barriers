@@ -44,7 +44,10 @@ Feature: Create notification
         "latitude": "@string@",
         "longitude": "@string@"
       },
-      "rating": @integer@,
+      "rating": {
+        "average": @integer@,
+        "count": @integer@
+      },
       "created_at": "@string@",
       "user": {
         "first_name": "@string@",

@@ -5,6 +5,7 @@ namespace OAuthBundle\Entity;
 use AccessibilityBarriersBundle\Entity\Area;
 use AccessibilityBarriersBundle\Entity\Comment;
 use AccessibilityBarriersBundle\Entity\Notification;
+use AccessibilityBarriersBundle\Entity\Rating;
 use Doctrine\Common\Collections\ArrayCollection;
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
@@ -35,12 +36,16 @@ class User extends BaseUser
     /** @var  ArrayCollection|Area[] */
     private $areas;
 
+    /** @var  ArrayCollection|Rating[] */
+    private $ratings;
+
     public function __construct()
     {
         parent::__construct();
         $this->notifications = new ArrayCollection();
         $this->comments = new ArrayCollection();
         $this->areas = new ArrayCollection();
+        $this->ratings = new ArrayCollection();
     }
 
     /**
@@ -85,7 +90,7 @@ class User extends BaseUser
 
     /**
      * @param Notification $notification
-     * @return Notification
+     * @return User
      */
     public function addNotification(Notification $notification)
     {
@@ -114,7 +119,7 @@ class User extends BaseUser
 
     /**
      * @param Comment $comment
-     * @return Comment
+     * @return User
      */
     public function addComment(Comment $comment)
     {
@@ -133,7 +138,6 @@ class User extends BaseUser
         $this->comments->removeElement($comment);
     }
 
-
     /**
      * @return ArrayCollection
      */
@@ -144,7 +148,7 @@ class User extends BaseUser
 
     /**
      * @param Area $area
-     * @return Area
+     * @return User
      */
     public function addArea(Area $area)
     {
@@ -161,5 +165,34 @@ class User extends BaseUser
     public function removeArea(Area $area)
     {
         $this->areas->removeElement($area);
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getRatings()
+    {
+        return $this->ratings;
+    }
+
+    /**
+     * @param Rating $rating
+     * @return User
+     */
+    public function addRating(Rating $rating)
+    {
+        if (!$this->ratings->contains($rating)) {
+            $rating->setUser($this);
+            $this->ratings[] = $rating;
+        }
+        return $this;
+    }
+
+    /**
+     * @param Rating $rating
+     */
+    public function removeRating(Rating $rating)
+    {
+        $this->ratings->removeElement($rating);
     }
 }

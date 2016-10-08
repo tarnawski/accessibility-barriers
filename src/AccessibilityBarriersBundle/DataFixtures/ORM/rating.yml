@@ -1,0 +1,100 @@
+AccessibilityBarriersBundle\Entity\Rating:
+  rating1:
+    value: <numberBetween(1, 5)>
+    notification: '@notification1'
+    user: '@user1'
+  rating2:
+    value: <numberBetween(1, 5)>
+    notification: '@notification1'
+    user: '@user1'
+  rating3:
+    value: <numberBetween(1, 5)>
+    notification: '@notification1'
+    user: '@user1'
+  rating4:
+    value: <numberBetween(1, 5)>
+    notification: '@notification2'
+    user: '@user1'
+  rating5:
+    value: <numberBetween(1, 5)>
+    notification: '@notification3'
+    user: '@user1'
+  rating6:
+    value: <numberBetween(1, 5)>
+    notification: '@notification4'
+    user: '@user1'
+  rating7:
+    value: <numberBetween(1, 5)>
+    notification: '@notification4'
+    user: '@user1'
+  rating8:
+    value: <numberBetween(1, 5)>
+    notification: '@notification5'
+    user: '@user1'
+  rating9:
+    value: <numberBetween(1, 5)>
+    notification: '@notification8'
+    user: '@user1'
+  rating10:
+    value: <numberBetween(1, 5)>
+    notification: '@notification8'
+    user: '@user1'
+  rating11:
+    value: <numberBetween(1, 5)>
+    notification: '@notification8'
+    user: '@user1'
+  rating12:
+    value: <numberBetween(1, 5)>
+    notification: '@notification9'
+    user: '@user1'
+  rating13:
+    value: <numberBetween(1, 5)>
+    notification: '@notification9'
+    user: '@user1'
+  rating14:
+    value: <numberBetween(1, 5)>
+    notification: '@notification15'
+    user: '@user1'
+  rating15:
+    value: <numberBetween(1, 5)>
+    notification: '@notification15'
+    user: '@user1'
+  rating16:
+    value: <numberBetween(1, 5)>
+    notification: '@notification12'
+    user: '@user1'
+  rating17:
+    value: <numberBetween(1, 5)>
+    notification: '@notification18'
+    user: '@user1'
+  rating18:
+    value: <numberBetween(1, 5)>
+    notification: '@notification17'
+    user: '@user1'
+  rating19:
+    value: <numberBetween(1, 5)>
+    notification: '@notification17'
+    user: '@user1'
+  rating20:
+    value: <numberBetween(1, 5)>
+    notification: '@notification16'
+    user: '@user1'
+  rating21:
+    value: <numberBetween(1, 5)>
+    notification: '@notification10'
+    user: '@user1'
+  rating22:
+    value: <numberBetween(1, 5)>
+    notification: '@notification10'
+    user: '@user1'
+  rating23:
+    value: <numberBetween(1, 5)>
+    notification: '@notification14'
+    user: '@user1'
+  rating24:
+    value: <numberBetween(1, 5)>
+    notification: '@notification9'
+    user: '@user1'
+
+
+

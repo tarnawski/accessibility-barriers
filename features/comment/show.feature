@@ -20,8 +20,8 @@ Feature: Show comments belong to notification
       | 1  | Category number 1 |
       | 2  | Category number 2 |
     Given There are the following notifications:
-      | ID | NAME           | DESCRIPTION                 | LATITUDE  | LONGITUDE | RATING | CREATED_AT | CATEGORY_ID | USER_ID |
-      | 1  | Example name 1 | Example short description 1 | 50.033723 | 22.003051 | 0      | -5 day     | 1           | 1       |
+      | ID | NAME           | DESCRIPTION                 | LATITUDE  | LONGITUDE | CREATED_AT | CATEGORY_ID | USER_ID |
+      | 1  | Example name 1 | Example short description 1 | 50.033723 | 22.003051 | -5 day     | 1           | 1       |
     Given There are the following comments:
       | ID | CONTENT           | CREATED_AT | NOTIFICATION_ID | USER_ID |
       | 1  | Example content 1 |  -5 day    | 1               | 1       |
@@ -65,7 +65,10 @@ Feature: Show comments belong to notification
           "latitude": "@string@",
           "longitude": "@string@"
         },
-        "rating": @integer@,
+        "rating": {
+          "average": @integer@,
+          "count": @integer@
+        },
         "created_at": "@string@"
       },
       "user": {

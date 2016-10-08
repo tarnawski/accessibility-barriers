@@ -34,10 +34,6 @@ AccessibilityBarriersBundle\Entity\Notification:
             scale: 8
             precision: 11
             nullable: false
-        rating:
-            column: rating
-            type: integer
-            nullable: false
         createdAt:
             column: created_at
             type: datetime
@@ -45,6 +41,10 @@ AccessibilityBarriersBundle\Entity\Notification:
     oneToMany:
         comments:
             targetEntity: Comment
+            mappedBy: notification
+            cascade: ["all"]
+        ratings:
+            targetEntity: Rating
             mappedBy: notification
             cascade: ["all"]
     manyToOne:
