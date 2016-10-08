@@ -1,7 +1,7 @@
-Feature: Delete notification
-  In order to have actual list of notifications
+Feature: Rating notification
+  In order to have actual list of area
   As a login user
-  I need to be able to delete notification
+  I need to be able to create new area
 
   Background:
     Given There are the following clients:
@@ -18,27 +18,24 @@ Feature: Delete notification
     Given There are the following categories:
       | ID | NAME              |
       | 1  | Category number 1 |
-      | 2  | Category number 2 |
     Given There are the following notifications:
       | ID | NAME           | DESCRIPTION                 | LATITUDE  | LONGITUDE | CREATED_AT | CATEGORY_ID | USER_ID |
-      | 1  | Example name 1 | Example short description 1 | 50.033723 | 22.003051 | -5 day     | 1           | 1       |
-      | 2  | Example name 2 | Example short description 2 | 50.033131 | 21.998695 | -8 day     | 2           | 2       |
+      | 1  | Example unique | Example short description 1 | 50.033723 | 22.003051 | -5 day     | 1           | 1       |
 
   @cleanDB
-  Scenario: Delete notification
+  Scenario: Rating notification
     Given I set header "Authorization" with value "Bearer OWJkOGQzODliYTZjNTk3YTM1MmY0OTY2NjRlYTk2YmRmM2ZhNGE5YmZmMWVlYTg4MTllMmMxMzg3NzA4NGU5Nw"
-    When I send a DELETE request to "/api/notifications/1"
-    Then the response code should be 200
+    When I send a POST request to "/api/notifications/1/ratings" with body:
+    """
+    {
+      "value": 3
+    }
+    """
+    Then the response code should be 201
     And the JSON response should match:
     """
     {
-      "status": "Removed",
-      "message": "Notification properly removed"
+      "status": "SAVED"
     }
     """
 
-  @cleanDB
-  Scenario: Delete notification - user is not author
-    Given I set header "Authorization" with value "Bearer SDFSDFSDFSDFSDZjNTk3YTM1MmY0OTY2NjRlYTk2YmRmM2ZhNGE5YmZmMWVlYTg4MTllMmMxMDSFSDFSDFSDFm"
-    When I send a DELETE request to "/api/notifications/1"
-    Then the response code should be 403

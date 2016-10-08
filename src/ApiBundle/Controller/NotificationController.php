@@ -74,7 +74,6 @@ class NotificationController extends BaseController
         /** @var Notification $notification */
         $notification = $form->getData();
         $notification->setUser($this->getUser());
-        $notification->setRating(0);
         $notification->setCreatedAt(new \DateTime());
         $em = $this->getDoctrine()->getManager();
         $em->persist($notification);

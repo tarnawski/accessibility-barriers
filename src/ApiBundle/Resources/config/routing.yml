@@ -142,3 +142,11 @@ comment_delete:
   requirements:
       notification_id:  \d+
       comment_id:  \d+
+
+########## RATING ##########
+rating_notification:
+  path:     /notifications/{notification_id}/ratings
+  defaults: { _controller: ApiBundle:Rating:rating, _format: json }
+  methods: [POST]
+  requirements:
+      notification_id:  \d+

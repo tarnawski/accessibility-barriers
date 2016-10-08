@@ -1,0 +1,35 @@
+AccessibilityBarriersBundle\Entity\Rating:
+    type: entity
+    table: rating
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        value:
+            column: value
+            type: integer
+            nullable: false
+
+    manyToOne:
+        user:
+             targetEntity: OAuthBundle\Entity\User
+             inversedBy: rating
+             joinColumn:
+                name: user_id
+                referencedColumnName: id
+                nullable: true
+
+        notification:
+            targetEntity: Notification
+            inversedBy: rating
+            joinColumn:
+                name: notification_id
+                referencedColumnName: id
+
+    lifecycleCallbacks: {  }
