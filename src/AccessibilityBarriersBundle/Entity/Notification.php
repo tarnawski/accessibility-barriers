@@ -22,9 +22,6 @@ class Notification
     /** @var string */
     private $longitude;
 
-    /** @var integer */
-    private $rating;
-
     /** @var \DateTime */
     private $createdAt;
 
@@ -37,9 +34,13 @@ class Notification
     /** @var  ArrayCollection|Comment[] */
     private $comments;
 
+    /** @var  ArrayCollection|Rating[] */
+    private $ratings;
+
     public function __construct()
     {
         $this->comments = new ArrayCollection();
+        $this->ratings = new ArrayCollection();
     }
 
     /**
@@ -115,22 +116,6 @@ class Notification
     }
 
     /**
-     * @return int
-     */
-    public function getRating()
-    {
-        return $this->rating;
-    }
-
-    /**
-     * @param int $rating
-     */
-    public function setRating($rating)
-    {
-        $this->rating = $rating;
-    }
-
-    /**
      * @return \DateTime
      */
     public function getCreatedAt()
@@ -180,7 +165,7 @@ class Notification
 
     /**
      * @param Comment
-     * @return Comment
+     * @return Notification
      */
     public function addComment(Comment $comment)
     {
@@ -205,5 +190,26 @@ class Notification
     public function getComments()
     {
         return $this->comments;
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getRatings()
+    {
+        return $this->ratings;
+    }
+
+    /**
+     * @param Rating $rating
+     * @return Notification
+     */
+    public function addRating(Rating $rating)
+    {
+        if (!$this->ratings->contains($rating)) {
+            $rating->setNotification($this);
+            $this->ratings[] = $rating;
+        }
+        return $this;
     }
 }

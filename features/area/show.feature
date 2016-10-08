@@ -1,7 +1,7 @@
-Feature: Delete notification
-  In order to have actual list of notifications
-  As a login user
-  I need to be able to delete notification
+Feature: Show area
+  In order to have possibility to show areas
+  As a user
+  I need to be able to show areas stored in database
 
   Background:
     Given There are the following clients:
@@ -15,30 +15,37 @@ Feature: Delete notification
       | ID | CLIENT | USER | TOKEN                                                                                  | EXPIRES_AT |
       | 1  | 1      | 1    | OWJkOGQzODliYTZjNTk3YTM1MmY0OTY2NjRlYTk2YmRmM2ZhNGE5YmZmMWVlYTg4MTllMmMxMzg3NzA4NGU5Nw | +2 days    |
       | 2  | 1      | 2    | SDFSDFSDFSDFSDZjNTk3YTM1MmY0OTY2NjRlYTk2YmRmM2ZhNGE5YmZmMWVlYTg4MTllMmMxMDSFSDFSDFSDFm | +2 days    |
-    Given There are the following categories:
-      | ID | NAME              |
-      | 1  | Category number 1 |
-      | 2  | Category number 2 |
-    Given There are the following notifications:
-      | ID | NAME           | DESCRIPTION                 | LATITUDE  | LONGITUDE | CREATED_AT | CATEGORY_ID | USER_ID |
-      | 1  | Example name 1 | Example short description 1 | 50.033723 | 22.003051 | -5 day     | 1           | 1       |
-      | 2  | Example name 2 | Example short description 2 | 50.033131 | 21.998695 | -8 day     | 2           | 2       |
+    Given There are the following areas:
+      | ID | NAME          | LATITUDE  | LONGITUDE | DISTANCE | USER_ID |
+      | 1  | Area number 1 | 50.033723 | 22.003051 | 1        | 1       |
+      | 2  | Area number 2 | 50.033131 | 21.998695 | 2        | 1       |
 
   @cleanDB
-  Scenario: Delete notification
+  Scenario: Get all areas
     Given I set header "Authorization" with value "Bearer OWJkOGQzODliYTZjNTk3YTM1MmY0OTY2NjRlYTk2YmRmM2ZhNGE5YmZmMWVlYTg4MTllMmMxMzg3NzA4NGU5Nw"
-    When I send a DELETE request to "/api/notifications/1"
+    When I send a GET request to "/api/user/1/areas"
     Then the response code should be 200
     And the JSON response should match:
     """
-    {
-      "status": "Removed",
-      "message": "Notification properly removed"
-    }
+    [
+      {
+        "id": @integer@,
+        "name": "@string@",
+        "coordinates": {
+          "latitude": "@string@",
+          "longitude": "@string@"
+        },
+        "distance": "@integer@"
+      },
+      {
+        "id": @integer@,
+        "name": "@string@",
+        "coordinates": {
+          "latitude": "@string@",
+          "longitude": "@string@"
+        },
+        "distance": "@integer@"
+      }
+    ]
     """
 
-  @cleanDB
-  Scenario: Delete notification - user is not author
-    Given I set header "Authorization" with value "Bearer SDFSDFSDFSDFSDZjNTk3YTM1MmY0OTY2NjRlYTk2YmRmM2ZhNGE5YmZmMWVlYTg4MTllMmMxMDSFSDFSDFSDFm"
-    When I send a DELETE request to "/api/notifications/1"
-    Then the response code should be 403

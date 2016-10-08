@@ -4,7 +4,6 @@ AccessibilityBarriersBundle\Entity\Notification:
     description: Niewymiarowa zatoka utrudnia prawidłowe stawanie autobusu.
     latitude: 50.033723
     longitude: 22.003051
-    rating: <numberBetween(0, 50)>
     createdAt: <dateTimeBetween('-30 days', 'now')>
     category: '@category4'
     user: '@user1'
@@ -13,7 +12,6 @@ AccessibilityBarriersBundle\Entity\Notification:
     description: Przystanek w kierunku centrum. Dojście do pojazdu przez torowisko tramwajowe - peron oddalony od miejsca zatrzymania autobusu.
     latitude: 50.030559
     longitude: 22.000111
-    rating: <numberBetween(0, 50)>
     createdAt: <dateTimeBetween('-30 days', 'now')>
     category: '@category4'
     user: '@user1'
@@ -22,7 +20,6 @@ AccessibilityBarriersBundle\Entity\Notification:
     description: Peron jest na poziomie wyższym niż przebiegający obok chodnik. Chodniki jest w złym stanie technicznym.
     latitude: 50.039498
     longitude: 21.994725
-    rating: <numberBetween(0, 50)>
     createdAt: <dateTimeBetween('-30 days', 'now')>
     category: '@category4'
     user: '@user2'
@@ -31,7 +28,6 @@ AccessibilityBarriersBundle\Entity\Notification:
     description: Zbyt wąski peron utrudnia wsiadanie i wysiadanie pasażerów. Nierówny chodnik na dojściu, źle postawiona wiata utrudnia poruszanie się.
     latitude: 50.038285
     longitude: 21.989876
-    rating: <numberBetween(0, 50)>
     createdAt: <dateTimeBetween('-30 days', 'now')>
     category: '@category4'
     user: '@user1'
@@ -40,7 +36,6 @@ AccessibilityBarriersBundle\Entity\Notification:
     description: Zbyt wąski peron w złym stanie technicznym, brak utwardzonego dojścia na przystanek.
     latitude: 50.036156
     longitude: 22.020035
-    rating: <numberBetween(0, 50)>
     createdAt: <dateTimeBetween('-30 days', 'now')>
     category: '@category4'
     user: '@user1'
@@ -49,7 +44,6 @@ AccessibilityBarriersBundle\Entity\Notification:
     description: Perony wyposażone w platformy przyschodowe od strony Al. Jerozolimskich. Brak oznaczenia krawędzi stopni oraz alternatywy dla schodów w postaci podjazdów lub wind.
     latitude: 50.034282
     longitude: 22.025700
-    rating: <numberBetween(0, 50)>
     createdAt: <dateTimeBetween('-30 days', 'now')>
     category: '@category4'
     user: '@user1'
@@ -58,7 +52,6 @@ AccessibilityBarriersBundle\Entity\Notification:
     description: Drzewa na terenie przystanku utrudniają wsiadanie i wysiadanie
     latitude: 50.035826
     longitude: 21.992397
-    rating: <numberBetween(0, 50)>
     createdAt: <dateTimeBetween('-30 days', 'now')>
     category: '@category4'
     user: '@user1'
@@ -67,7 +60,6 @@ AccessibilityBarriersBundle\Entity\Notification:
     description: Przystanek w złym stanie technicznym. Zbyt krótka krawędź peronu, brak pasów ostrzegawczych.
     latitude: 50.031746
     longitude: 21.999435
-    rating: <numberBetween(0, 50)>
     createdAt: <dateTimeBetween('-30 days', 'now')>
     category: '@category4'
     user: '@user1'
@@ -76,7 +68,6 @@ AccessibilityBarriersBundle\Entity\Notification:
     description: Dojście na perony za pośrednictwem schodów i wind od strony wschodniej. Brak oznaczeń dotykowych, bardzo awaryjne windy.
     latitude: 50.041338
     longitude: 22.006989
-    rating: <numberBetween(0, 50)>
     createdAt: <dateTimeBetween('-30 days', 'now')>
     category: '@category4'
     user: '@user1'
@@ -85,7 +76,6 @@ AccessibilityBarriersBundle\Entity\Notification:
     description: Brak utwardzonego dojścia na przystanek.
     latitude: 50.037479
     longitude: 22.037029
-    rating: <numberBetween(0, 50)>
     createdAt: <dateTimeBetween('-30 days', 'now')>
     category: '@category4'
     user: '@user1'
@@ -94,7 +84,6 @@ AccessibilityBarriersBundle\Entity\Notification:
     description: Brak oznaczeń dotykowych, schody bez alternatywnych pochylni utrudniają korzystanie ze skweru.
     latitude: 50.033179
     longitude: 22.013512
-    rating: <numberBetween(0, 50)>
     createdAt: <dateTimeBetween('-30 days', 'now')>
     category: '@category2'
     user: '@user1'
@@ -103,7 +92,6 @@ AccessibilityBarriersBundle\Entity\Notification:
     description: Schody bez ułatwień w dostępie. Zainstalowana w tym miejscu winda jest notorycznie zepsuta.
     latitude: 50.020056
     longitude: 22.023296
-    rating: <numberBetween(0, 50)>
     createdAt: <dateTimeBetween('-30 days', 'now')>
     category: '@category2'
     user: '@user1'
@@ -112,7 +100,6 @@ AccessibilityBarriersBundle\Entity\Notification:
     description: Brak alternatywny dla schodów oraz oznaczeń krawędzi stopni.
     latitude: 50.021600
     longitude: 21.980724
-    rating: <numberBetween(0, 50)>
     createdAt: <dateTimeBetween('-30 days', 'now')>
     category: '@category2'
     user: '@user1'
@@ -121,7 +108,6 @@ AccessibilityBarriersBundle\Entity\Notification:
     description: Zbyt stromy podjazd, brak oznaczenia krawędzi.
     latitude: 50.049937
     longitude: 21.974888
-    rating: <numberBetween(0, 50)>
     createdAt: <dateTimeBetween('-30 days', 'now')>
     category: '@category2'
     user: '@user1'
@@ -130,7 +116,6 @@ AccessibilityBarriersBundle\Entity\Notification:
     description: Schody bez oznaczeń krawędzi. Pryz schodach znajduje się stromy podjazd bez poręczy.
     latitude: 50.049716
     longitude: 22.003384
-    rating: <numberBetween(0, 50)>
     createdAt: <dateTimeBetween('-30 days', 'now')>
     category: '@category2'
     user: '@user1'
@@ -139,7 +124,6 @@ AccessibilityBarriersBundle\Entity\Notification:
     description: Schody posiadają podjazdy dla wózków dziecięcych, brak innych ułatwień.
     latitude: 50.034502
     longitude: 21.997719
-    rating: <numberBetween(0, 50)>
     createdAt: <dateTimeBetween('-30 days', 'now')>
     category: '@category2'
     user: '@user1'
@@ -148,7 +132,6 @@ AccessibilityBarriersBundle\Entity\Notification:
     description: Brak alternatywy w postaci pochylni oraz brak oznaczonej krawędzi stopni.
     latitude: 50.022151
     longitude: 21.991196
-    rating: <numberBetween(0, 50)>
     createdAt: <dateTimeBetween('-30 days', 'now')>
     category: '@category2'
     user: '@user1'
@@ -157,7 +140,6 @@ AccessibilityBarriersBundle\Entity\Notification:
     description: Schody nie posiadają ułatwień w poruszaniu się.
     latitude: 50.021159
     longitude: 22.006645
-    rating: <numberBetween(0, 50)>
     createdAt: <dateTimeBetween('-30 days', 'now')>
     category: '@category2'
     user: '@user1'
@@ -166,7 +148,6 @@ AccessibilityBarriersBundle\Entity\Notification:
     description: 2 ciągi schodów - zbyt stromy podjazd, brak poręczy oraz brak oznaczeń krawędzi schodów.
     latitude: 50.028548
     longitude: 21.988449
-    rating: <numberBetween(0, 50)>
     createdAt: <dateTimeBetween('-30 days', 'now')>
     category: '@category2'
     user: '@user1'
@@ -175,7 +156,6 @@ AccessibilityBarriersBundle\Entity\Notification:
     description: Wejście na wiadukt z każdej strony to schody bez ułatwień w dostępie.
     latitude: 50.039684
     longitude: 21.989479
-    rating: <numberBetween(0, 50)>
     createdAt: <dateTimeBetween('-30 days', 'now')>
     category: '@category3'
     user: '@user1'
@@ -184,7 +164,6 @@ AccessibilityBarriersBundle\Entity\Notification:
     description: Brak alternatywy dla schodów w postaci pochylni lub windy. Brak oznaczeń krawędzi.
     latitude: 50.028658
     longitude: 22.027588
-    rating: <numberBetween(0, 50)>
     createdAt: <dateTimeBetween('-30 days', 'now')>
     category: '@category3'
     user: '@user1'
@@ -194,7 +173,6 @@ AccessibilityBarriersBundle\Entity\Notification:
     description: Źle obniżone (zbyt wysokie lub brak pasów ostrzegawczych) krawężniki na 4 przejściach.
     latitude: 50.034943
     longitude: 21.998234
-    rating: <numberBetween(0, 50)>
     createdAt: <dateTimeBetween('-30 days', 'now')>
     category: '@category1'
     user: '@user1'
@@ -203,7 +181,6 @@ AccessibilityBarriersBundle\Entity\Notification:
     description: Krawężnik obniżony na przejeździe rowerowym, brak obniżenia w przypadku chodnika.
     latitude: 50.042110
     longitude: 22.012997
-    rating: <numberBetween(0, 50)>
     createdAt: <dateTimeBetween('-30 days', 'now')>
     category: '@category1'
     user: '@user1'
@@ -212,7 +189,6 @@ AccessibilityBarriersBundle\Entity\Notification:
     description: Od strony południowej brak utwardzonego dojścia do przejścia. Niebezpieczne przejście ze względu szerokości pasów ruchów.
     latitude: 50.046299
     longitude: 21.992569
-    rating: <numberBetween(0, 50)>
     createdAt: <dateTimeBetween('-30 days', 'now')>
     category: '@category1'
     user: '@user1'
@@ -221,7 +197,6 @@ AccessibilityBarriersBundle\Entity\Notification:
     description: Przejście przez ulicę Grochowską posiadają azyl między jezdniami w złym stanie technicznym, bez obniżonych krawężników.
     latitude: 50.029430
     longitude: 22.002010
-    rating: <numberBetween(0, 50)>
     createdAt: <dateTimeBetween('-30 days', 'now')>
     category: '@category1'
     user: '@user1'
@@ -230,7 +205,6 @@ AccessibilityBarriersBundle\Entity\Notification:
     description: Brak wyznaczonego przejścia i obniżonych krawężników.
     latitude: 50.039243
     longitude: 21.971798
-    rating: <numberBetween(0, 50)>
     createdAt: <dateTimeBetween('-30 days', 'now')>
     category: '@category1'
     user: '@user1'
@@ -239,7 +213,6 @@ AccessibilityBarriersBundle\Entity\Notification:
     description: Źle obniżony (brak pasa ostrzegawczego) krawężnik w północno-zachodnim narożniku.
     latitude: 50.028217
     longitude: 22.017288
-    rating: <numberBetween(0, 50)>
     createdAt: <dateTimeBetween('-30 days', 'now')>
     category: '@category1'
     user: '@user1'
@@ -248,7 +221,6 @@ AccessibilityBarriersBundle\Entity\Notification:
     description: Latarnie umieszczone na środku wąskiego chodnika
     latitude: 50.030202
     longitude: 22.015400
-    rating: <numberBetween(0, 50)>
     createdAt: <dateTimeBetween('-30 days', 'now')>
     category: '@category5'
     user: '@user1'
@@ -257,7 +229,6 @@ AccessibilityBarriersBundle\Entity\Notification:
     description: Brak utwardzonego chodnika, płyty chodnikowe w złym stanie.
     latitude: 50.034061
     longitude: 22.013512
-    rating: <numberBetween(0, 50)>
     createdAt: <dateTimeBetween('-30 days', 'now')>
     category: '@category5'
     user: '@user1'
@@ -266,7 +237,6 @@ AccessibilityBarriersBundle\Entity\Notification:
     description: Brak utwardzonego chodnika. Możliwość obejścia ulicą Fosa, na drodze 2 razy występują schody z podjazdami naschodowymi.
     latitude: 50.024909
     longitude: 21.987076
-    rating: <numberBetween(0, 50)>
     createdAt: <dateTimeBetween('-30 days', 'now')>
     category: '@category5'
     user: '@user1'
@@ -275,7 +245,6 @@ AccessibilityBarriersBundle\Entity\Notification:
     description: Przejazd zagrodzony szlabanami, przejście przez tory wymaga pokonania obejścia szlabanów i pokonania nierówności.
     latitude: 50.043433
     longitude: 22.015057
-    rating: <numberBetween(0, 50)>
     createdAt: <dateTimeBetween('-30 days', 'now')>
     category: '@category6'
     user: '@user1'

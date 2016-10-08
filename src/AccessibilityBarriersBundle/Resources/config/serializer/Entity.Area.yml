@@ -1,0 +1,23 @@
+AccessibilityBarriersBundle\Entity\Area:
+  exclusion_policy: ALL
+  properties:
+    id:
+      expose: true
+      groups: [AREA_LIST, AREA_DETAILS]
+    name:
+      expose: true
+      groups: [AREA_LIST, AREA_DETAILS]
+    latitude:
+      expose: false
+      groups: [AREA_LIST, AREA_DETAILS]
+    longitude:
+      expose: false
+      groups: [AREA_LIST, AREA_DETAILS]
+    distance:
+      expose: true
+      groups: [AREA_LIST, AREA_DETAILS]
+    user:
+      expose: true
+      groups: [NOTIFICATION_DETAILS]
+      type: OAuthBundle\Entity\User
+

@@ -3,6 +3,7 @@ namespace ApiBundle\Controller;
 
 use AccessibilityBarriersBundle\Entity\Notification;
 use AccessibilityBarriersBundle\Repository\NotificationRepository;
+use ApiBundle\Form\Type\NotificationCriteriaType;
 use ApiBundle\Form\Type\NotificationType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -20,9 +21,11 @@ class NotificationController extends BaseController
      */
     public function indexAction(Request $request)
     {
+        $form = $this->createForm(NotificationCriteriaType::class);
+        $form->submit($request->query->all());
         /** @var NotificationRepository $notificationRepository */
         $notificationRepository = $this->getRepository(Notification::class);
-        $notifications = $notificationRepository->findByQuery($request->get('query'));
+        $notifications = $notificationRepository->findByCriteria($form->getData());
 
         return $this->success($notifications, 'Notification', Response::HTTP_OK, array('NOTIFICATION_LIST'));
     }
@@ -71,7 +74,6 @@ class NotificationController extends BaseController
         /** @var Notification $notification */
         $notification = $form->getData();
         $notification->setUser($this->getUser());
-        $notification->setRating(0);
         $notification->setCreatedAt(new \DateTime());
         $em = $this->getDoctrine()->getManager();
         $em->persist($notification);

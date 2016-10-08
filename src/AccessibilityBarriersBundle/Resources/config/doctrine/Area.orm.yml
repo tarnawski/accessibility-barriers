@@ -1,7 +1,6 @@
-AccessibilityBarriersBundle\Entity\Notification:
+AccessibilityBarriersBundle\Entity\Area:
     type: entity
-    table: notification
-    repositoryClass: AccessibilityBarriersBundle\Repository\NotificationRepository
+    table: area
     id:
         id:
             type: integer
@@ -17,11 +16,6 @@ AccessibilityBarriersBundle\Entity\Notification:
             type: string
             nullable: false
             length: 64
-        description:
-            column: description
-            type: string
-            nullable: false
-            length: 255
         latitude:
             column: latitude
             type: decimal
@@ -34,30 +28,15 @@ AccessibilityBarriersBundle\Entity\Notification:
             scale: 8
             precision: 11
             nullable: false
-        createdAt:
-            column: created_at
-            type: datetime
+        distance:
+            column: distance
+            type: integer
             nullable: false
-    oneToMany:
-        comments:
-            targetEntity: Comment
-            mappedBy: notification
-            cascade: ["all"]
-        ratings:
-            targetEntity: Rating
-            mappedBy: notification
-            cascade: ["all"]
+
     manyToOne:
-        category:
-             targetEntity: Category
-             inversedBy: notification
-             joinColumn:
-                name: category_id
-                referencedColumnName: id
-                nullable: false
         user:
              targetEntity: OAuthBundle\Entity\User
-             inversedBy: notification
+             inversedBy: area
              joinColumn:
                 name: user_id
                 referencedColumnName: id
