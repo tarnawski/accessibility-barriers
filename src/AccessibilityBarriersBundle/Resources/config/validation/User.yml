@@ -3,8 +3,6 @@ AccessibilityBarriersBundle\Entity\User:
     startAt:
       - NotBlank: ~
       - DateTime: ~
-    area:
-      - NotBlank: ~
     category:
       - NotBlank: ~
     endAt:

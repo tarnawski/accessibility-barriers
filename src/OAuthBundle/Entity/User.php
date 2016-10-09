@@ -33,9 +33,6 @@ class User extends BaseUser
     /** @var  ArrayCollection|Comment[] */
     private $comments;
 
-    /** @var  ArrayCollection|Area[] */
-    private $areas;
-
     /** @var  ArrayCollection|Rating[] */
     private $ratings;
 
@@ -44,7 +41,6 @@ class User extends BaseUser
         parent::__construct();
         $this->notifications = new ArrayCollection();
         $this->comments = new ArrayCollection();
-        $this->areas = new ArrayCollection();
         $this->ratings = new ArrayCollection();
     }
 
@@ -136,35 +132,6 @@ class User extends BaseUser
     public function removeComment(Comment $comment)
     {
         $this->comments->removeElement($comment);
-    }
-
-    /**
-     * @return ArrayCollection
-     */
-    public function getAreas()
-    {
-        return $this->areas;
-    }
-
-    /**
-     * @param Area $area
-     * @return User
-     */
-    public function addArea(Area $area)
-    {
-        if (!$this->areas->contains($area)) {
-            $area->setUser($this);
-            $this->areas[] = $area;
-        }
-        return $this;
-    }
-
-    /**
-     * @param Area $area
-     */
-    public function removeArea(Area $area)
-    {
-        $this->areas->removeElement($area);
     }
 
     /**
