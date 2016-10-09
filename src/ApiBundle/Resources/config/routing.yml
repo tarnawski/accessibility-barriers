@@ -15,30 +15,6 @@ register:
   defaults: { _controller: ApiBundle:User:register, _format: json }
   methods: [POST]
 
-
-########## AREA ##########
-area_show:
-  path:     /user/{user_id}/areas
-  defaults: { _controller: ApiBundle:Area:index, _format: json }
-  methods: [GET]
-  requirements:
-      user_id:  \d+
-
-area_create:
-  path:     /user/{user_id}/areas
-  defaults: { _controller: ApiBundle:Area:create, _format: json }
-  methods: [POST]
-  requirements:
-      user_id:  \d+
-
-area_delete:
-  path:     /user/{user_id}/areas/{area_id}
-  defaults: { _controller: ApiBundle:Area:delete, _format: json }
-  methods: [DELETE]
-  requirements:
-      user_id:  \d+
-      area_id:  \d+
-
 ########## CATEGORY ##########
 category_all:
   path:     /categories

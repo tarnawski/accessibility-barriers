@@ -22,9 +22,3 @@ services:
     tags:
       - { name: security.voter }
     public: false
-
-  area_voter:
-    class: ApiBundle\Security\Authorization\Voter\AreaVoter
-    tags:
-      - { name: security.voter }
-    public: false

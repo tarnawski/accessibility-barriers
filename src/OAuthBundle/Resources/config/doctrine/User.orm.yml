@@ -26,10 +26,6 @@ OAuthBundle\Entity\User:
             targetEntity: AccessibilityBarriersBundle\Entity\Comment
             mappedBy: user
             cascade: ["all"]
-       areas:
-           targetEntity: AccessibilityBarriersBundle\Entity\Area
-           mappedBy: user
-           cascade: ["all"]
        comments:
             targetEntity: AccessibilityBarriersBundle\Entity\Rating
             mappedBy: user
