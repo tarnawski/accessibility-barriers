@@ -44,6 +44,7 @@ Feature: Create notification
       "id": @integer@,
       "name": "@string@",
       "description": "@string@",
+      "address": "@string@",
       "coordinates": {
         "latitude": "@string@",
         "longitude": "@string@"
