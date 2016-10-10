@@ -2,6 +2,7 @@
 namespace ApiBundle\Controller;
 
 use AccessibilityBarriersBundle\Entity\Notification;
+use AccessibilityBarriersBundle\Notification\SenderEngine;
 use AccessibilityBarriersBundle\Repository\NotificationRepository;
 use ApiBundle\Form\Type\NotificationCriteriaType;
 use ApiBundle\Form\Type\NotificationType;
@@ -78,6 +79,10 @@ class NotificationController extends BaseController
         $em = $this->getDoctrine()->getManager();
         $em->persist($notification);
         $em->flush();
+
+        /** @var SenderEngine $senderEngine */
+        $senderEngine = $this->get('accessibility_barriers.sender_engine');
+        $senderEngine->send($notification);
 
         return $this->success($notification, 'Notification', Response::HTTP_CREATED, array(
             'NOTIFICATION_DETAILS',
