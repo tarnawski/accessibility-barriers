@@ -78,6 +78,10 @@ class NotificationController extends BaseController
         $notification->setSend(false);
         $notification->setUser($this->getUser());
         $notification->setCreatedAt(new \DateTime());
+
+        /** Set address via external api */
+        $places
+
         $em = $this->getDoctrine()->getManager();
         $em->persist($notification);
 
