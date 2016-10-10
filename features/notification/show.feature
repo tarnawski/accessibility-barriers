@@ -35,6 +35,7 @@ Feature: Show notification
         "id": @integer@,
         "name": "@string@",
         "description": "@string@",
+        "address": "@string@",
         "coordinates": {
           "latitude": "@string@",
           "longitude": "@string@"
@@ -49,6 +50,7 @@ Feature: Show notification
         "id": @integer@,
         "name": "@string@",
         "description": "@string@",
+        "address": "@string@",
         "coordinates": {
           "latitude": "@string@",
           "longitude": "@string@"
@@ -73,6 +75,7 @@ Feature: Show notification
         "id": @integer@,
         "name": "Example unique",
         "description": "@string@",
+        "address": "@string@",
         "coordinates": {
           "latitude": "@string@",
           "longitude": "@string@"
@@ -96,6 +99,7 @@ Feature: Show notification
         "id": @integer@,
         "name": "@string@",
         "description": "@string@",
+        "address": "@string@",
         "coordinates": {
           "latitude": "@string@",
           "longitude": "@string@"

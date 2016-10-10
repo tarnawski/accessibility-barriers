@@ -3,12 +3,21 @@
 namespace AccessibilityBarriersBundle\Serializer;
 
 use AccessibilityBarriersBundle\Entity\Rating;
+use AccessibilityBarriersBundle\Service\GooglePlacesService;
 use JMS\Serializer\EventDispatcher\EventSubscriberInterface;
 use JMS\Serializer\EventDispatcher\ObjectEvent;
 use AccessibilityBarriersBundle\Entity\Notification;
 
-class NotificationRatingSubscribingHandler implements EventSubscriberInterface
+class PlacesNotificationSubscribingHandler implements EventSubscriberInterface
 {
+    /** @var GooglePlacesService */
+    private $placesService;
+
+    public function __construct(GooglePlacesService $googlePlacesService)
+    {
+        $this->placesService = $googlePlacesService;
+    }
+
     public static function getSubscribedEvents()
     {
         return [
@@ -21,25 +30,8 @@ class NotificationRatingSubscribingHandler implements EventSubscriberInterface
         /** @var Notification $notification */
         $notification = $event->getObject();
         $visitor = $event->getVisitor();
+        $address = $this->placesService->getPlaceName($notification->getLatitude(), $notification->getLongitude());
 
-        if(count($notification->getRatings()) === 0) {
-            $rating = [
-                'average' => 0,
-                'count' => 0
-            ];
-        } else {
-            $sum = 0;
-            /** @var Rating $rating */
-            foreach ($notification->getRatings() as $rating) {
-                $sum = $sum + $rating->getValue();
-            }
-
-            $rating = [
-                'average' => $sum / count($notification->getRatings()),
-                'count' => count($notification->getRatings())
-            ];
-        }
-
-        $visitor->addData('rating', $rating);
+        $visitor->addData('address', $address);
     }
 }
