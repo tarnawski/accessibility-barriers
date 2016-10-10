@@ -29,16 +29,16 @@ class EmailStrategy implements SendingStrategy
         $message->setFrom('tarnawski@go2.pl');
         $message->setTo($user->getEmail());
         $message->setBody(
-                $this->twig->render(
-                    'Emails/notification.html.twig',
-                    [
-                        'name' => $notification->getName(),
-                        'description' => $notification->getDescription()
-                    ]
-                ),
-                'text/html'
-            );
+            $this->twig->render(
+                'Emails/notification.html.twig',
+                [
+                    'name' => $notification->getName(),
+                    'description' => $notification->getDescription()
+                ]
+            ),
+            'text/html'
+        );
 
-       $this->mailer->send($message);
+        $this->mailer->send($message);
     }
 }

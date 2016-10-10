@@ -5,6 +5,12 @@ services:
     arguments:
       - OAuthBundle\Entity\User
 
+  accessibility_barriers.repository.notification:
+    class: Doctrine\ORM\EntityRepository
+    factory: ['@doctrine.orm.entity_manager', getRepository]
+    arguments:
+      - AccessibilityBarriersBundle\Entity\Notification
+
   guzzle.http.client:
     class: GuzzleHttp\Client
 
@@ -60,4 +66,6 @@ services:
     class: AccessibilityBarriersBundle\Notification\SenderEngine
     arguments:
       - '@accessibility_barriers.repository.user'
+      - '@accessibility_barriers.repository.notification'
       - '@accessibility_barriers.strategies_factory'
+      - '@doctrine.orm.entity_manager'

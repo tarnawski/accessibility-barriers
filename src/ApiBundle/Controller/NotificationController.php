@@ -6,6 +6,7 @@ use AccessibilityBarriersBundle\Notification\SenderEngine;
 use AccessibilityBarriersBundle\Repository\NotificationRepository;
 use ApiBundle\Form\Type\NotificationCriteriaType;
 use ApiBundle\Form\Type\NotificationType;
+use JMS\JobQueueBundle\Entity\Job;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
@@ -74,15 +75,17 @@ class NotificationController extends BaseController
         }
         /** @var Notification $notification */
         $notification = $form->getData();
+        $notification->setSend(false);
         $notification->setUser($this->getUser());
         $notification->setCreatedAt(new \DateTime());
         $em = $this->getDoctrine()->getManager();
         $em->persist($notification);
-        $em->flush();
 
-        /** @var SenderEngine $senderEngine */
-        $senderEngine = $this->get('accessibility_barriers.sender_engine');
-        $senderEngine->send($notification);
+        /** Add job to queue */
+        $job = new Job('notification:distribute');
+        $em->persist($job);
+
+        $em->flush();
 
         return $this->success($notification, 'Notification', Response::HTTP_CREATED, array(
             'NOTIFICATION_DETAILS',

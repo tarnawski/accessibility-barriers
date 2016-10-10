@@ -10,6 +10,18 @@ use Doctrine\ORM\EntityRepository;
  */
 class NotificationRepository extends EntityRepository
 {
+
+    public function findAllNotDistributed()
+    {
+        $result = $this->createQueryBuilder('n')
+            ->select('n')
+            ->where('n.send = false')
+            ->getQuery()
+            ->getResult();
+
+        return $result;
+    }
+
     public function findByCriteria(NotificationCriteria $criteria)
     {
         $builder = $this->createQueryBuilder('n');

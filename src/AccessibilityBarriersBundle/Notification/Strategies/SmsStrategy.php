@@ -18,10 +18,10 @@ class SmsStrategy implements SendingStrategy
             'message' => "Hello world!",
         );
 
-        $this->sms_send($params, self::TOKEN);
+        $this->smsSend($params, self::TOKEN);
     }
 
-    private function sms_send($params, $token, $backup = false)
+    private function smsSend($params, $token, $backup = false)
     {
 
         if ($backup == true) {
@@ -44,7 +44,7 @@ class SmsStrategy implements SendingStrategy
 
         if ($http_status != 200 && $backup == false) {
             $backup = true;
-            $this->sms_send($params, $token, $backup);
+            $this->smsSend($params, $token, $backup);
         }
 
         curl_close($c);
