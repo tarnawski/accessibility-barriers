@@ -34,6 +34,11 @@ AccessibilityBarriersBundle\Entity\Notification:
             scale: 8
             precision: 11
             nullable: false
+        send:
+            column: send
+            type: boolean
+            options:
+                default: 0
         createdAt:
             column: created_at
             type: datetime

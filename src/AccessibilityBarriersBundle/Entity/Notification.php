@@ -25,6 +25,9 @@ class Notification
     /** @var \DateTime */
     private $createdAt;
 
+    /** @var boolean */
+    private $send;
+
     /** @var User */
     private $user;
 
@@ -129,6 +132,22 @@ class Notification
     public function setCreatedAt($createdAt)
     {
         $this->createdAt = $createdAt;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isSend()
+    {
+        return $this->send;
+    }
+
+    /**
+     * @param boolean $send
+     */
+    public function setSend($send)
+    {
+        $this->send = $send;
     }
 
     /**
