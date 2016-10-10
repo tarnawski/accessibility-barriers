@@ -72,7 +72,7 @@ AccessibilityBarriersBundle\Entity\Notification:
   notification8:
     name: Przystanek autobusowy Północny 01
     description: Przystanek w złym stanie technicznym. Zbyt krótka krawędź peronu, brak pasów ostrzegawczych.
-    address: plac Śreniawitów, Rzeszów, Poland
+    address: Plac Śreniawitów, Rzeszów, Poland
     latitude: 50.031746
     longitude: 21.999435
     createdAt: <dateTimeBetween('-30 days', 'now')>
@@ -263,7 +263,7 @@ AccessibilityBarriersBundle\Entity\Notification:
   notification27:
     name: Skrzyżowanie ulic Księdza Teofila Boguckiego i Ludwika Rydygiera
     description: Źle obniżony (brak pasa ostrzegawczego) krawężnik w północno-zachodnim narożniku.
-    address: aleja Tadeusza Rejtana 27B, Rzeszów, Poland
+    address: Aleja Tadeusza Rejtana 27B, Rzeszów, Poland
     latitude: 50.028217
     longitude: 22.017288
     createdAt: <dateTimeBetween('-30 days', 'now')>
@@ -273,7 +273,7 @@ AccessibilityBarriersBundle\Entity\Notification:
   notification28:
     name: Południowa strona ulicy Turbinowej
     description: Latarnie umieszczone na środku wąskiego chodnika.
-    address: aleja Tadeusza Rejtana 16C, Rzeszów, Poland
+    address: Aleja Tadeusza Rejtana 16C, Rzeszów, Poland
     latitude: 50.030202
     longitude: 22.015400
     createdAt: <dateTimeBetween('-30 days', 'now')>
