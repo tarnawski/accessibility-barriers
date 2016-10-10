@@ -4,6 +4,7 @@ namespace ApiBundle\Controller;
 use AccessibilityBarriersBundle\Entity\Notification;
 use AccessibilityBarriersBundle\Notification\SenderEngine;
 use AccessibilityBarriersBundle\Repository\NotificationRepository;
+use AccessibilityBarriersBundle\Service\GooglePlacesService;
 use ApiBundle\Form\Type\NotificationCriteriaType;
 use ApiBundle\Form\Type\NotificationType;
 use JMS\JobQueueBundle\Entity\Job;
@@ -80,7 +81,10 @@ class NotificationController extends BaseController
         $notification->setCreatedAt(new \DateTime());
 
         /** Set address via external api */
-        $places
+        /** @var GooglePlacesService $placesService */
+        $placesService = $this->get('accessibility_barriers.services.google_places');
+        $address = $placesService->getPlaceName($notification->getLatitude(), $notification->getLongitude());
+        $notification->setAddress($address);
 
         $em = $this->getDoctrine()->getManager();
         $em->persist($notification);
