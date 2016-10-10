@@ -40,13 +40,6 @@ services:
     tags:
       - { name: jms_serializer.event_subscriber }
 
-  accessibility_barriers.serializer_places_notifications:
-    class: AccessibilityBarriersBundle\Serializer\PlacesNotificationSubscribingHandler
-    arguments:
-      - '@accessibility_barriers.services.google_places'
-    tags:
-      - { name: jms_serializer.event_subscriber }
-
   accessibility_barriers.email_notification.strategy:
     class: AccessibilityBarriersBundle\Notification\Strategies\EmailStrategy
     arguments:

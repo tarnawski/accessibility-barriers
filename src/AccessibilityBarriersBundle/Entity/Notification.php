@@ -17,6 +17,9 @@ class Notification
     private $description;
 
     /** @var string */
+    private $address;
+
+    /** @var string */
     private $latitude;
 
     /** @var string */
@@ -84,6 +87,22 @@ class Notification
     public function setDescription($description)
     {
         $this->description = $description;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAddress()
+    {
+        return $this->address;
+    }
+
+    /**
+     * @param string $address
+     */
+    public function setAddress($address)
+    {
+        $this->address = $address;
     }
 
     /**

@@ -10,6 +10,9 @@ AccessibilityBarriersBundle\Entity\Notification:
     description:
       expose: true
       groups: [NOTIFICATION_LIST, NOTIFICATION_DETAILS]
+    address:
+      expose: true
+      groups: [NOTIFICATION_LIST, NOTIFICATION_DETAILS]
     latitude:
       expose: false
       groups: [NOTIFICATION_LIST, NOTIFICATION_DETAILS]
