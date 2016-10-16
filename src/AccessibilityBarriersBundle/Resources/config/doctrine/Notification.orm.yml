@@ -50,6 +50,7 @@ AccessibilityBarriersBundle\Entity\Notification:
             nullable: false
     oneToMany:
         comments:
+            orderBy: { 'createdAt': 'DESC' }
             targetEntity: Comment
             mappedBy: notification
             cascade: ["all"]

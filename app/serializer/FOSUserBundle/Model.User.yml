@@ -14,7 +14,7 @@ FOS\UserBundle\Model\User:
       groups: [USER_DETAILS, USER_PROFILE]
     email:
       expose: true
-      groups: [USER_DETAILS, USER_PROFILE]
+      groups: [USER_DETAILS, USER_PROFILE, USER_BASIC]
     email_canonical:
       expose: true
       groups: [USER_DETAILS]

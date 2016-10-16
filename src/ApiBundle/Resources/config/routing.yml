@@ -6,7 +6,7 @@ application_status:
 
 ########## USER ##########
 user_show:
-  path:     /user/profile
+  path:     /profile
   defaults: { _controller: ApiBundle:User:profile, _format: json }
   methods: [GET]
 

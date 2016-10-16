@@ -72,6 +72,7 @@ class CommentController extends BaseController
 
         /** @var Comment $comment */
         $comment = $form->getData();
+        $comment->setUser($this->getUser());
         $comment->setNotification($notification);
         $comment->setCreatedAt(new \DateTime());
         $em = $this->getDoctrine()->getManager();

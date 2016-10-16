@@ -17,7 +17,7 @@ Feature: Show information about current login user
   @cleanDB
   Scenario: Get information about my profile
     Given I set header "Authorization" with value "Bearer OWJkOGQzODliYTZjNTk3YTM1MmY0OTY2NjRlYTk2YmRmM2ZhNGE5YmZmMWVlYTg4MTllMmMxMzg3NzA4NGU5Nw"
-    When I send a GET request to "/api/user/profile"
+    When I send a GET request to "/api/profile"
     Then the response code should be 200
     And the JSON response should match:
     """
