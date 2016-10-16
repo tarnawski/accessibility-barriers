@@ -36,7 +36,12 @@ doctrine:
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"
         auto_mapping: true
-
+        dql:
+           numeric_functions:
+              acos: DoctrineExtensions\Query\Mysql\Acos
+              cos: DoctrineExtensions\Query\Mysql\Cos
+              sin: DoctrineExtensions\Query\Mysql\Sin
+              radians: DoctrineExtensions\Query\Mysql\Radians
 swiftmailer:
     transport:  "%mailer_transport%"
     host:       "%mailer_host%"
@@ -82,7 +87,7 @@ fos_oauth_server:
     refresh_token_class: OAuthBundle\Entity\RefreshToken
     auth_code_class:     OAuthBundle\Entity\AuthCode
     service:
-        user_provider: fos_user.user_manager
+        user_provider: fos_user.user_provider.username
         options:
             access_token_lifetime: 3600
 

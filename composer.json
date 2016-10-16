@@ -25,7 +25,8 @@
     "friendsofsymfony/user-bundle": "dev-master",
     "nelmio/api-doc-bundle": "~2.13",
     "guzzlehttp/guzzle": "^6.2",
-    "jms/job-queue-bundle": "^1.4"
+    "jms/job-queue-bundle": "^1.4",
+    "beberlei/DoctrineExtensions": "^1.0"
   },
   "require-dev": {
     "behat/behat": "~3.0",

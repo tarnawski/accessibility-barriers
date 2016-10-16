@@ -54,6 +54,11 @@ notification_all:
   defaults: { _controller: ApiBundle:Notification:index, _format: json }
   methods: [GET]
 
+notification_nearme:
+  path:     /notifications/near
+  defaults: { _controller: ApiBundle:Notification:nearMe, _format: json }
+  methods: [GET]
+
 notification_single:
   path: /notifications/{id}
   defaults:  { _controller: ApiBundle:Notification:show, _format: json }
