@@ -37,12 +37,20 @@ Feature: Show comments belong to notification
       {
         "id": @integer@,
         "content": "@string@",
-        "created_at": "@string@"
+        "created_at": "@string@",
+        "user": {
+          "first_name": "@string@",
+          "last_name": "@string@"
+        }
       },
       {
         "id": @integer@,
         "content": "@string@",
-        "created_at": "@string@"
+        "created_at": "@string@",
+        "user": {
+          "first_name": "@string@",
+          "last_name": "@string@"
+        }
       }
     ]
     """

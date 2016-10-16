@@ -17,5 +17,5 @@ AccessibilityBarriersBundle\Entity\Comment:
       type: AccessibilityBarriersBundle\Entity\Notification
     user:
       expose: true
-      groups: [COMMENT_DETAILS]
+      groups: [NOTIFICATION_COMMENTS, COMMENT_DETAILS]
       type: OAuthBundle\Entity\User
