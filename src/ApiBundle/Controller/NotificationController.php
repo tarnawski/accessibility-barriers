@@ -5,6 +5,7 @@ use AccessibilityBarriersBundle\Entity\Notification;
 use AccessibilityBarriersBundle\Notification\SenderEngine;
 use AccessibilityBarriersBundle\Repository\NotificationRepository;
 use AccessibilityBarriersBundle\Service\GooglePlacesService;
+use ApiBundle\Form\Type\NearMeCriteriaType;
 use ApiBundle\Form\Type\NotificationCriteriaType;
 use ApiBundle\Form\Type\NotificationType;
 use JMS\JobQueueBundle\Entity\Job;
@@ -29,6 +30,24 @@ class NotificationController extends BaseController
         /** @var NotificationRepository $notificationRepository */
         $notificationRepository = $this->getRepository(Notification::class);
         $notifications = $notificationRepository->findByCriteria($form->getData());
+
+        return $this->success($notifications, 'Notification', Response::HTTP_OK, array('NOTIFICATION_LIST'));
+    }
+
+    /**
+     * @ApiDoc(
+     *  description="Return notifications near specified point"
+     * )
+     * @param Request $request
+     * @return Response
+     */
+    public function nearMeAction(Request $request)
+    {
+        $form = $this->createForm(NearMeCriteriaType::class);
+        $form->submit($request->query->all());
+        /** @var NotificationRepository $notificationRepository */
+        $notificationRepository = $this->getRepository(Notification::class);
+        $notifications = $notificationRepository->findNearNotifications($form->getData());
 
         return $this->success($notifications, 'Notification', Response::HTTP_OK, array('NOTIFICATION_LIST'));
     }
