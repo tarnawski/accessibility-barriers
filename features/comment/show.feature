@@ -40,7 +40,8 @@ Feature: Show comments belong to notification
         "created_at": "@string@",
         "user": {
           "first_name": "@string@",
-          "last_name": "@string@"
+          "last_name": "@string@",
+          "email": "@string@"
         }
       },
       {
@@ -49,7 +50,8 @@ Feature: Show comments belong to notification
         "created_at": "@string@",
         "user": {
           "first_name": "@string@",
-          "last_name": "@string@"
+          "last_name": "@string@",
+          "email": "@string@"
         }
       }
     ]
@@ -82,7 +84,8 @@ Feature: Show comments belong to notification
       },
       "user": {
         "first_name": "@string@",
-        "last_name": "@string@"
+        "last_name": "@string@",
+        "email": "@string@"
       }
     }
     """

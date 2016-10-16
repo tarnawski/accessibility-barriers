@@ -111,7 +111,8 @@ Feature: Show notification
         "created_at": "@string@",
         "user": {
           "first_name": "@string@",
-          "last_name": "@string@"
+          "last_name": "@string@",
+          "email": "@string@"
         },
         "category": {
           "id": @integer@,

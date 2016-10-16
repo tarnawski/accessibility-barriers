@@ -65,7 +65,6 @@ class NotificationController extends BaseController
         return $this->success($notification, 'Notification', Response::HTTP_OK, array(
             'NOTIFICATION_DETAILS',
             'COMMENT_LIST',
-            'NOTIFICATION_COMMENTS',
             'USER_BASIC',
             'CATEGORY_LIST'
         ));
