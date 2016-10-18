@@ -3,7 +3,10 @@
 namespace ApiBundle\Controller;
 
 use ApiBundle\Form\Type\RegisterType;
+use ApiBundle\Form\Type\UserType;
 use ApiBundle\Model\Register;
+use ApiBundle\Model\User as UserData;
+use OAuthBundle\Entity\User;
 use OAuthBundle\Model\UserFactory;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -73,5 +76,45 @@ class UserController extends BaseController
         $token = $accessToken->build($user, $data);
 
         return $token;
+    }
+
+    /**
+     * @ApiDoc(
+     *  description="This method register new user",
+     *  parameters={
+     *      {"name"="first_name", "dataType"="string", "required"=true, "description"="User first name"},
+     *      {"name"="last_name", "dataType"="string", "required"=true, "description"="User last name"},
+     *      {"name"="email", "dataType"="string", "required"=true, "description"="User email"},
+     *      {"name"="email_notification", "dataType"="boolean", "required"=true, "description"="Allow email notification"},
+     *  })
+     * )
+     * @param Request $request
+     * @return mixed
+     */
+    public function updateAction(Request $request)
+    {
+        $form = $this->get('form.factory')->create(UserType::class);
+        $formData = json_decode($request->getContent(), true);
+        $form->submit($formData);
+
+        if (!$form->isValid()) {
+            return $this->error($this->getFormErrorsAsArray($form));
+        }
+
+        /** @var UserData $userData */
+        $userData = $form->getData();
+
+        /** @var User $user */
+        $user = $this->getUser();
+        $user->setFirstName($userData->firstName);
+        $user->setLastName($userData->lastName);
+        $user->setEmail($userData->email);
+        $user->setEmailNotification($userData->emailNotification);
+
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($user);
+        $em->flush();
+
+        return $this->success($user, 'user', Response::HTTP_OK, array('USER_PROFILE'));
     }
 }

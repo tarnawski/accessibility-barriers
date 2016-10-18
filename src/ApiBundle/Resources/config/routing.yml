@@ -10,6 +10,11 @@ user_show:
   defaults: { _controller: ApiBundle:User:profile, _format: json }
   methods: [GET]
 
+user_update:
+  path:     /profile
+  defaults: { _controller: ApiBundle:User:update, _format: json }
+  methods: [PUT]
+
 register:
   path:     /register
   defaults: { _controller: ApiBundle:User:register, _format: json }
