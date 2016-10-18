@@ -2,6 +2,7 @@ OAuthBundle\Entity\User:
   user1:
     firstName: Adam
     lastName: Nowak
+    emailNotification: true
     username: admin
     plainPassword: admin
     roles: [ROLE_ADMIN, ROLE_SUPER_ADMIN]
@@ -11,6 +12,7 @@ OAuthBundle\Entity\User:
   user2:
     firstName: Jan
     lastName: Kowalski
+    emailNotification: true
     username: user
     plainPassword: user
     roles: [ROLE_API]

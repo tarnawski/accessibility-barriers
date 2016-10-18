@@ -117,6 +117,7 @@ class ApiContext extends WebApiContext implements Context, SnippetAcceptingConte
             $user = new User();
             $user->setFirstName($row['FIRST_NAME']);
             $user->setLastName($row['LAST_NAME']);
+            $user->setEmailNotification(false);
             $user->setUsername($row['USERNAME']);
             $user->setEmail($row['EMAIL']);
             $user->setPlainPassword($row['PASSWORD']);

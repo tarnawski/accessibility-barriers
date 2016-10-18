@@ -7,6 +7,9 @@ OAuthBundle\Entity\User:
     lastName:
       expose: true
       groups: [USER_DETAILS, USER_PROFILE, USER_BASIC]
+    emailNotification:
+      expose: true
+      groups: [USER_DETAILS, USER_PROFILE]
     notifications:
       expose: true
       groups: [USER_DETAILS]

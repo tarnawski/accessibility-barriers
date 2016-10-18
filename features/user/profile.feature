@@ -26,6 +26,7 @@ Feature: Show information about current login user
       "username": "test",
       "email": "test@test.com",
       "first_name": "Janusz",
-      "last_name": "Kowalski"
+      "last_name": "Kowalski",
+      "email_notification": false
     }
     """
