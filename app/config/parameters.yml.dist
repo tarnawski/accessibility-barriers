@@ -1,5 +1,5 @@
 parameters:
-    secret_key: SecretToken
+    secret_key:        SecretToken
     database_driver:   pdo_mysql
     database_host:     127.0.0.1
     database_port:     ~
@@ -11,3 +11,4 @@ parameters:
     mailer_port:       465
     mailer_user:       ~
     mailer_password:   ~
+    google_api_key:    AIzaSyBa2R3pHwAlhWLxNFp7mGTDV-yke_WBMvQ

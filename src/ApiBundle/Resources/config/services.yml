@@ -22,3 +22,9 @@ services:
     tags:
       - { name: security.voter }
     public: false
+
+  alert_voter:
+    class: ApiBundle\Security\Authorization\Voter\AlertVoter
+    tags:
+      - { name: security.voter }
+    public: false

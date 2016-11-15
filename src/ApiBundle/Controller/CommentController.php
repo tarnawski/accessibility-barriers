@@ -21,7 +21,11 @@ class CommentController extends BaseController
      */
     public function indexAction(Notification $notification)
     {
-        return $this->success($notification->getComments(), 'Comment', Response::HTTP_OK, array('COMMENT_LIST'));
+        return $this->success($notification->getComments(), 'Comment', Response::HTTP_OK, array(
+            'COMMENT_LIST',
+            'NOTIFICATION_COMMENTS',
+            'USER_BASIC'
+        ));
     }
 
     /**
@@ -68,6 +72,7 @@ class CommentController extends BaseController
 
         /** @var Comment $comment */
         $comment = $form->getData();
+        $comment->setUser($this->getUser());
         $comment->setNotification($notification);
         $comment->setCreatedAt(new \DateTime());
         $em = $this->getDoctrine()->getManager();

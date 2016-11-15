@@ -1,6 +1,7 @@
 OAuthBundle\Entity\User:
   type: entity
   table: fos_user
+  repositoryClass: AccessibilityBarriersBundle\Repository\UserRepository
   id:
     id:
       type: integer
@@ -17,6 +18,11 @@ OAuthBundle\Entity\User:
           type: string
           nullable: true
           length: 64
+      emailNotification:
+          column: email_notification
+          type: boolean
+          options:
+              default: 0
   oneToMany:
        notifications:
            targetEntity: AccessibilityBarriersBundle\Entity\Notification

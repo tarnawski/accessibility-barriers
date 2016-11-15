@@ -2,9 +2,13 @@
 namespace ApiBundle\Controller;
 
 use AccessibilityBarriersBundle\Entity\Notification;
+use AccessibilityBarriersBundle\Notification\SenderEngine;
 use AccessibilityBarriersBundle\Repository\NotificationRepository;
+use AccessibilityBarriersBundle\Service\GooglePlacesService;
+use ApiBundle\Form\Type\NearMeCriteriaType;
 use ApiBundle\Form\Type\NotificationCriteriaType;
 use ApiBundle\Form\Type\NotificationType;
+use JMS\JobQueueBundle\Entity\Job;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
@@ -26,6 +30,24 @@ class NotificationController extends BaseController
         /** @var NotificationRepository $notificationRepository */
         $notificationRepository = $this->getRepository(Notification::class);
         $notifications = $notificationRepository->findByCriteria($form->getData());
+
+        return $this->success($notifications, 'Notification', Response::HTTP_OK, array('NOTIFICATION_LIST'));
+    }
+
+    /**
+     * @ApiDoc(
+     *  description="Return notifications near specified point"
+     * )
+     * @param Request $request
+     * @return Response
+     */
+    public function nearMeAction(Request $request)
+    {
+        $form = $this->createForm(NearMeCriteriaType::class);
+        $form->submit($request->query->all());
+        /** @var NotificationRepository $notificationRepository */
+        $notificationRepository = $this->getRepository(Notification::class);
+        $notifications = $notificationRepository->findNearNotifications($form->getData());
 
         return $this->success($notifications, 'Notification', Response::HTTP_OK, array('NOTIFICATION_LIST'));
     }
@@ -73,10 +95,23 @@ class NotificationController extends BaseController
         }
         /** @var Notification $notification */
         $notification = $form->getData();
+        $notification->setSend(false);
         $notification->setUser($this->getUser());
         $notification->setCreatedAt(new \DateTime());
+
+        /** Set address via external api */
+        /** @var GooglePlacesService $placesService */
+        $placesService = $this->get('accessibility_barriers.services.google_places');
+        $address = $placesService->getPlaceName($notification->getLatitude(), $notification->getLongitude());
+        $notification->setAddress($address);
+
         $em = $this->getDoctrine()->getManager();
         $em->persist($notification);
+
+        /** Add job to queue */
+        $job = new Job('notification:distribute');
+        $em->persist($job);
+
         $em->flush();
 
         return $this->success($notification, 'Notification', Response::HTTP_CREATED, array(

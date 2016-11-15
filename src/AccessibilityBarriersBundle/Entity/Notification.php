@@ -17,6 +17,9 @@ class Notification
     private $description;
 
     /** @var string */
+    private $address;
+
+    /** @var string */
     private $latitude;
 
     /** @var string */
@@ -24,6 +27,9 @@ class Notification
 
     /** @var \DateTime */
     private $createdAt;
+
+    /** @var boolean */
+    private $send;
 
     /** @var User */
     private $user;
@@ -86,6 +92,22 @@ class Notification
     /**
      * @return string
      */
+    public function getAddress()
+    {
+        return $this->address;
+    }
+
+    /**
+     * @param string $address
+     */
+    public function setAddress($address)
+    {
+        $this->address = $address;
+    }
+
+    /**
+     * @return string
+     */
     public function getLatitude()
     {
         return $this->latitude;
@@ -129,6 +151,22 @@ class Notification
     public function setCreatedAt($createdAt)
     {
         $this->createdAt = $createdAt;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isSend()
+    {
+        return $this->send;
+    }
+
+    /**
+     * @param boolean $send
+     */
+    public function setSend($send)
+    {
+        $this->send = $send;
     }
 
     /**

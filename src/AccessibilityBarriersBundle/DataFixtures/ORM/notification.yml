@@ -2,251 +2,311 @@ AccessibilityBarriersBundle\Entity\Notification:
   notification1:
     name: Przystanek autobusowy
     description: Niewymiarowa zatoka utrudnia prawidłowe stawanie autobusu.
+    address: Aleja Pod Kasztanami 2, Rzeszów, Poland
     latitude: 50.033723
     longitude: 22.003051
     createdAt: <dateTimeBetween('-30 days', 'now')>
+    send: true
     category: '@category4'
     user: '@user1'
   notification2:
     name: Przystanek autobusowy Park Skaryszewski
     description: Przystanek w kierunku centrum. Dojście do pojazdu przez torowisko tramwajowe - peron oddalony od miejsca zatrzymania autobusu.
+    address: Teofila Lenartowicza 5, Rzeszów, Poland
     latitude: 50.030559
     longitude: 22.000111
     createdAt: <dateTimeBetween('-30 days', 'now')>
+    send: true
     category: '@category4'
     user: '@user1'
   notification3:
     name: Przystanek autobusowy
     description: Peron jest na poziomie wyższym niż przebiegający obok chodnik. Chodniki jest w złym stanie technicznym.
+    address: Księdza Józefa Jałowego 17, Rzeszów, Poland
     latitude: 50.039498
     longitude: 21.994725
     createdAt: <dateTimeBetween('-30 days', 'now')>
+    send: true
     category: '@category4'
     user: '@user2'
   notification4:
     name: Przystanek autobusowy
     description: Zbyt wąski peron utrudnia wsiadanie i wysiadanie pasażerów. Nierówny chodnik na dojściu, źle postawiona wiata utrudnia poruszanie się.
+    address: Księdza Józefa Sondeja 27, 35-011 Rzeszów, Poland
     latitude: 50.038285
     longitude: 21.989876
     createdAt: <dateTimeBetween('-30 days', 'now')>
+    send: true
     category: '@category4'
     user: '@user1'
   notification5:
     name: Przystanek autobusowy Kawęczyn
     description: Zbyt wąski peron w złym stanie technicznym, brak utwardzonego dojścia na przystanek.
+    address: Generała Józefa Kustronia 11, Rzeszów, Poland
     latitude: 50.036156
     longitude: 22.020035
     createdAt: <dateTimeBetween('-30 days', 'now')>
+    send: true
     category: '@category4'
     user: '@user1'
   notification6:
     name: Przystanek PKP
     description: Perony wyposażone w platformy przyschodowe od strony Al. Jerozolimskich. Brak oznaczenia krawędzi stopni oraz alternatywy dla schodów w postaci podjazdów lub wind.
+    address: Hutników 1, Rzeszów, Poland
     latitude: 50.034282
     longitude: 22.025700
     createdAt: <dateTimeBetween('-30 days', 'now')>
+    send: true
     category: '@category4'
     user: '@user1'
   notification7:
     name: Przystanek autobusowy
-    description: Drzewa na terenie przystanku utrudniają wsiadanie i wysiadanie
+    description: Drzewa na terenie przystanku utrudniają wsiadanie i wysiadanie.
+    address: Klementyny Hoffmanowej 10, Rzeszów, Poland
     latitude: 50.035826
     longitude: 21.992397
     createdAt: <dateTimeBetween('-30 days', 'now')>
+    send: true
     category: '@category4'
     user: '@user1'
   notification8:
     name: Przystanek autobusowy Północny 01
     description: Przystanek w złym stanie technicznym. Zbyt krótka krawędź peronu, brak pasów ostrzegawczych.
+    address: Plac Śreniawitów, Rzeszów, Poland
     latitude: 50.031746
     longitude: 21.999435
     createdAt: <dateTimeBetween('-30 days', 'now')>
+    send: true
     category: '@category4'
     user: '@user1'
   notification9:
     name: Przystanek kolejowy PKP
     description: Dojście na perony za pośrednictwem schodów i wind od strony wschodniej. Brak oznaczeń dotykowych, bardzo awaryjne windy.
+    address: Świętego Mikołaja 2, Rzeszów, Poland
     latitude: 50.041338
     longitude: 22.006989
     createdAt: <dateTimeBetween('-30 days', 'now')>
+    send: true
     category: '@category4'
     user: '@user1'
   notification10:
     name: Przystanek autobusowy Santocka
     description: Brak utwardzonego dojścia na przystanek.
+    address: Lwowska 70, Rzeszów, Poland
     latitude: 50.037479
     longitude: 22.037029
     createdAt: <dateTimeBetween('-30 days', 'now')>
+    send: true
     category: '@category4'
     user: '@user1'
   notification11:
     name: Schody na skwerze Grzegorza Ciechowskiego
     description: Brak oznaczeń dotykowych, schody bez alternatywnych pochylni utrudniają korzystanie ze skweru.
+    address: Warzywna 3, Rzeszów, Poland
     latitude: 50.033179
     longitude: 22.013512
     createdAt: <dateTimeBetween('-30 days', 'now')>
+    send: true
     category: '@category2'
     user: '@user1'
   notification12:
     name: Schody łączące poziom Trasy Toruńskiej i wiaduktu
     description: Schody bez ułatwień w dostępie. Zainstalowana w tym miejscu winda jest notorycznie zepsuta.
+    address: Ossolińskich 63, Rzeszów, Poland
     latitude: 50.020056
     longitude: 22.023296
     createdAt: <dateTimeBetween('-30 days', 'now')>
+    send: true
     category: '@category2'
     user: '@user1'
   notification13:
     name: Schody przy wiadukcie ulic Modlińskiej
     description: Brak alternatywny dla schodów oraz oznaczeń krawędzi stopni.
+    address: Generała Jarosława Dąbrowskiego 82, Rzeszów, Poland
     latitude: 50.021600
     longitude: 21.980724
     createdAt: <dateTimeBetween('-30 days', 'now')>
+    send: true
     category: '@category2'
     user: '@user1'
   notification14:
     name: Schody na wysokości ulicy Puławskiej
     description: Zbyt stromy podjazd, brak oznaczenia krawędzi.
+    address: Krakowska 20A, Rzeszów, Poland
     latitude: 50.049937
     longitude: 21.974888
     createdAt: <dateTimeBetween('-30 days', 'now')>
+    send: true
     category: '@category2'
     user: '@user1'
   notification15:
     name: Schody przy dojściu do budynku przy al. gen. Antoniego
     description: Schody bez oznaczeń krawędzi. Pryz schodach znajduje się stromy podjazd bez poręczy.
+    address: Partyzantów 11, Rzeszów, Poland
     latitude: 50.049716
     longitude: 22.003384
     createdAt: <dateTimeBetween('-30 days', 'now')>
+    send: true
     category: '@category2'
     user: '@user1'
   notification16:
     name: Schody łączące poziom Alei Prymasa
     description: Schody posiadają podjazdy dla wózków dziecięcych, brak innych ułatwień.
+    address: Plac Pułkownika Leopolda Lisa-Kuli 13A, Rzeszów, Poland
     latitude: 50.034502
     longitude: 21.997719
     createdAt: <dateTimeBetween('-30 days', 'now')>
+    send: true
     category: '@category2'
     user: '@user1'
   notification17:
     name: Schody łączące poziom Zamku Ujazdowskiego
     description: Brak alternatywy w postaci pochylni oraz brak oznaczonej krawędzi stopni.
+    address: Bolesława Chrobrego 22, Rzeszów, Poland
     latitude: 50.022151
     longitude: 21.991196
     createdAt: <dateTimeBetween('-30 days', 'now')>
+    send: true
     category: '@category2'
     user: '@user1'
   notification18:
     name: Schody prowadzące na Cypel Czerniakowski
     description: Schody nie posiadają ułatwień w poruszaniu się.
+    address: Podwisłocze 8B, Rzeszów, Poland
     latitude: 50.021159
     longitude: 22.006645
     createdAt: <dateTimeBetween('-30 days', 'now')>
+    send: true
     category: '@category2'
     user: '@user1'
   notification19:
     name: Schody łączące poziom ulicy Janusza Meissnera
     description: 2 ciągi schodów - zbyt stromy podjazd, brak poręczy oraz brak oznaczeń krawędzi schodów.
+    address: Profesor Ludwika Chmaja 9A, Rzeszów, Poland
     latitude: 50.028548
     longitude: 21.988449
     createdAt: <dateTimeBetween('-30 days', 'now')>
+    send: true
     category: '@category2'
     user: '@user1'
   notification20:
     name: Wiadukt ulicy Głębockiej nad Trasą Toruńską
     description: Wejście na wiadukt z każdej strony to schody bez ułatwień w dostępie.
+    address: Stanisława Wyspiańskiego 14, 35-111 Rzeszów, Poland
     latitude: 50.039684
     longitude: 21.989479
     createdAt: <dateTimeBetween('-30 days', 'now')>
+    send: true
     category: '@category3'
     user: '@user1'
   notification21:
     name: Kładka nad ulicą Płochocińską
     description: Brak alternatywy dla schodów w postaci pochylni lub windy. Brak oznaczeń krawędzi.
+    address: Mieszka I 72, 35-303 Rzeszów, Poland
     latitude: 50.028658
     longitude: 22.027588
     createdAt: <dateTimeBetween('-30 days', 'now')>
+    send: true
     category: '@category3'
     user: '@user1'
 
   notification22:
     name: Skrzyżowanie ulic Śęczkowej i Kadetów
     description: Źle obniżone (zbyt wysokie lub brak pasów ostrzegawczych) krawężniki na 4 przejściach.
+    address: Plac Pułkownika Leopolda Lisa-Kuli 14, Rzeszów, Poland
     latitude: 50.034943
     longitude: 21.998234
     createdAt: <dateTimeBetween('-30 days', 'now')>
+    send: true
     category: '@category1'
     user: '@user1'
   notification23:
     name: Przejście przez dojazd do Batorego 2
     description: Krawężnik obniżony na przejeździe rowerowym, brak obniżenia w przypadku chodnika.
+    address: Orzeszkowej 22, Rzeszów, Poland
     latitude: 50.042110
     longitude: 22.012997
     createdAt: <dateTimeBetween('-30 days', 'now')>
+    send: true
     category: '@category1'
     user: '@user1'
   notification24:
     name: Przejście przez ulicę Radiową przy Radiowej 3
     description: Od strony południowej brak utwardzonego dojścia do przejścia. Niebezpieczne przejście ze względu szerokości pasów ruchów.
+    address: Mikołaja Reja 7, Rzeszów, Poland
     latitude: 50.046299
     longitude: 21.992569
     createdAt: <dateTimeBetween('-30 days', 'now')>
+    send: true
     category: '@category1'
     user: '@user1'
   notification25:
     name: Skrzyżowanie ulic Grochowskiej i Podolskiej
     description: Przejście przez ulicę Grochowską posiadają azyl między jezdniami w złym stanie technicznym, bez obniżonych krawężników.
+    address: Podpromie 10, Rzeszów, Poland
     latitude: 50.029430
     longitude: 22.002010
     createdAt: <dateTimeBetween('-30 days', 'now')>
+    send: true
     category: '@category1'
     user: '@user1'
   notification26:
     name: Przejście przez ulicę Kolejarską przy skrzyżowaniu z Młodzieńczą
     description: Brak wyznaczonego przejścia i obniżonych krawężników.
+    address: Stanisława Wyspiańskiego 41, Rzeszów, Poland
     latitude: 50.039243
     longitude: 21.971798
     createdAt: <dateTimeBetween('-30 days', 'now')>
+    send: true
     category: '@category1'
     user: '@user1'
   notification27:
     name: Skrzyżowanie ulic Księdza Teofila Boguckiego i Ludwika Rydygiera
     description: Źle obniżony (brak pasa ostrzegawczego) krawężnik w północno-zachodnim narożniku.
+    address: Aleja Tadeusza Rejtana 27B, Rzeszów, Poland
     latitude: 50.028217
     longitude: 22.017288
     createdAt: <dateTimeBetween('-30 days', 'now')>
+    send: true
     category: '@category1'
     user: '@user1'
   notification28:
     name: Południowa strona ulicy Turbinowej
-    description: Latarnie umieszczone na środku wąskiego chodnika
+    description: Latarnie umieszczone na środku wąskiego chodnika.
+    address: Aleja Tadeusza Rejtana 16C, Rzeszów, Poland
     latitude: 50.030202
     longitude: 22.015400
     createdAt: <dateTimeBetween('-30 days', 'now')>
+    send: true
     category: '@category5'
     user: '@user1'
   notification29:
     name: Brak utwardzonego chodnika
     description: Brak utwardzonego chodnika, płyty chodnikowe w złym stanie.
+    address: Wierzbowa 29, Rzeszów, Poland
     latitude: 50.034061
     longitude: 22.013512
     createdAt: <dateTimeBetween('-30 days', 'now')>
+    send: true
     category: '@category5'
     user: '@user1'
   notification30:
     name: Brak chodnika wzdłuż Doliny Służewieckiej
     description: Brak utwardzonego chodnika. Możliwość obejścia ulicą Fosa, na drodze 2 razy występują schody z podjazdami naschodowymi.
+    address: Romana Niedzielskiego 2, Rzeszów, Poland
     latitude: 50.024909
     longitude: 21.987076
     createdAt: <dateTimeBetween('-30 days', 'now')>
+    send: true
     category: '@category5'
     user: '@user1'
   notification31:
     name: Przejazd kolejowy na ul. Podhalańskiej
     description: Przejazd zagrodzony szlabanami, przejście przez tory wymaga pokonania obejścia szlabanów i pokonania nierówności.
+    address: Jana Styki 7, Rzeszów, Poland
     latitude: 50.043433
     longitude: 22.015057
     createdAt: <dateTimeBetween('-30 days', 'now')>
+    send: true
     category: '@category6'
     user: '@user1'
-
-

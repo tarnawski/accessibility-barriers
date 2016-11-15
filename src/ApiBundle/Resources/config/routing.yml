@@ -6,9 +6,14 @@ application_status:
 
 ########## USER ##########
 user_show:
-  path:     /user/profile
+  path:     /profile
   defaults: { _controller: ApiBundle:User:profile, _format: json }
   methods: [GET]
+
+user_update:
+  path:     /profile
+  defaults: { _controller: ApiBundle:User:update, _format: json }
+  methods: [PUT]
 
 register:
   path:     /register
@@ -52,6 +57,11 @@ category_delete:
 notification_all:
   path:     /notifications
   defaults: { _controller: ApiBundle:Notification:index, _format: json }
+  methods: [GET]
+
+notification_nearme:
+  path:     /notifications/near
+  defaults: { _controller: ApiBundle:Notification:nearMe, _format: json }
   methods: [GET]
 
 notification_single:
@@ -126,3 +136,16 @@ rating_notification:
   methods: [POST]
   requirements:
       notification_id:  \d+
+
+########## ALERT ##########
+alert:
+  path:     /alerts
+  defaults: { _controller: ApiBundle:Alert:index, _format: json }
+  methods: [GET]
+
+alert_deactivate:
+  path:     /alerts/{id}
+  defaults: { _controller: ApiBundle:Alert:deactivate, _format: json }
+  methods:  [PUT]
+  requirements:
+      id:  \d+

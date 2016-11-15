@@ -1,0 +1,17 @@
+AccessibilityBarriersBundle\Entity\Rating:
+  exclusion_policy: ALL
+  properties:
+    id:
+      expose: true
+      groups: [RATING_DETAILS, RATING_LIST]
+    value:
+      expose: true
+      groups: [RATING_DETAILS, RATING_LIST]
+    user:
+      expose: true
+      groups: [RATING_DETAILS]
+      type: OAuthBundle\Entity\User
+    notification:
+      expose: true
+      groups: [RATING_DETAILS]
+      type: AccessibilityBarriersBundle\Entity\Notification

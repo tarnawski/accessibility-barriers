@@ -27,6 +27,9 @@ class User extends BaseUser
     /** @var string */
     private $lastName;
 
+    /** @var  boolean */
+    private $emailNotification;
+
     /** @var  ArrayCollection|Notification[] */
     private $notifications;
 
@@ -74,6 +77,22 @@ class User extends BaseUser
     public function setLastName($lastName)
     {
         $this->lastName = $lastName;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isEmailNotification()
+    {
+        return $this->emailNotification;
+    }
+
+    /**
+     * @param boolean $emailNotification
+     */
+    public function setEmailNotification($emailNotification)
+    {
+        $this->emailNotification = $emailNotification;
     }
 
     /**

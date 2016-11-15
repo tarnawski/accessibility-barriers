@@ -22,6 +22,11 @@ AccessibilityBarriersBundle\Entity\Notification:
             type: string
             nullable: false
             length: 255
+        address:
+            column: address
+            type: string
+            nullable: true
+            length: 255
         latitude:
             column: latitude
             type: decimal
@@ -34,12 +39,18 @@ AccessibilityBarriersBundle\Entity\Notification:
             scale: 8
             precision: 11
             nullable: false
+        send:
+            column: send
+            type: boolean
+            options:
+                default: 0
         createdAt:
             column: created_at
             type: datetime
             nullable: false
     oneToMany:
         comments:
+            orderBy: { 'createdAt': 'DESC' }
             targetEntity: Comment
             mappedBy: notification
             cascade: ["all"]

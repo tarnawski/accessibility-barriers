@@ -7,7 +7,7 @@ use JMS\Serializer\EventDispatcher\EventSubscriberInterface;
 use JMS\Serializer\EventDispatcher\ObjectEvent;
 use AccessibilityBarriersBundle\Entity\Notification;
 
-class NotificationRatingSubscribingHandler implements EventSubscriberInterface
+class RatingNotificationSubscribingHandler implements EventSubscriberInterface
 {
     public static function getSubscribedEvents()
     {
@@ -22,7 +22,11 @@ class NotificationRatingSubscribingHandler implements EventSubscriberInterface
         $notification = $event->getObject();
         $visitor = $event->getVisitor();
 
-        if(count($notification->getRatings()) === 0) {
+        if ($this->hasGroup($event, 'NOTIFICATION_BASIC')) {
+            return;
+        }
+
+        if (count($notification->getRatings()) === 0) {
             $rating = [
                 'average' => 0,
                 'count' => 0
@@ -41,5 +45,12 @@ class NotificationRatingSubscribingHandler implements EventSubscriberInterface
         }
 
         $visitor->addData('rating', $rating);
+    }
+
+    private function hasGroup(ObjectEvent $event, $group)
+    {
+        $groups = $event->getContext()->attributes->get('groups')->get('value');
+
+        return in_array($group, $groups);
     }
 }

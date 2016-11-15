@@ -1,11 +1,32 @@
 services:
+  accessibility_barriers.repository.user:
+    class: Doctrine\ORM\EntityRepository
+    factory: ['@doctrine.orm.entity_manager', getRepository]
+    arguments:
+      - OAuthBundle\Entity\User
+
+  accessibility_barriers.repository.notification:
+    class: Doctrine\ORM\EntityRepository
+    factory: ['@doctrine.orm.entity_manager', getRepository]
+    arguments:
+      - AccessibilityBarriersBundle\Entity\Notification
+
+  guzzle.http.client:
+    class: GuzzleHttp\Client
+
+  accessibility_barriers.services.google_places:
+    class: AccessibilityBarriersBundle\Service\GooglePlacesService
+    arguments:
+      - '@guzzle.http.client'
+      - '%google_api_key%'
+
   latlan_validate:
     class: AccessibilityBarriersBundle\Validator\Constraints\LatLanValidator
     tags:
       -  { name: validator.constraint_validator, alias: coordinates_validation }
 
   accessibility_barriers.serializer_coordinate:
-    class: AccessibilityBarriersBundle\Serializer\CoordinateSubscribingHandler
+    class: AccessibilityBarriersBundle\Serializer\CoordinateNotificationSubscribingHandler
     tags:
       - { name: jms_serializer.event_subscriber }
 
@@ -15,6 +36,29 @@ services:
       - { name: jms_serializer.event_subscriber }
 
   accessibility_barriers.serializer_rating_notifications:
-    class: AccessibilityBarriersBundle\Serializer\NotificationRatingSubscribingHandler
+    class: AccessibilityBarriersBundle\Serializer\RatingNotificationSubscribingHandler
     tags:
       - { name: jms_serializer.event_subscriber }
+
+  accessibility_barriers.email_notification.strategy:
+    class: AccessibilityBarriersBundle\Notification\Strategies\EmailStrategy
+    arguments:
+      - "@twig"
+      - "@mailer"
+
+  accessibility_barriers.sms_notification.strategy:
+    class: AccessibilityBarriersBundle\Notification\Strategies\SmsStrategy
+
+  accessibility_barriers.strategies_factory:
+    class: AccessibilityBarriersBundle\Notification\StrategiesFactory
+    arguments:
+      - "@accessibility_barriers.email_notification.strategy"
+      - "@accessibility_barriers.sms_notification.strategy"
+
+  accessibility_barriers.sender_engine:
+    class: AccessibilityBarriersBundle\Notification\SenderEngine
+    arguments:
+      - '@accessibility_barriers.repository.user'
+      - '@accessibility_barriers.repository.notification'
+      - '@accessibility_barriers.strategies_factory'
+      - '@doctrine.orm.entity_manager'

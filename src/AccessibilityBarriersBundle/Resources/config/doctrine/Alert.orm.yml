@@ -1,0 +1,45 @@
+AccessibilityBarriersBundle\Entity\Alert:
+    type: entity
+    table: alert
+    repositoryClass: AccessibilityBarriersBundle\Repository\AlertRepository
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        active:
+            column: active
+            type: boolean
+            options:
+                default: 1
+        createdAt:
+            column: created_at
+            type: datetime
+            nullable: false
+    manyToOne:
+        user:
+              targetEntity: OAuthBundle\Entity\User
+              joinColumn:
+                name: user_id
+                referencedColumnName: id
+        notification:
+              targetEntity: Notification
+              joinColumn:
+                name: notification_id
+                referencedColumnName: id
+        comment:
+              targetEntity: Comment
+              joinColumn:
+                name: comment_id
+                referencedColumnName: id
+        rating:
+              targetEntity: Rating
+              joinColumn:
+                name: rating_id
+                referencedColumnName: id
+    lifecycleCallbacks: {  }

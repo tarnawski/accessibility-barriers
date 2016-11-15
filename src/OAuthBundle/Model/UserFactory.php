@@ -39,6 +39,7 @@ class UserFactory
         $user->setEmail($email);
         $user->setRoles(['ROLE_API']);
         $user->setEnabled(true);
+        $user->setEmailNotification(true);
 
         return $user;
     }

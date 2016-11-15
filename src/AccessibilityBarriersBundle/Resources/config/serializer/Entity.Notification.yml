@@ -3,13 +3,16 @@ AccessibilityBarriersBundle\Entity\Notification:
   properties:
     id:
       expose: true
-      groups: [NOTIFICATION_LIST, NOTIFICATION_DETAILS]
+      groups: [NOTIFICATION_BASIC, NOTIFICATION_LIST, NOTIFICATION_DETAILS]
     name:
       expose: true
-      groups: [NOTIFICATION_LIST, NOTIFICATION_DETAILS]
+      groups: [NOTIFICATION_BASIC, NOTIFICATION_LIST, NOTIFICATION_DETAILS]
     description:
       expose: true
       groups: [NOTIFICATION_LIST, NOTIFICATION_DETAILS]
+    address:
+      expose: true
+      groups: [NOTIFICATION_BASIC, NOTIFICATION_LIST, NOTIFICATION_DETAILS]
     latitude:
       expose: false
       groups: [NOTIFICATION_LIST, NOTIFICATION_DETAILS]
@@ -20,6 +23,9 @@ AccessibilityBarriersBundle\Entity\Notification:
       expose: true
       groups: [NOTIFICATION_LIST, NOTIFICATION_DETAILS]
       type: DateTime<'Y-m-d'>
+    send:
+      expose: false
+      groups: [NOTIFICATION_LIST, NOTIFICATION_DETAILS]
     category:
       expose: true
       groups: [NOTIFICATION_DETAILS]

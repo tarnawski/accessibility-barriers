@@ -15,7 +15,7 @@ AccessibilityBarriersBundle\Entity\Comment:
             column: content
             type: string
             nullable: false
-            length: 64
+            length: 255
         createdAt:
             column: created_at
             type: datetime

@@ -40,6 +40,7 @@ Feature: Create notification
       "id": @integer@,
       "name": "@string@",
       "description": "@string@",
+      "address": "@string@",
       "coordinates": {
         "latitude": "@string@",
         "longitude": "@string@"
@@ -51,7 +52,8 @@ Feature: Create notification
       "created_at": "@string@",
       "user": {
         "first_name": "@string@",
-        "last_name": "@string@"
+        "last_name": "@string@",
+        "email": "@string@"
       },
       "category": {
         "id": @integer@,

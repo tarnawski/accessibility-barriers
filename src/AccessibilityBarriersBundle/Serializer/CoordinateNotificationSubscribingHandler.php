@@ -6,7 +6,7 @@ use JMS\Serializer\EventDispatcher\EventSubscriberInterface;
 use JMS\Serializer\EventDispatcher\ObjectEvent;
 use AccessibilityBarriersBundle\Entity\Notification;
 
-class CoordinateSubscribingHandler implements EventSubscriberInterface
+class CoordinateNotificationSubscribingHandler implements EventSubscriberInterface
 {
     public static function getSubscribedEvents()
     {
@@ -21,11 +21,22 @@ class CoordinateSubscribingHandler implements EventSubscriberInterface
         $notification = $event->getObject();
         $visitor = $event->getVisitor();
 
+        if ($this->hasGroup($event, 'NOTIFICATION_BASIC')) {
+            return;
+        }
+
         $coordinates = [
             'latitude' => $notification->getLatitude(),
             'longitude' => $notification->getLongitude()
         ];
 
         $visitor->addData('coordinates', $coordinates);
+    }
+
+    private function hasGroup(ObjectEvent $event, $group)
+    {
+        $groups = $event->getContext()->attributes->get('groups')->get('value');
+
+        return in_array($group, $groups);
     }
 }
