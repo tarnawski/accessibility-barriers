@@ -22,6 +22,10 @@ class RatingNotificationSubscribingHandler implements EventSubscriberInterface
         $notification = $event->getObject();
         $visitor = $event->getVisitor();
 
+        if ($this->hasGroup($event, 'NOTIFICATION_BASIC')) {
+            return;
+        }
+
         if (count($notification->getRatings()) === 0) {
             $rating = [
                 'average' => 0,
@@ -41,5 +45,12 @@ class RatingNotificationSubscribingHandler implements EventSubscriberInterface
         }
 
         $visitor->addData('rating', $rating);
+    }
+
+    private function hasGroup(ObjectEvent $event, $group)
+    {
+        $groups = $event->getContext()->attributes->get('groups')->get('value');
+
+        return in_array($group, $groups);
     }
 }

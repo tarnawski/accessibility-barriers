@@ -136,3 +136,16 @@ rating_notification:
   methods: [POST]
   requirements:
       notification_id:  \d+
+
+########## ALERT ##########
+alert:
+  path:     /alerts
+  defaults: { _controller: ApiBundle:Alert:index, _format: json }
+  methods: [GET]
+
+alert_deactivate:
+  path:     /alerts/{id}
+  defaults: { _controller: ApiBundle:Alert:deactivate, _format: json }
+  methods:  [PUT]
+  requirements:
+      id:  \d+

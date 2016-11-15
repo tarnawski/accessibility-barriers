@@ -1,15 +1,18 @@
 AccessibilityBarriersBundle\Entity\Alert:
   alert1:
     active: true
+    createdAt: <dateTimeBetween('-30 days', 'now')>
     user: '@user1'
     notification: '@notification1'
   alert2:
     active: true
+    createdAt: <dateTimeBetween('-30 days', 'now')>
     user: '@user1'
     notification: '@notification1'
     comment: '@comment10'
   alert3:
     active: true
+    createdAt: <dateTimeBetween('-30 days', 'now')>
     user: '@user1'
     notification: '@notification1'
     rating: '@rating1'

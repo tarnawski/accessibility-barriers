@@ -5,10 +5,14 @@ AccessibilityBarriersBundle\Entity\Alert:
       expose: true
       groups: [ALERT_LIST]
     active:
-      expose: true
+      expose: false
       groups: [ALERT_LIST]
+    createdAt:
+      expose: false
+      groups: [ALERT_LIST]
+      type: DateTime<'Y-m-d'>
     user:
-      expose: true
+      expose: false
       groups: [ALERT_LIST]
       type: OAuthBundle\Entity\User
     notification:

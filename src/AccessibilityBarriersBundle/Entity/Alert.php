@@ -12,6 +12,9 @@ class Alert
     /** @var boolean */
     private $active;
 
+    /** @var \DateTime */
+    private $createdAt;
+
     /** @var User */
     private $user;
 
@@ -46,6 +49,22 @@ class Alert
     public function setActive($active)
     {
         $this->active = $active;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * @param \DateTime $createdAt
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
     }
 
     /**

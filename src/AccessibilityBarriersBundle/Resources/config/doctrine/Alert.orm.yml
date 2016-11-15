@@ -1,6 +1,7 @@
 AccessibilityBarriersBundle\Entity\Alert:
     type: entity
     table: alert
+    repositoryClass: AccessibilityBarriersBundle\Repository\AlertRepository
     id:
         id:
             type: integer
@@ -16,6 +17,10 @@ AccessibilityBarriersBundle\Entity\Alert:
             type: boolean
             options:
                 default: 1
+        createdAt:
+            column: created_at
+            type: datetime
+            nullable: false
     manyToOne:
         user:
               targetEntity: OAuthBundle\Entity\User
