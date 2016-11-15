@@ -1,0 +1,15 @@
+AccessibilityBarriersBundle\Entity\Alert:
+  alert1:
+    active: true
+    user: '@user1'
+    notification: '@notification1'
+  alert2:
+    active: true
+    user: '@user1'
+    notification: '@notification1'
+    comment: '@comment10'
+  alert3:
+    active: true
+    user: '@user1'
+    notification: '@notification1'
+    rating: '@rating1'

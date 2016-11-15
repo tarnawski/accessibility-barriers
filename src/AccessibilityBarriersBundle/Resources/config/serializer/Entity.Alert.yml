@@ -1,0 +1,25 @@
+AccessibilityBarriersBundle\Entity\Alert:
+  exclusion_policy: ALL
+  properties:
+    id:
+      expose: true
+      groups: [ALERT_LIST]
+    active:
+      expose: true
+      groups: [ALERT_LIST]
+    user:
+      expose: true
+      groups: [ALERT_LIST]
+      type: OAuthBundle\Entity\User
+    notification:
+      expose: true
+      groups: [ALERT_LIST]
+      type: AccessibilityBarriersBundle\Entity\Notification
+    comment:
+      expose: true
+      groups: [ALERT_LIST]
+      type: AccessibilityBarriersBundle\Entity\Comment
+    rating:
+      expose: true
+      groups: [ALERT_LIST]
+      type: AccessibilityBarriersBundle\Entity\Rating
