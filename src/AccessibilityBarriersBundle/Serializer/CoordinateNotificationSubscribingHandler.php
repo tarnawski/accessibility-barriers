@@ -21,11 +21,22 @@ class CoordinateNotificationSubscribingHandler implements EventSubscriberInterfa
         $notification = $event->getObject();
         $visitor = $event->getVisitor();
 
+        if ($this->hasGroup($event, 'NOTIFICATION_BASIC')) {
+            return;
+        }
+
         $coordinates = [
             'latitude' => $notification->getLatitude(),
             'longitude' => $notification->getLongitude()
         ];
 
         $visitor->addData('coordinates', $coordinates);
+    }
+
+    private function hasGroup(ObjectEvent $event, $group)
+    {
+        $groups = $event->getContext()->attributes->get('groups')->get('value');
+
+        return in_array($group, $groups);
     }
 }

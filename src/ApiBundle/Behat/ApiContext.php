@@ -2,6 +2,7 @@
 
 namespace ApiBundle\Behat;
 
+use AccessibilityBarriersBundle\Entity\Alert;
 use AccessibilityBarriersBundle\Entity\Area;
 use AccessibilityBarriersBundle\Entity\Category;
 use AccessibilityBarriersBundle\Entity\Comment;
@@ -228,6 +229,37 @@ class ApiContext extends WebApiContext implements Context, SnippetAcceptingConte
             $user = $userRepository->find($row['USER_ID']);
             $comment->setUser($user);
             $this->getManager()->persist($comment);
+        }
+        $this->getManager()->flush();
+        $this->getManager()->clear();
+    }
+
+    /**
+     * @param TableNode $table
+     * @Given There are the following alerts:
+     */
+    public function thereAreTheFollowingAlerts(TableNode $table)
+    {
+        $notificationRepository = $this->getManager()->getRepository(Notification::class);
+        $userRepository = $this->getManager()->getRepository(User::class);
+        $commentRepository = $this->getManager()->getRepository(Comment::class);
+
+        foreach ($table->getColumnsHash() as $row) {
+            $alert = new Alert();
+            $active = $row['ACTIVE'] == 'TRUE' ? true : false;
+            $alert->setActive($active);
+            $now = new \DateTime();
+            $datetime = $now->modify($row['CREATED_AT']);
+            $alert->setCreatedAt($datetime);
+            /** @var Notification $notification */
+            $notification = $notificationRepository->find($row['NOTIFICATION_ID']);
+            $alert->setNotification($notification);
+            /** @var User $user */
+            $user = $userRepository->find($row['USER_ID']);
+            $alert->setUser($user);
+            $comment = $commentRepository->find($row['COMMENT_ID']);
+            $alert->setComment($comment);
+            $this->getManager()->persist($alert);
         }
         $this->getManager()->flush();
         $this->getManager()->clear();
