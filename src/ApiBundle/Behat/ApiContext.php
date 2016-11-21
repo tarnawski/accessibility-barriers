@@ -189,8 +189,6 @@ class ApiContext extends WebApiContext implements Context, SnippetAcceptingConte
             $notification->setLatitude($row['LATITUDE']);
             $notification->setLongitude($row['LONGITUDE']);
             $notification->setAddress($row['ADDRESS']);
-            $send = isset($row['SEND']) ? (boolean)$row['SEND'] : false;
-            $notification->setSend($send);
             $now = new \DateTime();
             $datetime = $now->modify($row['CREATED_AT']);
             $notification->setCreatedAt($datetime);

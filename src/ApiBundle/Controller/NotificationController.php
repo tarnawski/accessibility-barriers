@@ -95,7 +95,6 @@ class NotificationController extends BaseController
         }
         /** @var Notification $notification */
         $notification = $form->getData();
-        $notification->setSend(false);
         $notification->setUser($this->getUser());
         $notification->setCreatedAt(new \DateTime());
 
@@ -107,9 +106,12 @@ class NotificationController extends BaseController
 
         $em = $this->getDoctrine()->getManager();
         $em->persist($notification);
+        $em->flush();
 
-        /** Add job to queue */
-        $job = new Job('notification:distribute');
+        /** Add jobs to queue */
+        $job = new Job('notification:email', [$notification->getId()]);
+        $em->persist($job);
+        $job = new Job('notification:alert', [$notification->getId()]);
         $em->persist($job);
 
         $em->flush();
