@@ -20,6 +20,11 @@ services:
       - '@guzzle.http.client'
       - '%google_api_key%'
 
+  accessibility_barriers.services.alert_service:
+    class: AccessibilityBarriersBundle\Service\AlertService
+    arguments:
+      - '@doctrine.orm.entity_manager'
+
   latlan_validate:
     class: AccessibilityBarriersBundle\Validator\Constraints\LatLanValidator
     tags:
@@ -53,10 +58,4 @@ services:
     class: AccessibilityBarriersBundle\Notification\StrategiesFactory
     arguments:
       - "@accessibility_barriers.email_notification.strategy"
-      - "@accessibility_barriers.alert_notification.strategy"
       - "@accessibility_barriers.sms_notification.strategy"
-
-  accessibility_barriers.alert_notification.strategy:
-    class: AccessibilityBarriersBundle\Notification\Strategies\AlertStrategy
-    arguments:
-      - '@doctrine.orm.entity_manager'

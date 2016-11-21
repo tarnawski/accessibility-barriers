@@ -240,7 +240,6 @@ class ApiContext extends WebApiContext implements Context, SnippetAcceptingConte
     {
         $notificationRepository = $this->getManager()->getRepository(Notification::class);
         $userRepository = $this->getManager()->getRepository(User::class);
-        $commentRepository = $this->getManager()->getRepository(Comment::class);
 
         foreach ($table->getColumnsHash() as $row) {
             $alert = new Alert();
@@ -255,8 +254,7 @@ class ApiContext extends WebApiContext implements Context, SnippetAcceptingConte
             /** @var User $user */
             $user = $userRepository->find($row['USER_ID']);
             $alert->setUser($user);
-            $comment = $commentRepository->find($row['COMMENT_ID']);
-            $alert->setComment($comment);
+            $alert->setMessage($row['MESSAGE']);
             $this->getManager()->persist($alert);
         }
         $this->getManager()->flush();

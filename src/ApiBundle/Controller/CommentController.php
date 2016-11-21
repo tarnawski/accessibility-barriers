@@ -3,6 +3,7 @@ namespace ApiBundle\Controller;
 
 use AccessibilityBarriersBundle\Entity\Comment;
 use AccessibilityBarriersBundle\Entity\Notification;
+use AccessibilityBarriersBundle\Service\AlertService;
 use ApiBundle\Form\Type\CommentType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -78,6 +79,10 @@ class CommentController extends BaseController
         $em = $this->getDoctrine()->getManager();
         $em->persist($comment);
         $em->flush();
+
+        /** @var AlertService $alerts */
+        $alerts = $this->get('accessibility_barriers.services.alert_service');
+        $alerts->create($notification->getUser(), $notification, 'Twoje zgłoszenie zostało skomentowane');
 
         return $this->success($comment, 'Comment', Response::HTTP_CREATED, array('COMMENT_LIST'));
     }

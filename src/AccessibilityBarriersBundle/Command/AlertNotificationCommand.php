@@ -3,9 +3,9 @@
 namespace AccessibilityBarriersBundle\Command;
 
 use AccessibilityBarriersBundle\Entity\Notification;
-use AccessibilityBarriersBundle\Notification\StrategiesFactory;
 use AccessibilityBarriersBundle\Repository\NotificationRepository;
 use AccessibilityBarriersBundle\Repository\UserRepository;
+use AccessibilityBarriersBundle\Service\AlertService;
 use OAuthBundle\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
@@ -24,9 +24,8 @@ class AlertNotificationCommand extends ContainerAwareCommand
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $notificationId = $input->getArgument('id');
-        /** @var StrategiesFactory $senderStrategiesFactory */
-        $senderStrategiesFactory = $this->getContainer()->get('accessibility_barriers.strategies_factory');
-        $senderStrategy = $senderStrategiesFactory->get(StrategiesFactory::ALERT_STRATEGY);
+        /** @var AlertService $alerts */
+        $alerts = $this->getContainer()->get('accessibility_barriers.services.alert_service');
         /** @var UserRepository $userRepository */
         $userRepository = $this->getContainer()->get('accessibility_barriers.repository.user');
         $users = $userRepository->findAll();
@@ -38,7 +37,7 @@ class AlertNotificationCommand extends ContainerAwareCommand
         if ($notification) {
             /** @var User $user */
             foreach ($users as $user) {
-                $senderStrategy->send($user, $notification);
+                $alerts->create($user, $notification, 'Dodano nowe zgłoszenie');
             }
         }
 
