@@ -11,6 +11,11 @@ In order to set application up you must follow by steps:
 3. Go to vagrant directory: `cd vagrant`
 4. Run Vagrant Virtual Machine `vagrant up`
 
+### How to run notifications
+```
+php bin/console jms-job-queue:run
+```
+
 ### How to provision new server
 ```bash
 ansible-playbook -i hosts provision.yml -u {USERNAME} -k -K
