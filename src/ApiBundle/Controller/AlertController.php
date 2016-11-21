@@ -29,9 +29,7 @@ class AlertController extends BaseController
 
         return $this->success($alerts, 'Alert', Response::HTTP_OK, array(
             'ALERT_LIST',
-            'NOTIFICATION_BASIC',
-            'COMMENT_LIST',
-            'RATING_LIST'
+            'NOTIFICATION_BASIC'
         ));
     }
 

@@ -3,6 +3,7 @@ namespace ApiBundle\Controller;
 
 use AccessibilityBarriersBundle\Entity\Notification;
 use AccessibilityBarriersBundle\Entity\Rating;
+use AccessibilityBarriersBundle\Service\AlertService;
 use ApiBundle\Form\Type\RatingType;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -48,6 +49,10 @@ class RatingController extends BaseController
         $em = $this->getDoctrine()->getManager();
         $em->persist($rating);
         $em->flush();
+
+        /** @var AlertService $alerts */
+        $alerts = $this->get('accessibility_barriers.services.alert_service');
+        $alerts->create($notification->getUser(), $notification, 'Twoje zgłoszenie zostało ocenione');
 
         return JsonResponse::create(['status' => 'SAVED'], Response::HTTP_CREATED);
     }

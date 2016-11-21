@@ -4,15 +4,16 @@ AccessibilityBarriersBundle\Entity\Alert:
     createdAt: <dateTimeBetween('-30 days', 'now')>
     user: '@user1'
     notification: '@notification1'
+    message: Dodano nowe zgłoszenie
   alert2:
     active: true
     createdAt: <dateTimeBetween('-30 days', 'now')>
     user: '@user1'
     notification: '@notification1'
-    comment: '@comment10'
+    message: Twoje zgłoszenie zostało skomentowane
   alert3:
     active: true
     createdAt: <dateTimeBetween('-30 days', 'now')>
     user: '@user1'
     notification: '@notification1'
-    rating: '@rating1'
+    message: Twoje zgłoszenie zostało ocenione

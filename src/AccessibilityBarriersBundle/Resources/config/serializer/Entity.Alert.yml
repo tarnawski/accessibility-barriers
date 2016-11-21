@@ -11,6 +11,9 @@ AccessibilityBarriersBundle\Entity\Alert:
       expose: false
       groups: [ALERT_LIST]
       type: DateTime<'Y-m-d'>
+    message:
+      expose: true
+      groups: [ALERT_LIST]
     user:
       expose: false
       groups: [ALERT_LIST]
@@ -19,11 +22,4 @@ AccessibilityBarriersBundle\Entity\Alert:
       expose: true
       groups: [ALERT_LIST]
       type: AccessibilityBarriersBundle\Entity\Notification
-    comment:
-      expose: true
-      groups: [ALERT_LIST]
-      type: AccessibilityBarriersBundle\Entity\Comment
-    rating:
-      expose: true
-      groups: [ALERT_LIST]
-      type: AccessibilityBarriersBundle\Entity\Rating
+

@@ -1,13 +1,13 @@
 <?php
 
-namespace AccessibilityBarriersBundle\Notification\Strategies;
+namespace AccessibilityBarriersBundle\Service;
 
 use AccessibilityBarriersBundle\Entity\Alert;
 use AccessibilityBarriersBundle\Entity\Notification;
 use Doctrine\ORM\EntityManager;
 use OAuthBundle\Entity\User;
 
-class AlertStrategy implements SendingStrategy
+class AlertService
 {
     /** @var EntityManager */
     private $em;
@@ -17,14 +17,21 @@ class AlertStrategy implements SendingStrategy
         $this->em = $entityManager;
     }
 
-    public function send(User $user, Notification $notification)
+    /**
+     * @param User $user
+     * @param Notification $notification
+     * @param $message
+     */
+    public function create(User $user, Notification $notification, $message)
     {
         $alert = new Alert();
         $alert->setNotification($notification);
         $alert->setUser($user);
         $alert->setActive(true);
         $alert->setCreatedAt(new \DateTime());
+        $alert->setMessage($message);
         $this->em->persist($alert);
+
         $this->em->flush($alert);
     }
 }

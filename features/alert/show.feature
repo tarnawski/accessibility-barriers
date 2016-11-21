@@ -23,9 +23,9 @@ Feature: Show alerts
       | ID | CONTENT           | CREATED_AT | NOTIFICATION_ID | USER_ID |
       | 1  | Example content 1 |  -5 day    | 1               | 1       |
     Given There are the following alerts:
-      | ID | ACTIVE | CREATED_AT | USER_ID | NOTIFICATION_ID | COMMENT_ID | RATING_ID |
-      | 1  |  TRUE  |  -5 day    | 1       | 1               | NULL       | NULL      |
-      | 2  |  TRUE  |  -6 day    | 1       | 1               | 1          | NULL      |
+      | ID | ACTIVE | CREATED_AT | USER_ID | NOTIFICATION_ID | MESSAGE         |
+      | 1  |  TRUE  |  -5 day    | 1       | 1               | Example message |
+      | 2  |  TRUE  |  -6 day    | 1       | 1               | Example message |
 
   @cleanDB
   Scenario: Get active user alerts
@@ -42,8 +42,7 @@ Feature: Show alerts
           "name": "@string@",
           "address": "@string@"
         },
-        "comment": @null@,
-        "rating": @null@
+        "message": "@string@"
       },
       {
         "id": @integer@,
@@ -52,12 +51,7 @@ Feature: Show alerts
           "name": "@string@",
           "address": "@string@"
         },
-        "comment": {
-          "id": @integer@,
-          "content": "@string@",
-          "created_at": "@string@"
-        },
-        "rating": @null@
+        "message": "@string@"
       }
     ]
     """

@@ -21,11 +21,8 @@ class Alert
     /** @var Notification */
     private $notification;
 
-    /** @var Comment */
-    private $comment;
-
-    /** @var Rating */
-    private $rating;
+    /** @var string */
+    private $message;
 
     /**
      * @return int
@@ -100,34 +97,18 @@ class Alert
     }
 
     /**
-     * @return Comment
+     * @return string
      */
-    public function getComment()
+    public function getMessage()
     {
-        return $this->comment;
+        return $this->message;
     }
 
     /**
-     * @param Comment $comment
+     * @param string $message
      */
-    public function setComment($comment)
+    public function setMessage($message)
     {
-        $this->comment = $comment;
-    }
-
-    /**
-     * @return Rating
-     */
-    public function getRating()
-    {
-        return $this->rating;
-    }
-
-    /**
-     * @param Rating $rating
-     */
-    public function setRating($rating)
-    {
-        $this->rating = $rating;
+        $this->message = $message;
     }
 }
