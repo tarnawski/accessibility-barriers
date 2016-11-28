@@ -14,6 +14,11 @@ services:
   guzzle.http.client:
     class: GuzzleHttp\Client
 
+  accessibility_barriers.services.file_upload_service:
+    class: AccessibilityBarriersBundle\Service\FileUploadService
+    arguments:
+      - '%image_directory%'
+
   accessibility_barriers.services.google_places:
     class: AccessibilityBarriersBundle\Service\GooglePlacesService
     arguments:
@@ -29,6 +34,13 @@ services:
     class: AccessibilityBarriersBundle\Validator\Constraints\LatLanValidator
     tags:
       -  { name: validator.constraint_validator, alias: coordinates_validation }
+
+  accessibility_barriers.serializer_image:
+    class: AccessibilityBarriersBundle\Serializer\ImageNotificationSubscribingHandler
+    arguments:
+      - '%image_url%'
+    tags:
+      - { name: jms_serializer.event_subscriber }
 
   accessibility_barriers.serializer_coordinate:
     class: AccessibilityBarriersBundle\Serializer\CoordinateNotificationSubscribingHandler

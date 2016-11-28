@@ -25,6 +25,9 @@ class Notification
     /** @var string */
     private $longitude;
 
+    /** @var Image */
+    private $image;
+
     /** @var \DateTime */
     private $createdAt;
 
@@ -132,6 +135,22 @@ class Notification
     public function setLongitude($longitude)
     {
         $this->longitude = $longitude;
+    }
+
+    /**
+     * @return Image
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param Image $image
+     */
+    public function setImage(Image $image)
+    {
+        $this->image = $image;
     }
 
     /**

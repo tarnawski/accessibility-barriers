@@ -149,3 +149,16 @@ alert_deactivate:
   methods:  [PUT]
   requirements:
       id:  \d+
+
+########## IMAGE ##########
+image_upload:
+  path:     /images
+  defaults: { _controller: ApiBundle:Image:upload, _format: json }
+  methods: [POST]
+
+image_delete:
+  path:     /images/{id}
+  defaults: { _controller: ApiBundle:Image:delete, _format: json }
+  methods: [DELETE]
+  requirements:
+      id:  \d+

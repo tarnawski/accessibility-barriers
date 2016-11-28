@@ -43,6 +43,12 @@ AccessibilityBarriersBundle\Entity\Notification:
             column: created_at
             type: datetime
             nullable: false
+    oneToOne:
+      image:
+        targetEntity: Image
+        joinColumn:
+          name: image_id
+          referencedColumnName: id
     oneToMany:
         comments:
             orderBy: { 'createdAt': 'DESC' }
