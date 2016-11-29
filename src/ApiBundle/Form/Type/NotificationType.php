@@ -6,7 +6,6 @@ use AccessibilityBarriersBundle\Entity\Notification;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -18,6 +17,10 @@ class NotificationType extends AbstractType
         $builder->add('description', TextType::class);
         $builder->add('latitude', TextType::class);
         $builder->add('longitude', TextType::class);
+        $builder->add('images', EntityType::class, [
+            'class' => 'AccessibilityBarriersBundle:Image',
+            'multiple' => true
+        ]);
         $builder->add('category', EntityType::class, [
             'class' => 'AccessibilityBarriersBundle:Category'
         ]);

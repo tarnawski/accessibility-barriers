@@ -66,7 +66,8 @@ class NotificationController extends BaseController
             'NOTIFICATION_DETAILS',
             'COMMENT_LIST',
             'USER_BASIC',
-            'CATEGORY_LIST'
+            'CATEGORY_LIST',
+            'IMAGE_BASIC'
         ));
     }
 

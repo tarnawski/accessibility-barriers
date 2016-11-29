@@ -23,6 +23,11 @@ AccessibilityBarriersBundle\Entity\Notification:
       expose: true
       groups: [NOTIFICATION_LIST, NOTIFICATION_DETAILS]
       type: DateTime<'Y-m-d'>
+    images:
+      expose: true
+      groups: [NOTIFICATION_DETAILS]
+      type: ArrayCollection<AccessibilityBarriersBundle\Entity\Image>
+      max_depth: 2
     category:
       expose: true
       groups: [NOTIFICATION_DETAILS]

@@ -53,6 +53,10 @@ AccessibilityBarriersBundle\Entity\Notification:
             targetEntity: Rating
             mappedBy: notification
             cascade: ["all"]
+        images:
+            targetEntity: Image
+            mappedBy: notification
+            cascade: ["all"]
     manyToOne:
         category:
              targetEntity: Category
