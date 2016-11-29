@@ -8,7 +8,13 @@ class Image
     private $id;
 
     /** @var string */
-    private $name;
+    private $original;
+
+    /** @var string */
+    private $thumbnail;
+
+    /** @var Notification */
+    private $notification;
 
     /**
      * @return int
@@ -21,16 +27,48 @@ class Image
     /**
      * @return string
      */
-    public function getName()
+    public function getOriginal()
     {
-        return $this->name;
+        return $this->original;
     }
 
     /**
-     * @param string $name
+     * @param string $original
      */
-    public function setName($name)
+    public function setOriginal($original)
     {
-        $this->name = $name;
+        $this->original = $original;
+    }
+
+    /**
+     * @return string
+     */
+    public function getThumbnail()
+    {
+        return $this->thumbnail;
+    }
+
+    /**
+     * @param string $thumbnail
+     */
+    public function setThumbnail($thumbnail)
+    {
+        $this->thumbnail = $thumbnail;
+    }
+
+    /**
+     * @return Notification
+     */
+    public function getNotification()
+    {
+        return $this->notification;
+    }
+
+    /**
+     * @param Notification $notification
+     */
+    public function setNotification(Notification $notification)
+    {
+        $this->notification = $notification;
     }
 }

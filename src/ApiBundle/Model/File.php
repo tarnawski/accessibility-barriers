@@ -2,7 +2,7 @@
 
 namespace ApiBundle\Model;
 
-class Image
+class File
 {
-    public $file;
+    public $data;
 }

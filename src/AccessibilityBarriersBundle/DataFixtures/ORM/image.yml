@@ -1,3 +1,5 @@
 AccessibilityBarriersBundle\Entity\Image:
   image1:
-    name: 093de81a0bd0fccb462483d0a413390c.jpeg
+    notification: '@notification1'
+    original: 093de81a0bd0fccb462483d0a413390c.jpeg
+    thumbnail: 093de81a0bd0fccb462483d0a413390c.jpeg

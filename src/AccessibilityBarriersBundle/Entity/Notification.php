@@ -25,9 +25,6 @@ class Notification
     /** @var string */
     private $longitude;
 
-    /** @var Image */
-    private $image;
-
     /** @var \DateTime */
     private $createdAt;
 
@@ -43,10 +40,14 @@ class Notification
     /** @var  ArrayCollection|Rating[] */
     private $ratings;
 
+    /** @var ArrayCollection|Image[] */
+    private $images;
+
     public function __construct()
     {
         $this->comments = new ArrayCollection();
         $this->ratings = new ArrayCollection();
+        $this->images = new ArrayCollection();
     }
 
     /**
@@ -135,22 +136,6 @@ class Notification
     public function setLongitude($longitude)
     {
         $this->longitude = $longitude;
-    }
-
-    /**
-     * @return Image
-     */
-    public function getImage()
-    {
-        return $this->image;
-    }
-
-    /**
-     * @param Image $image
-     */
-    public function setImage(Image $image)
-    {
-        $this->image = $image;
     }
 
     /**
@@ -249,5 +234,34 @@ class Notification
             $this->ratings[] = $rating;
         }
         return $this;
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getImages()
+    {
+        return $this->images;
+    }
+
+    /**
+     * @param Image
+     * @return Image
+     */
+    public function addImage(Image $image)
+    {
+        if (!$this->images->contains($image)) {
+            $image->setNotification($this);
+            $this->images[] = $image;
+        }
+        return $this;
+    }
+
+    /**
+     * @param Image
+     */
+    public function removeImage(Image $image)
+    {
+        $this->images->removeElement($image);
     }
 }

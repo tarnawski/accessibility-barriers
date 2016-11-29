@@ -11,10 +11,22 @@ AccessibilityBarriersBundle\Entity\Image:
             generator:
                 strategy: IDENTITY
     fields:
-        name:
-            column: name
+        original:
+            column: original
             type: string
             nullable: false
             length: 255
+        thumbnail:
+            column: thumbnail
+            type: string
+            nullable: true
+            length: 255
+    manyToOne:
+        notification:
+            targetEntity: Notification
+            inversedBy: images
+            joinColumn:
+                name: notification_id
+                referencedColumnName: id
 
     lifecycleCallbacks: {  }

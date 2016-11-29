@@ -26,7 +26,8 @@
     "nelmio/api-doc-bundle": "~2.13",
     "guzzlehttp/guzzle": "^6.2",
     "jms/job-queue-bundle": "^1.4",
-    "beberlei/DoctrineExtensions": "^1.0"
+    "beberlei/DoctrineExtensions": "^1.0",
+    "ramsey/uuid": "^3.4"
   },
   "require-dev": {
     "behat/behat": "~3.0",

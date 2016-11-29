@@ -11,27 +11,54 @@ class FileUploadService
         $this->uploadDir = $uploadDir;
     }
 
-    public function upload($base64)
+    public function base64Decode($base64)
     {
         $parts = explode(',', $base64);
-        $image = base64_decode($parts[1]);
 
-        $fileName = md5(uniqid());
-        $fileType = $this->getImageType($image);
-        $fullFileName = sprintf('%s.%s', $fileName, $fileType);
-        $path = sprintf('%s/%s', $this->uploadDir, $fullFileName);
-        file_put_contents($path, $image);
-
-        return $fullFileName;
+        return base64_decode($parts[1]);
     }
 
-    public function getImageType($imageData)
+    public function upload($originalFileName, $image)
     {
-        $f = finfo_open();
-        $mime_type = finfo_buffer($f, $imageData, FILEINFO_MIME_TYPE);
-        $split = explode( '/', $mime_type );
-        $type = $split[1];
+        $originalFilePath = sprintf('%s/%s', $this->uploadDir, $originalFileName);
 
-        return $type;
+        return file_put_contents($originalFilePath, $image) == false ? false : true;
+    }
+
+    public function generateThumb($originalFileName, $thumbnailFileName)
+    {
+        $sourceImagePath = sprintf('%s/%s', $this->uploadDir, $originalFileName);
+        $thumbnailImagePath = sprintf('%s/%s', $this->uploadDir, $thumbnailFileName);
+
+        list($sourceImageWidth, $sourceImageHeight) = getimagesize($sourceImagePath);
+
+        $ratio = $sourceImageWidth / 100;
+        $maxImageHeight = $sourceImageHeight / $ratio;
+        $maxImageWidth = $sourceImageWidth / $ratio;
+
+
+        $sourceGdImage = imagecreatefromjpeg($sourceImagePath);
+        if ($sourceGdImage === false) {
+            return false;
+        }
+        $source_aspect_ratio = $sourceImageWidth / $sourceImageHeight;
+        $thumbnail_aspect_ratio = $maxImageWidth / $maxImageHeight;
+        if ($sourceImageWidth <= $maxImageWidth && $sourceImageHeight <= $maxImageHeight) {
+            $thumbnailImageWidth = $sourceImageWidth;
+            $thumbnailImageHeight = $sourceImageHeight;
+        } elseif ($thumbnail_aspect_ratio > $source_aspect_ratio) {
+            $thumbnailImageWidth = (int)($maxImageHeight * $source_aspect_ratio);
+            $thumbnailImageHeight = $maxImageHeight;
+        } else {
+            $thumbnailImageWidth = $maxImageWidth;
+            $thumbnailImageHeight = (int)($maxImageWidth / $source_aspect_ratio);
+        }
+        $thumbnailGdImage = imagecreatetruecolor($thumbnailImageWidth, $thumbnailImageHeight);
+        imagecopyresampled($thumbnailGdImage, $sourceGdImage, 0, 0, 0, 0, $thumbnailImageWidth, $thumbnailImageHeight, $sourceImageWidth, $sourceImageHeight);
+        imagejpeg($thumbnailGdImage, $thumbnailImagePath);
+        imagedestroy($sourceGdImage);
+        imagedestroy($thumbnailGdImage);
+
+        return true;
     }
 }

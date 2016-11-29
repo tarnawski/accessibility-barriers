@@ -36,7 +36,7 @@ services:
       -  { name: validator.constraint_validator, alias: coordinates_validation }
 
   accessibility_barriers.serializer_image:
-    class: AccessibilityBarriersBundle\Serializer\ImageNotificationSubscribingHandler
+    class: AccessibilityBarriersBundle\Serializer\ImageSubscribingHandler
     arguments:
       - '%image_url%'
     tags:
