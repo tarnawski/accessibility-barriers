@@ -13,9 +13,7 @@ class FileUploadService
 
     public function base64Decode($base64)
     {
-        $parts = explode(',', $base64);
-
-        return base64_decode($parts[1]);
+        return base64_decode($base64);
     }
 
     public function upload($originalFileName, $image)
@@ -32,7 +30,7 @@ class FileUploadService
 
         list($sourceImageWidth, $sourceImageHeight) = getimagesize($sourceImagePath);
 
-        $ratio = $sourceImageWidth / 100;
+        $ratio = $sourceImageWidth / 200;
         $maxImageHeight = $sourceImageHeight / $ratio;
         $maxImageWidth = $sourceImageWidth / $ratio;
 

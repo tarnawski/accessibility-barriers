@@ -12,5 +12,5 @@ parameters:
     mailer_user:       ~
     mailer_password:   ~
     image_directory:  '%kernel.root_dir%/../web/uploads'
-    image_url:        'accessibility-barriers.dev/uploads'
+    image_url:        'http://accessibility-barriers.dev/uploads'
     google_api_key:    AIzaSyBa2R3pHwAlhWLxNFp7mGTDV-yke_WBMvQ
