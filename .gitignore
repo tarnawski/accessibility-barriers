@@ -8,3 +8,5 @@
 composer.phar
 vagrant/provisioning/accessibility-barriers.tar
 web/uploads/*
+!web/uploads/6705272c-ef8d-4a24-b10b-b1b83e81bbd2.jpg
+!web/uploads/b7470e82-afa9-4e74-8319-df7663dee51b.jpg
