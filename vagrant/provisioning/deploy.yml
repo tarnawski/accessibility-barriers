@@ -3,7 +3,7 @@
   hosts: localhost
   vars:
     ansistrano_deploy_from: "{{ playbook_dir }}/accessibility-barriers.tar"
-    ansistrano_deploy_to: "/var/www/accessibility-barriers"
+    ansistrano_deploy_to: "/home/ttarnawski/domains/staging-01.ttarnawski.usermd.net/public_html/"
     ansistrano_deploy_via: "copy_unarchive"
     ansistrano_after_symlink_tasks_file: "{{ playbook_dir }}/after-symlink.yml"
     ansistrano_keep_releases: 20
