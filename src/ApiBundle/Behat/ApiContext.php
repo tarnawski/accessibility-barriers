@@ -7,6 +7,7 @@ use AccessibilityBarriersBundle\Entity\Area;
 use AccessibilityBarriersBundle\Entity\Category;
 use AccessibilityBarriersBundle\Entity\Comment;
 use AccessibilityBarriersBundle\Entity\Notification;
+use AccessibilityBarriersBundle\Entity\Subscribe;
 use Behat\Behat\Context\Context;
 use Behat\Behat\Context\SnippetAcceptingContext;
 use Behat\Gherkin\Node\PyStringNode;
@@ -102,6 +103,23 @@ class ApiContext extends WebApiContext implements Context, SnippetAcceptingConte
             $client->setAllowedGrantTypes(explode(',', $row['GRANT_TYPES']));
 
             $this->getManager()->persist($client);
+        }
+
+        $this->getManager()->flush();
+        $this->getManager()->clear();
+    }
+
+    /**
+     * @param TableNode $table
+     * @Given There are the following subscribers:
+     */
+    public function thereAreTheFollowingSubscribers(TableNode $table)
+    {
+        foreach ($table->getColumnsHash() as $row) {
+            $subscriber = new Subscribe();
+            $subscriber->setEmail($row['EMAIL']);
+            $subscriber->setSecret($row['SECRET']);
+            $this->getManager()->persist($subscriber);
         }
 
         $this->getManager()->flush();

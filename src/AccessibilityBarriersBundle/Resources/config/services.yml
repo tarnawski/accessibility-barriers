@@ -71,3 +71,9 @@ services:
     arguments:
       - "@accessibility_barriers.email_notification.strategy"
       - "@accessibility_barriers.sms_notification.strategy"
+
+  subscribe_validate:
+    class: AccessibilityBarriersBundle\Validator\Constraints\SubscribeUniqueValidator
+    arguments: ["@doctrine.orm.entity_manager"]
+    tags:
+      -  { name: validator.constraint_validator, alias: subscribe_validate }

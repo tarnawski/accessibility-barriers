@@ -1,0 +1,12 @@
+AccessibilityBarriersBundle\Entity\Subscribe:
+  exclusion_policy: ALL
+  properties:
+    id:
+      expose: true
+      groups: [SUBSCRIBE_LIST]
+    email:
+      expose: true
+      groups: [SUBSCRIBE_LIST]
+    secret:
+      expose: true
+      groups: [SUBSCRIBE_LIST]

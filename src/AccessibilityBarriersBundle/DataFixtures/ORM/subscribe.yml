@@ -1,0 +1,7 @@
+AccessibilityBarriersBundle\Entity\Subscribe:
+  subscribe1:
+    email: first@subscribe.pl
+    secret: 6705272c-ef8d-4a24-b10b-b1b83e81bbd2
+  subscribe2:
+    email: second@subscribe.pl
+    secret: b7470e82-afa9-4e74-8319-df7663dee51b

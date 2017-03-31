@@ -162,3 +162,14 @@ image_delete:
   methods: [DELETE]
   requirements:
       id:  \d+
+
+########## SUBSCRIBE ##########
+subscribe_add:
+  path:     /subscribers
+  defaults: { _controller: ApiBundle:Subscribe:create, _format: json }
+  methods: [POST]
+
+subscribe_delete:
+  path:     /subscribers/{secret}
+  defaults: { _controller: ApiBundle:Subscribe:delete, _format: json }
+  methods: [DELETE]

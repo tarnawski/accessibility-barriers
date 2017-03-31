@@ -2,27 +2,23 @@
 
 namespace ApiBundle\Form\Type;
 
-use AccessibilityBarriersBundle\Entity\Area;
+use AccessibilityBarriersBundle\Entity\Subscribe;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class AreaType extends AbstractType
+class SubscribeType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name', TextType::class);
-        $builder->add('latitude', TextType::class);
-        $builder->add('longitude', TextType::class);
-        $builder->add('distance', NumberType::class);
+        $builder->add('email', EmailType::class);
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Area::class,
+            'data_class' => Subscribe::class,
             'csrf_protection' => false
         ]);
     }

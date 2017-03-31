@@ -1,0 +1,25 @@
+AccessibilityBarriersBundle\Entity\Subscribe:
+    type: entity
+    table: subscribe
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        email:
+            column: email
+            type: string
+            unique: true
+            nullable: false
+            length: 255
+        secret:
+           column: secret
+           type: string
+           nullable: false
+           length: 255
+    lifecycleCallbacks: {  }
