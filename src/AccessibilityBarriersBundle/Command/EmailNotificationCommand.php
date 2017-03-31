@@ -3,8 +3,10 @@
 namespace AccessibilityBarriersBundle\Command;
 
 use AccessibilityBarriersBundle\Entity\Notification;
+use AccessibilityBarriersBundle\Entity\Subscribe;
 use AccessibilityBarriersBundle\Notification\StrategiesFactory;
 use AccessibilityBarriersBundle\Repository\NotificationRepository;
+use AccessibilityBarriersBundle\Repository\SubscribeRepository;
 use AccessibilityBarriersBundle\Repository\UserRepository;
 use OAuthBundle\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
@@ -34,11 +36,18 @@ class EmailNotificationCommand extends ContainerAwareCommand
         $notificationRepository = $this->getContainer()->get('accessibility_barriers.repository.notification');
         /** @var Notification $notification */
         $notification = $notificationRepository->find($notificationId);
+        /** @var SubscribeRepository $subscribeRepository */
+        $subscribeRepository = $this->getContainer()->get('accessibility_barriers.repository.subscribe');
+        $subscribers = $subscribeRepository->findAll();
 
         if ($notification) {
             /** @var User $user */
             foreach ($users as $user) {
-                $senderStrategy->send($user, $notification);
+                $senderStrategy->sendToUser($user, $notification);
+            }
+            /** @var Subscribe $subscriber */
+            foreach ($subscribers as $subscriber) {
+                $senderStrategy->sendToSubscriber($subscriber, $notification);
             }
         }
 

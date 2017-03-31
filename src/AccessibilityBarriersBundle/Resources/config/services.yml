@@ -11,6 +11,12 @@ services:
     arguments:
       - AccessibilityBarriersBundle\Entity\Notification
 
+  accessibility_barriers.repository.subscribe:
+    class: Doctrine\ORM\EntityRepository
+    factory: ['@doctrine.orm.entity_manager', getRepository]
+    arguments:
+      - AccessibilityBarriersBundle\Entity\Subscribe
+
   guzzle.http.client:
     class: GuzzleHttp\Client
 

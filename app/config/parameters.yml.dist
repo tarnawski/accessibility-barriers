@@ -7,10 +7,10 @@ parameters:
     database_user:     root
     database_password: rootpassword
     mailer_transport:  smtp
-    mailer_host:       poczta.o2.pl
+    mailer_host:       mail10.mydevil.net
     mailer_port:       465
-    mailer_user:       ~
-    mailer_password:   ~
+    mailer_user:       rzeszowbezbarier@ttarnawski.usermd.net
+    mailer_password:   DYrhNA106eNDGgzdWW30
     image_directory:  '%kernel.root_dir%/../web/uploads'
     image_url:        'http://accessibility-barriers.dev/uploads'
     google_api_key:    AIzaSyBa2R3pHwAlhWLxNFp7mGTDV-yke_WBMvQ

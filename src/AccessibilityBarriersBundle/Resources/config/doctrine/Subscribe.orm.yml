@@ -1,6 +1,7 @@
 AccessibilityBarriersBundle\Entity\Subscribe:
     type: entity
     table: subscribe
+    repositoryClass: AccessibilityBarriersBundle\Repository\SubscribeRepository
     id:
         id:
             type: integer

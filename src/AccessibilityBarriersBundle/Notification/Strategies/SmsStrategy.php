@@ -3,6 +3,7 @@
 namespace AccessibilityBarriersBundle\Notification\Strategies;
 
 use AccessibilityBarriersBundle\Entity\Notification;
+use AccessibilityBarriersBundle\Entity\Subscribe;
 use OAuthBundle\Entity\User;
 
 class SmsStrategy implements SendingStrategy
@@ -10,7 +11,18 @@ class SmsStrategy implements SendingStrategy
     const TOKEN = "wygenerowany_token";
 
 
-    public function send(User $user, Notification $notification)
+    public function sendToUser(User $user, Notification $notification)
+    {
+        $params = array(
+            'to' => '500000000',
+            'from' => 'Info',
+            'message' => "Hello world!",
+        );
+
+        $this->smsSend($params, self::TOKEN);
+    }
+
+    public function sendToSubscriber(Subscribe $subscribe, Notification $notification)
     {
         $params = array(
             'to' => '500000000',
