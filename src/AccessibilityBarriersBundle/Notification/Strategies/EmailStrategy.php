@@ -15,12 +15,16 @@ class EmailStrategy implements SendingStrategy
 
     private $mailer;
 
+    private $frontendUrl;
+
     public function __construct(
         \Twig_Environment $twig,
-        $mailer
+        $mailer,
+        $frontendUrl
     ) {
         $this->twig = $twig;
         $this->mailer = $mailer;
+        $this->frontendUrl = $frontendUrl;
     }
 
     public function sendToUser(User $user, Notification $notification)
@@ -36,7 +40,8 @@ class EmailStrategy implements SendingStrategy
                     'name' => $notification->getName(),
                     'description' => $notification->getDescription(),
                     'address' => $notification->getAddress(),
-                    'id' => $notification->getId()
+                    'id' => $notification->getId(),
+                    'frontend_url' => $this->frontendUrl,
                 ]
             ),
             'text/html'
@@ -59,6 +64,7 @@ class EmailStrategy implements SendingStrategy
                     'description' => $notification->getDescription(),
                     'address' => $notification->getAddress(),
                     'id' => $notification->getId(),
+                    'frontend_url' => $this->frontendUrl,
                     'secret' => $subscribe->getSecret()
                 ]
             ),

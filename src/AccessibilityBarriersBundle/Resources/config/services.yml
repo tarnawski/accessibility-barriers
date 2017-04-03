@@ -68,6 +68,7 @@ services:
     arguments:
       - "@twig"
       - "@mailer"
+      - '%frontend_url%'
 
   accessibility_barriers.sms_notification.strategy:
     class: AccessibilityBarriersBundle\Notification\Strategies\SmsStrategy

@@ -13,4 +13,5 @@ parameters:
     mailer_password:   DYrhNA106eNDGgzdWW30
     image_directory:  '%kernel.root_dir%/../web/uploads'
     image_url:        'http://accessibility-barriers.dev/uploads'
+    frontend_url:     'http://localhost:3000/#'
     google_api_key:    AIzaSyBa2R3pHwAlhWLxNFp7mGTDV-yke_WBMvQ
