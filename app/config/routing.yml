@@ -10,4 +10,3 @@ fos_oauth_server_authorize:
 
 nelmio_api_doc_bundle:
     resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
-    prefix:   /doc
