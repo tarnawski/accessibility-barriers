@@ -5,7 +5,7 @@
     <property name="builddir" value="${workspace}/app/build" />
 
     <target name="test" depends="prepare,composer,vendors,parameters,phpspec,phploc,phpcs,pdepend,phpcpd,phpmd"/>
-    <target name="deploy" depends="composer,vendors,parameters, archive, ansible"/>
+    <target name="deploy" depends="composer,vendors,parameters,ansible"/>
 
     <target name="prepare" depends="clean" description="Prepare for build">
         <mkdir dir="${builddir}/logs"/>
@@ -32,12 +32,12 @@
         </exec>
     </target>
 
-    <target name="archive" description="Create project archiwe">
+    <target name="archive" description="Create project archive">
         <exec executable="php" failonerror="true">
             <arg value="composer.phar" />
             <arg value="archive" />
             <arg value="--format=tar" />
-            <arg value="--file=store-locator" />
+            <arg value="--file=accessibility-barriers" />
             <arg value="--dir=vagrant/provisioning/" />
         </exec>
     </target>
